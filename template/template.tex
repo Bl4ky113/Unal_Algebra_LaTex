@@ -1,0 +1,93 @@
+
+%%% Template Packages %%%
+
+\usepackage{graphicx} % Images
+\usepackage{tcolorbox} % Color Box
+\usepackage[%
+vmargin=2.25cm,%
+hmargin=2.25cm%
+]{geometry} % Page Geometry
+\usepackage{fancyhdr} % Header / Footer Styles
+
+\usepackage{ragged2e} % Text Align
+\usepackage{amsmath} % Math Align
+
+\usepackage{booktabs} % Tables Package
+
+\usepackage{mathtools} % Math General
+\usepackage{amsthm} % Math Envs
+\usepackage{unicode-math} % Math Symbols
+
+\usepackage{polyglossia} % Language
+    \setdefaultlanguage{spanish}
+
+\renewcommand{\thefootnote}{\Roman{footnote}} % Changing footnotes arabic to roman numbers
+
+%%% Template Styles %%%
+
+% Header / Footer Styles
+\pagestyle{fancy}
+\RenewDocumentCommand{\headrule}{}{%
+    \rule[0.1cm]{\textwidth}{0.1mm}%
+}
+\RenewDocumentCommand{\footrule}{}{%
+    \rule[0.1cm]{\textwidth}{0.1mm}%
+}
+
+\fancyhf[HC]{{\slshape \MyTitle{}}}
+
+% Redefine \maketitle
+\RenewDocumentCommand{\maketitle}{s}{%
+    \begin{@twocolumntrue}%
+        \begin{minipage}{0.3\textwidth}%
+            \includegraphics[width=0.85\textwidth]{../template/src/unal_logo.pdf}%
+        \end{minipage}%
+        \begin{minipage}{0.7\textwidth}{{%
+        \begin{Center}%
+            {\large \itshape \MyClass{}} \\[1ex]
+            {\huge  \slshape \MyTitle{}} \\[4ex]
+            {\Large  \MyAuthor{}} \\[0ex]
+            {\small  \MyEmail{}} \\[4ex] 
+            \MyDate{}
+        \end{Center}%
+        }}%
+        \end{minipage}%
+    \end{@twocolumntrue}%
+    \vspace{0.5cm}%
+    \begin{Center}%
+        \rule[0cm]{\textwidth}{0.1mm}%
+    \end{Center}%
+    \vspace{0.5cm}%
+}
+
+%%% Template Math stuff %%%
+
+% Theorems
+\newtheorem{TMPMathTheorem}{Teorema}
+\NewDocumentEnvironment{theorem}{+b} {%
+    \begin{TMPMathTheorem}%
+        #1 %
+    \end{TMPMathTheorem}%
+} {}
+
+% Collorary
+\newtheorem{TMPMathCorollary}[TMPMathTheorem]{Corolario}
+\NewDocumentEnvironment{corollary}{+b} {%
+    \begin{TMPMathCorollary}%
+        #1 %
+    \end{TMPMathCorollary}%
+} {}
+
+% Definitions
+\newtheorem{TMPMathDefinition}[TMPMathTheorem]{Definición}
+\NewDocumentEnvironment{definition}{+b} {%
+    \begin{tcolorbox}[left=0mm,right=0mm]%
+        \begin{TMPMathDefinition}%
+            #1 %
+            \begin{FlushRight}%
+                \(\bigtriangleup{}\)%
+            \end{FlushRight}%
+        \end{TMPMathDefinition}%
+    \end{tcolorbox}%
+} {}
+
