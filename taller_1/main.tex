@@ -77,10 +77,11 @@
         \]
         \begin{enumerate}[label=\listAlph]
             \item No tenga solución. \\
-
+                Tomando a \(\alpha = -2\), podemos ver que en la \(3^{\text{ra}}\) ecuación del sistema se tiene: \(0x + 0y + 0z = -4\). 
+                Haciendo el sistema de ecuaciones inconsistente y por definición, no se tiene ninguna solución o que el conjunto solución es \(\emptyset\).
             \item Tenga infinitas soluciones (dar la solución general). \\
-                Solo es necesario que \(\alpha = 2\), para que en la \(3^{\text{ra}}\) ecuación del sistema se tenga: \(0x + 0y + 0z = 0\).
-                Lo cual se puede interpretar como  que \(x \text{, } y \text{ y } z\) tienen infinitas respuestas, 
+                Se debe tomar que \(\alpha = 2\), para que en la \(3^{\text{ra}}\) ecuación del sistema se tenga: \(0x + 0y + 0z = 0\).
+                Lo cual se puede interpretar como  que \(x \text{, } y \text{ y } z\) tienen infinitas soluciones, 
                 sin embargo \(x \text{ y } y\) se pueden explicar en terminos de \(z\).
                 \[
                     \begin{aligned}
@@ -168,15 +169,94 @@
             \right)
         \]
         \begin{itemize}
-            \item Es el sistema consistente cuando a = b = 0? En caso de serlo, es la solución única?
-            \item Es el sistema consistente cuando a = 1 y b = 0? En caso de serlo, es la solución única?
-            \item Es el sistema consistente cuando a = 0 y b = 1? En caso de serlo, es la solución única?
-            \item Si b = 2 y a \(\neq\) 0, qué puede decirse del conjunto solución?
-            \item Si b = 1 y a \(\neq\) 0, qué puede decirse del conjunto solución?
-            \item Si a \(\neq\) 0, dé un valor de b (diferente de 0), en caso de que exista, para que el sistema sea consistente.
-            \item Si a \(\neq\) 0, para que valores de b el sistema tiene infinitas soluciones?
-            \item Si a \(\neq\) 0, para que valores de b el sistema tiene solución única?
-            \item Si a \(\neq\) 0, para que valores de b el sistema es inconsistente?
+            \item Es el sistema consistente cuando a = b = 0? En caso de serlo, es la solución única? \\
+                Tomando a \(a = b = 0\), tendriamos la matriz:
+                \[
+                    \left(
+                    \begin{array}{ccccc|c}
+                        \sqrt{2}    & 0        & 3        & -1       & 4        & 0 \\
+                        0           & 0        & 2        & \pi      & -1       & 1 \\
+                        0           & 0        & 0        & 0        & 1        & -5 \\
+                        0           & 0        & 0        & 0        & 0        & 0 \\
+                    \end{array}
+                    \right)
+                \]
+                Por la \(4^{\text{ta}}\) fila o ecuación podemos ver el sistema de ecuaciones que va a tener infinitas soluciones. 
+                Y por ende, el sistema va a ser consistente.
+            \item Es el sistema consistente cuando a = 1 y b = 0? En caso de serlo, es la solución única? \\
+                Si \(a = 1 \text{y} b = 0\), tendríamos la matriz:
+                \[
+                    \left(
+                    \begin{array}{ccccc|c}
+                        \sqrt{2}    & 0        & 3        & -1       & 4        & 0 \\
+                        0           & 0        & 2        & \pi      & -1       & 1 \\
+                        0           & 0        & 0        & 1        & 1        & -5 \\
+                        0           & 0        & 0        & 0        & 0        & 0 \\
+                    \end{array}
+                    \right)
+                \]
+                Obteniendo que el sistema es consistente y tiene infinitas soluciones. 
+                Ya que la \(4^{\text{ta}}\) ecuación del sistema implica que las variables del sistema pueden tener infinitas soluciones.
+            \item Es el sistema consistente cuando a = 0 y b = 1? En caso de serlo, es la solución única? \\
+                Si \(a = 0 \text{y} b = 1\), tendríamos la matriz:
+                \[
+                    \left(
+                    \begin{array}{ccccc|c}
+                        \sqrt{2}    & 0        & 3        & -1       & 4        & 0 \\
+                        0           & 0        & 2        & \pi      & -1       & 1 \\
+                        0           & 0        & 0        & 0        & 1        & -5 \\
+                        0           & 0        & 0        & 0        & 0        & 1 \\
+                    \end{array}
+                    \right)
+                \]
+                Se va ver que el sistema de ecuaciones va a ser inconsistente, ya que en la \(4^{\text{ta}}\) ecuación del sistema se va a 
+                tener que los variables con coeficiente de 0, va a ser igual a un número diferente a 0.
+            \item Si b = 2 y a \(\neq\) 0, qué puede decirse del conjunto solución? \\
+                Si \(a \neq 0 \text{ y } b = 2\), tendriamos:
+                \[
+                    \left(
+                    \begin{array}{ccccc|c}
+                        \sqrt{2}    & 0        & 3        & -1       & 4        & 0 \\
+                        0           & 0        & 2        & \pi      & -1       & 1 \\
+                        0           & 0        & 0        & \alpha   & 1        & -5 \\
+                        0           & 0        & 0        & 0        & 2        & 2 \\
+                    \end{array}
+                    \right)
+                    \sim
+                    \begin{aligned}
+                        \frac{1}{2}F_4 &\mapsto F_4 \\
+                        F_3 - F_4 &\mapsto F_3 \\
+                        F_2 + F_4 &\mapsto F_2 \\
+                        F_1 - 4F_4 &\mapsto F_1
+                    \end{aligned}
+                    \left(
+                    \begin{array}{ccccc|c}
+                        \sqrt{2}    & 0        & 3        & -1       & 0        & 4 \\
+                        0           & 0        & 2        & \pi      & 0        & 2 \\
+                        0           & 0        & 0        & \alpha   & 0        & -6 \\
+                        0           & 0        & 0        & 0        & 1        & 1 \\
+                    \end{array}
+                    \right)
+                \]
+                \[
+                    \sim
+                    \begin{aligned}
+                        \frac{1}{2}F_2 \mapsto F_2
+                    \end{aligned}
+                    \left(
+                    \begin{array}{ccccc|c}
+                        \sqrt{2}    & 0        & 3        & -1              & 0        & 4 \\
+                        0           & 0        & 1        & \frac{\pi}{2}   & 0        & 1 \\
+                        0           & 0        & 0        & \alpha          & 0        & -6 \\
+                        0           & 0        & 0        & 0               & 1        & 1 \\
+                    \end{array}
+                    \right)
+                \]
+            \item Si b = 1 y a \(\neq\) 0, qué puede decirse del conjunto solución? \\
+            \item Si a \(\neq\) 0, dé un valor de b (diferente de 0), en caso de que exista, para que el sistema sea consistente. \\
+            \item Si a \(\neq\) 0, para que valores de b el sistema tiene infinitas soluciones? \\
+            \item Si a \(\neq\) 0, para que valores de b el sistema tiene solución única? \\
+            \item Si a \(\neq\) 0, para que valores de b el sistema es inconsistente? \\
         \end{itemize}
 
     \setcounter{enumi}{7}
