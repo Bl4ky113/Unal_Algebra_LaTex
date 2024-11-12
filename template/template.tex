@@ -8,11 +8,13 @@ vmargin=2.25cm,%
 hmargin=2.25cm%
 ]{geometry} % Page Geometry
 \usepackage{fancyhdr} % Header / Footer Styles
+\usepackage{extramarks} % Header / Footer Marks
 
 \usepackage{ragged2e} % Text Align
 \usepackage{amsmath} % Math Align
 
-\usepackage{booktabs} % Tables Package
+\usepackage{booktabs} % Tables+ Package
+\usepackage{enumitem} % Enumarete+ Package
 
 \usepackage{mathtools} % Math General
 \usepackage{amsthm} % Math Envs
@@ -35,12 +37,16 @@ hmargin=2.25cm%
 }
 
 \fancyhf[HC]{{\slshape \MyTitle{}}}
+\fancyhead[HL]{\firstleftxmark}
+\fancyhead[HR]{\lastleftxmark}
 
 % Redefine \maketitle
 \RenewDocumentCommand{\maketitle}{s}{%
     \begin{@twocolumntrue}%
         \begin{minipage}{0.3\textwidth}%
-            \includegraphics[width=0.85\textwidth]{../template/src/unal_logo.pdf}%
+            \begin{Center}
+                \includegraphics[width=0.75\textwidth]{../template/src/unal_logo.pdf}%
+            \end{Center}
         \end{minipage}%
         \begin{minipage}{0.7\textwidth}{{%
         \begin{Center}%
@@ -59,6 +65,10 @@ hmargin=2.25cm%
     \end{Center}%
     \vspace{0.5cm}%
 }
+
+% Enumerate Lists types
+\newcommand{\listSubscript}[2]{\(#1_{#2}\)}
+\newcommand{\listAlph}{(\alph*)}
 
 %%% Template Math stuff %%%
 
