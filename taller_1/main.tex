@@ -20,17 +20,139 @@
     \item Dar condiciones sobre el parámetro \(\alpha\), para que el sistema:
         \[
             \left\{
-            \begin{aligned}
-                x + y - z = 2 \\
-                x + 2y + z = 3 \\
-                x + y + \left(\alpha^2 - 5\right) = \alpha
-            \end{aligned}
+                \begin{aligned}
+                    x + y - z = 2 \\
+                    x + 2y + z = 3 \\
+                    x + y + \left(\alpha^2 - 5\right)z = \alpha
+                \end{aligned}
             \right.
         \]
+        Para un mejor desarrollo del punto, primero se va a convertir el sistema de ecuaciones a su matriz aumentada, 
+        para después realizar parcialmente la eliminación de \emph{Gauss}, ya que no sabemos si el valor de \(\alpha\) nos favorezca para que el pivote sea \(1\).
+        \[
+            \text{Base}
+            \left(
+            \begin{array}{ccc|c}
+                1 & 1 & -1 & 2 \\
+                1 & 2 & 1 & 3 \\
+                1 & 1 & \alpha^2 -5 & \alpha \\
+            \end{array}
+            \right)
+            \sim
+            F_2 - F_1 \mapsto F_2
+            \left(
+            \begin{array}{ccc|c}
+                1 & 1 & -1 & 2 \\
+                0 & 1 & 2 & 1 \\
+                1 & 1 & \alpha^2 - 5 & \alpha \\
+            \end{array}
+            \right)
+        \]
+        \[
+            \sim
+            F_3 - F_1 \mapsto F_3
+            \left(
+            \begin{array}{ccc|c}
+                1 & 1 & -1 & 2 \\
+                0 & 1 & 2 & 1 \\
+                0 & 0 & \alpha^2 - 4 & \alpha - 2 \\
+            \end{array}
+            \right)
+        \]
+        Desde este punto podemos deducir, mediante la sustitución hacia atrás, que:
+        \[
+            \left\{
+                \begin{aligned}
+                    x + y - z = 2 \\
+                    y + 2z = 1 \\
+                    \left(\alpha^2 - 4\right)z = \alpha - 2
+                \end{aligned}
+            \right.
+            \hspace{1cm}
+            \begin{aligned}
+                x &= 1 + \frac{3\alpha - 6}{\alpha^2 - 4} \text{,} \\
+                y &= 1 - \frac{2\alpha - 4}{\alpha^2 - 4} \hspace{1ex} \text{y}  \\
+                z &= \frac{\alpha - 2}{\alpha^2 - 4}
+            \end{aligned}
+        \]
         \begin{enumerate}[label=\listAlph]
-            \item No tenga solución.
-            \item Tenga infinitas soluciones (dar la solución general).
-            \item Tenga solución única (dar la solución).
+            \item No tenga solución. \\
+
+            \item Tenga infinitas soluciones (dar la solución general). \\
+                Solo es necesario que \(\alpha = 2\), para que en la \(3^{\text{ra}}\) ecuación del sistema se tenga: \(0x + 0y + 0z = 0\).
+                Lo cual se puede interpretar como  que \(x \text{, } y \text{ y } z\) tienen infinitas respuestas, 
+                sin embargo \(x \text{ y } y\) se pueden explicar en terminos de \(z\).
+                \[
+                    \begin{aligned}
+                        y &= 1 - 2z \\
+                        x &= 2 + z - y \\
+                        &= 1 + 3z \\
+                    \end{aligned}
+                \]
+                Obteniendo el conjunto solución
+                \[
+                    \left\{\left(1 + 3z, 1 - 2z, z\right) | z \in \mathbb{R} \right\}
+                \]
+
+            \item Tenga solución única (dar la solución). \\
+                Si se toma \(\alpha = 0\), en la matriz del sistema de ecuaciones se podría modificar de tal forma que
+                \[
+                    \left(
+                    \begin{array}{ccc|c}
+                        1 & 1 & -1 & 2 \\
+                        0 & 1 & 2 & 1 \\
+                        0 & 0 & -4 & -2 \\
+                    \end{array}
+                    \right)
+                    \sim
+                    F_3 + F_1 \mapsto F_3
+                    \left(
+                    \begin{array}{ccc|c}
+                        1 & 1 & -1 & 2 \\
+                        0 & 1 & 2 & 1 \\
+                        0 & 0 & -5 & 0 \\
+                    \end{array}
+                    \right)
+                    \sim
+                    -\frac{1}{5}F_3 \mapsto F_3
+                    \left(
+                    \begin{array}{ccc|c}
+                        1 & 1 & -1 & 2 \\
+                        0 & 1 & 2 & 1 \\
+                        0 & 0 & 1 & 0 \\
+                    \end{array}
+                    \right)
+                \]
+                Realizando sustitución hacia atras obtenemos
+                \[
+                    \left\{
+                        \begin{aligned}
+                            x + y - z = 2 \\
+                            y + 2z = 1 \\
+                            z = 0
+                        \end{aligned}
+                    \right.
+                    \hspace{1cm}
+                    \begin{aligned}
+                        x &= 2 + z - y = 1 \\
+                        y &= 1 -2z = 1 \\
+                        z &= 0 \\
+                    \end{aligned}
+                \]
+                \[
+                    \text{Siendo el conjunto solución: }
+                    \left\{\left(1, 1, 0\right)\right\}
+                \]
+                El cual podemos verificar en el sistema de ecuaciones:
+                \[
+                    \left\{
+                        \begin{aligned}
+                            1 + 1 - 0 = 2 &= 2 \\
+                            1 + 2\left(0\right) = 1 &= 1 \\
+                            0 &= 0
+                        \end{aligned}
+                    \right.
+                \]
         \end{enumerate}
 
     \extramarks{Punto 6}{}
@@ -49,12 +171,12 @@
             \item Es el sistema consistente cuando a = b = 0? En caso de serlo, es la solución única?
             \item Es el sistema consistente cuando a = 1 y b = 0? En caso de serlo, es la solución única?
             \item Es el sistema consistente cuando a = 0 y b = 1? En caso de serlo, es la solución única?
-            \item Si b = 2 y a 6= 0, qué puede decirse del conjunto solución?
-            \item Si b = 1 y a 6= 0, qué puede decirse del conjunto solución?
-            \item Si a 6= 0, dé un valor de b (diferente de 0), en caso de que exista, para que el sistema sea consistente.
-            \item Si a 6= 0, para que valores de b el sistema tiene infinitas soluciones?
-            \item Si a 6= 0, para que valores de b el sistema tiene solución única?
-            \item Si a 6= 0, para que valores de b el sistema es inconsistente?
+            \item Si b = 2 y a \(\neq\) 0, qué puede decirse del conjunto solución?
+            \item Si b = 1 y a \(\neq\) 0, qué puede decirse del conjunto solución?
+            \item Si a \(\neq\) 0, dé un valor de b (diferente de 0), en caso de que exista, para que el sistema sea consistente.
+            \item Si a \(\neq\) 0, para que valores de b el sistema tiene infinitas soluciones?
+            \item Si a \(\neq\) 0, para que valores de b el sistema tiene solución única?
+            \item Si a \(\neq\) 0, para que valores de b el sistema es inconsistente?
         \end{itemize}
 
     \setcounter{enumi}{7}
