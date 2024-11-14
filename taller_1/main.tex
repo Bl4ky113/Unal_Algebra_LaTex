@@ -407,7 +407,19 @@
                     \end{array}
                     \right)
                 \]
-                Despues de una simple operación entre filas, se puede ver que \(S_1\) va a tener infinitas soluciones mientras que 
+                \[
+                    \sim
+                    \begin{aligned}
+                        F_2 - F_1 &\mapsto F_2
+                    \end{aligned}
+                    \left(
+                    \begin{array}{cc|cc}
+                        1 & -1 & 5  & 1 \\
+                        0 & 0 & 0  & 4
+                    \end{array}
+                    \right)
+                \]
+                Despues de simples operaciones entre filas, se puede ver que \(S_1\) va a tener infinitas soluciones mientras que 
                 \(S_2\), al ser un sistema inconsistente, no va a tener solución alguna.
 
 			\item Un sistema de ecuaciones lineales tiene solución siempre que su sistema de ecuaciones lineales homogéneo asociado tenga solución. \\
@@ -503,5 +515,212 @@
 			%\item Un sistema de ecuaciones lineales homogéneo con 20 variables y 20 ecuaciones tiene solución única \\
 			%\item Un sistema de ecuaciones lineales consistente con 20 variables y 20 ecuaciones tiene solución única. \\
         \end{enumerate}
+    \item APLICACIONES
+        \begin{itemize}
+            \item \textbf{Fabricación de muebles} \\
+                Un mueblero fabrica sillas, mesas para café y mesas para comedor. Se necesitan 10 minutos para lijar
+                una silla, 6 para pintarla y 12 para barnizarla. Se necesitan 12 minutos para lijar una mesa para café,
+                ocho para pintarla y 12 para barnizarla. Se necesitan 15 minutos para lijar una mesa para comedor,
+                12 para pintarla y 18 para barnizarla. La mesa de lijado está disponible 16 horas a la semana, la mesa
+                de pintura 11 horas a la semana y la mesa de barnizado 18 horas. 
+                ¿Cuántas unidades de cada mueble deben fabricarse por semana de modo que las mesas de trabajo se ocupen todo el tiempo disponible?
+                \\[1ex]
+                Primero, vamos a tener que llenar el horario disponible de las mesas de trabajo, para eso vamos a mirar que tantas sillas, y tipos de 
+                mesas tenemos que hacer en una semana para completar su horario. Luego, definamos las variables \(s = \text{número de sillas; } c = \text{número de mesas para café; } m = \text{número de mesas para comedor}\).
+                Y, como solo vamos a tener 3 ecuaciones, para las 3 mesas de trabajo, con las mismas variables solo vamos a tener un sistema de ecuaciones.
+                \[
+                    S =
+                    \left\{
+                    \begin{aligned}
+                        10s + 12c + 15m &= 960 \text{; Mesa de lijado} \\
+                        6s + 8c + 12m &= 660 \text{; Mesa de pinado} \\
+                        12s + 12c + 18m &= 1080 \text{; Mesa de barnizado}
+                    \end{aligned}
+                    \right.
+                    M_S =
+                    \left(
+                    \begin{array}{ccc|c}
+                        10 & 12 & 15 & 960 \\
+                        6 & 8 & 12 & 660 \\
+                        12 & 12 & 18 & 1080
+                    \end{array}
+                    \right)
+                \]
+                Tomamos la matriz expandida del sistema de ecuaciones lineales y le aplicamos el método de \emph{Gauss--Jordan}.
+                \[
+                    \sim
+                    \begin{aligned}
+                        \frac{1}{2}F_2 &\mapsto F_2 \\
+                        \frac{1}{6}F_3 &\mapsto F_3
+                    \end{aligned}
+                    \left(
+                    \begin{array}{ccc|c}
+                        10 & 12 & 15 & 960 \\
+                        3 & 4 & 6 & 330 \\
+                        2 & 2 & 3 & 180
+                    \end{array}
+                    \right)
+                    \sim
+                    \begin{aligned}
+                        F_1 - 5F_3 &\mapsto F_1 \\
+                        \frac{1}{2}F_1 &\mapsto F_1 \\
+                        F_1 &\leftrightarrow F_2
+                    \end{aligned}
+                    \left(
+                    \begin{array}{ccc|c}
+                        3 & 4 & 6 & 330 \\
+                        0 & 1 & 0 & 30 \\
+                        2 & 2 & 3 & 180
+                    \end{array}
+                    \right)
+                \]
+                \[
+                    \sim
+                    \begin{aligned}
+                        F_1 - F_3 &\mapsto F_1 \\
+                        F_1 &\leftrightarrow F_3
+                    \end{aligned}
+                    \left(
+                    \begin{array}{ccc|c}
+                        2 & 2 & 3 & 180 \\
+                        0 & 1 & 0 & 30 \\
+                        1 & 2 & 3 & 150 
+                    \end{array}
+                    \right)
+                    \sim
+                    \begin{aligned}
+                        F_1 - F_3 &\mapsto F_1 \\
+                        F_3 - 2F_2 &\mapsto F_3 \\
+                        F_3 - F_1 &\mapsto F_3 \\
+                        \frac{1}{3}F_3 &\mapsto F_3 \\
+                    \end{aligned}
+                    \left(
+                    \begin{array}{ccc|c}
+                        1 & 0 & 0 & 30 \\
+                        0 & 1 & 0 & 30 \\
+                        0 & 0 & 1 & 20
+                    \end{array}
+                    \right)
+                \]
+                Ahora, hacemos sustitución hacia atrás, obtenemos, y verificamos que estos valores sean correctos
+                \[
+                    \left\{
+                        \begin{aligned}
+                            s &= 30 \\
+                            c &= 30 \\
+                            m &= 20 \\
+                        \end{aligned}
+                    \right.
+                    \hspace{1cm}
+                    \left\{
+                    \begin{aligned}
+                        10(30) + 12(30) + 15(20) &= 300 + 360 + 300 =& 960 = 960 \\
+                        6(30) + 8(30) + 12(20) &= 180 + 240 + 240 =& 660 = 660 \\
+                        12(30) + 12(30) + 18(20) &= 360 + 360 + 360 =& 1080 = 1080
+                    \end{aligned}
+                    \right.
+                \]
+                \[
+                    S = \left\{\left(30, 30, 20\right)\right\}
+                \]
+                Es decir, vamos a tener que hacer 30 sillas, 30 mesas para café y 20 mesas para comedor, para ocupar todo el horario de uso de las mesas de trabajo.
+
+            \item \textbf{Hacer insecticidas} \\
+                Para fabricar insecticidas se utilizan tres clases de compuestos. 
+                Una unidad del insecticida Magnon requiere 
+                    10mls de Nuvan, 
+                    30mls de Citronela B y 
+                    60mls de petróleo. 
+                Una unidad del Baygon requiere
+                    20mls de Nuvan, 
+                    30mls de Citronela y 
+                    50mls de petróleo. 
+                Una unidad del insecticida Nocaut, requiere
+                    50mls de Nuvan y
+                    50mls de petróleo. 
+                Si se disponen de 
+                    1600mls de Nuvan,
+                    1200mls de Citronela y
+                    3200mls de petróleo. 
+                Determine cuántas unidades de los tres insecticidas pueden producirse usando todos los componentes disponibles.
+                \\[1ex]
+                Este problema es bastante similar al anterior, tenemos que encontrar el número de diferentes elementos que podemos realizar con 
+                una cantidad dada de ingredientes o componentes de los elementos.
+                Definamos las variables \(m = \text{in. Magnon; } b = \text{in. Baygon; } n = \text{in. Nocaut}\), y el sistema de ecuaciones junto a su matriz expandida:
+                \[
+                    S = 
+                    \left\{
+                        \begin{aligned}
+                            10m + 20b + 50n &= 1600 \text{; Nuvan}\\
+                            30m + 30b &= 1200 \text{; Citronela}\\
+                            60m + 50b + 50n &= 3200 \text{; Petróleo}
+                        \end{aligned}
+                    \right.
+                    \hspace{1cm}
+                    M_S = 
+                    \left(
+                    \begin{array}{ccc|c}
+                        10 & 20 & 50 & 1600 \\
+                        30 & 30 & 0 & 1200 \\
+                        60 & 50 & 50 & 3200
+                    \end{array}
+                    \right)
+               \]
+               De igual forma que el problema anterior, vamos a aplicar a esta matriz el método de \emph{Gauss}, encontrar las soluciones de las variables, su conjunto solución y verificar si es correcto el resultado.
+               \[
+                    \sim
+                    \begin{aligned}
+                        \frac{1}{10}F_1 &\mapsto F_1 \\
+                        \frac{1}{30}F_2 &\mapsto F_2 \\
+                        \frac{1}{10}F_3 &\mapsto F_3
+                    \end{aligned}
+                    \left(
+                    \begin{array}{ccc|c}
+                        1 & 2 & 5 & 160 \\
+                        1 & 1 & 0 & 40 \\
+                        6 & 5 & 5 & 320
+                    \end{array}
+                    \right)
+                    \sim
+                    \begin{aligned}
+                        F_3 - F_1 &\mapsto F_3 \\
+                        F_3 - 3F_2 &\mapsto F_3 \\
+                        \frac{1}{2}F_3 &\mapsto F_3 \\
+                    \end{aligned}
+                    \left(
+                    \begin{array}{ccc|c}
+                        1 & 2 & 5 & 160 \\
+                        1 & 1 & 0 & 40 \\
+                        1 & 0 & 0 & 20
+                    \end{array}
+                    \right)
+               \]
+               \[  
+                   \sim
+                    \begin{aligned}
+                        F_1 - F_3 &\mapsto F_1 \\
+                        F_2 - F_3 &\mapsto F_2 \\
+                        F_1 - 2F_2 &\mapsto F_2 \\
+                        \frac{1}{5}F_1 &\mapsto F_1 \\
+                        F_1 &\leftrightarrow F_3 
+                    \end{aligned}
+                    \left(
+                    \begin{array}{ccc|c}
+                        1 & 0 & 0 & 20 \\
+                        0 & 1 & 0 & 20 \\
+                        0 & 0 & 1 & 20
+                    \end{array}
+                    \right)
+                    \hspace{1cm}
+                    \left\{
+                        \begin{aligned}
+                            10(20) + 20(20) + 50(20) &= 200 + 400 + 1000 &= 1600 \\
+                            30(20) + 30(20) &= 600 + 600 &= 1200 \\
+                            60(20) + 50(20) + 50(20) &= 1200 + 1000 + 1000 &= 3200
+                        \end{aligned}
+                    \right.
+               \]
+               Resultando que, vamos a tener que 20 unidades de los 3 insecticidas para usar todos los componentes químicos disponibles.
+        \end{itemize}
 \end{enumerate}
 \end{document}
