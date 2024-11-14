@@ -4,7 +4,7 @@
 \usepackage{graphicx} % Images
 \usepackage{tcolorbox} % Color Box
 \usepackage[%
-vmargin=2.25cm,%
+vmargin=2cm,%
 hmargin=2.25cm%
 ]{geometry} % Page Geometry
 \usepackage{fancyhdr} % Header / Footer Styles
@@ -37,8 +37,8 @@ hmargin=2.25cm%
 }
 
 \fancyhf[HC]{{\slshape \MyTitle{}}}
-\fancyhead[HL]{\firstleftxmark}
-\fancyhead[HR]{\lastleftxmark}
+%\fancyhead[HL]{\firstleftxmark}
+%\fancyhead[HR]{\lastleftxmark}
 
 % Redefine \maketitle
 \RenewDocumentCommand{\maketitle}{s}{%
@@ -67,6 +67,7 @@ hmargin=2.25cm%
 }
 
 % Enumerate Lists types
+\newcommand\SetItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
 \newcommand{\listSubscript}[2]{\(#1_{#2}\)}
 \newcommand{\listAlph}{(\alph*)}
 
@@ -101,3 +102,11 @@ hmargin=2.25cm%
     \end{tcolorbox}%
 } {}
 
+% Cases and stuff
+\newtheorem{TMPMathCases}[]{Caso}
+\NewDocumentCommand{\ResetCases}{} {\setcounter{TMPMathCases}{0}}
+\NewDocumentEnvironment{mathcase}{O{}m} {%
+    \begin{TMPMathCases}[#1] % 
+        #2%
+    \end{TMPMathCases}%
+} {}

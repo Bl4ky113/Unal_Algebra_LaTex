@@ -9,6 +9,8 @@
 \author{\MyAuthor{}}
 \title{\MyClass{} \-- \MyTitle{}}
 
+\usepackage{csquotes}
+
 \input{../template/template.tex}
 
 \begin{document}
@@ -92,7 +94,7 @@
                 \]
                 Obteniendo el conjunto solución
                 \[
-                    \left\{\left(1 + 3z, 1 - 2z, z\right) | z \in \mathbb{R} \right\}
+                    \left\{\left(1 + 3z, 1 - 2z, z\right) \vert\hspace{0.5ex} z \in \mathbb{R} \right\}
                 \]
 
             \item Tenga solución única (dar la solución). \\
@@ -124,7 +126,7 @@
                     \end{array}
                     \right)
                 \]
-                Realizando sustitución hacia atras obtenemos
+                Realizando sustitución hacia atrás obtenemos
                 \[
                     \left\{
                         \begin{aligned}
@@ -238,6 +240,7 @@
                     \end{array}
                     \right)
                 \]
+                Como \(\alpha \neq 0\) podemos usarlo como denominador en una fracción:
                 \[
                     \sim
                     \begin{aligned}
@@ -251,41 +254,254 @@
                         0           & 0        & 0        & 0               & 1        & 1 \\
                     \end{array}
                     \right)
+                    \sim
+                    \begin{aligned}
+                        \frac{1}{\alpha}F_3 &\mapsto F_3 \\
+                        F_1 + F_3 &\mapsto F_1 
+                    \end{aligned}
+                    \left(
+                    \begin{array}{ccccc|c}
+                        \sqrt{2}    & 0        & 3        & 0               & 0        & 4 - \frac{6}{\alpha} \\
+                        0           & 0        & 1        & \frac{\pi}{2}   & 0        & 1 \\
+                        0           & 0        & 0        & 1               & 0        & -\frac{6}{\alpha} \\
+                        0           & 0        & 0        & 0               & 1        & 1 \\
+                    \end{array}
+                    \right)
                 \]
-            \item Si b = 1 y a \(\neq\) 0, qué puede decirse del conjunto solución? \\
-            \item Si a \(\neq\) 0, dé un valor de b (diferente de 0), en caso de que exista, para que el sistema sea consistente. \\
-            \item Si a \(\neq\) 0, para que valores de b el sistema tiene infinitas soluciones? \\
-            \item Si a \(\neq\) 0, para que valores de b el sistema tiene solución única? \\
-            \item Si a \(\neq\) 0, para que valores de b el sistema es inconsistente? \\
+                Apartir de la matriz expandida podemos realizar sustitución hacia atrás y obtener el conjunto solución:
+                \[
+                    \left\{
+                        \begin{aligned}
+                            \sqrt{2}x_1 + 0x_2 + 3x_3 + 0x_4 + 0x_5 = 4 - \frac{6}{\alpha} \\
+                            0x_1 + 0x_2 + x_3 + \frac{pi}{2}x_4 + 0x_5 = 1 \\
+                            0x_1 + 0x_2 + 0x_3 + x_4 + 0x_5 = - \frac{6}{\alpha} \\
+                            0x_1 + 0x_2 + 0x_3 + 0x_4 + x_5 = 1
+                        \end{aligned}
+                    \right.
+                    \hspace{3ex}
+                    \begin{aligned}
+                        x_1 &= \frac{\alpha + 9\pi - 6}{\sqrt{2}\alpha} \\
+                        x_2 &\in \mathbb{R} \\
+                        x_3 &= \frac{\alpha - 3\pi}{\alpha} \\
+                        x_4 &= -\frac{6}{\alpha} \\
+                        x_5 &= 1
+                    \end{aligned}
+                \]
+                \[
+                    \left\{\left(\frac{\alpha + 9\pi - 6}{\sqrt{2}\alpha}, x_2, \frac{\alpha - 3\pi}{\alpha}, -\frac{6}{\alpha}, 1\right) \vert\hspace{0.5ex} x_2 \in \mathbb{R} \right\}
+                \]
+                Aunque pareciera que se podría obtener una única solución, por \(x_2\) el conjunto solución termina teniendo infinitos elementos.
+
+            %\item Si b = 1 y a \(\neq\) 0, qué puede decirse del conjunto solución? \\
+            %\item Si a \(\neq\) 0, dé un valor de b (diferente de 0), en caso de que exista, para que el sistema sea consistente. \\
+            %\item Si a \(\neq\) 0, para que valores de b el sistema tiene infinitas soluciones? \\
+            %\item Si a \(\neq\) 0, para que valores de b el sistema tiene solución única? \\
+            %\item Si a \(\neq\) 0, para que valores de b el sistema es inconsistente? \\
         \end{itemize}
 
     \setcounter{enumi}{7}
     \extramarks{Punto 8}{}
-    \item Justifique POR QUÉ cada una de las siguientes afirmaciones son VERDADERAS:
+    \item Justifique POR QUÉ cada una de las siguientes afirmaciones son VERDADERAS
         \begin{enumerate}[label=\listAlph]
-			\item Si un sistema de ecuaciones lineales tiene solución única, su sistema de ecuaciones lineales homogéneo asociado también tiene solución única.
-			\item Un sistema de ecuaciones lineales con 14 variables y 10 ecuaciones no tiene solución única.
-			\item Un sistema de ecuaciones lineales con 27 variables y 13 ecuaciones puede no tener solución.
-			\item Un sistema de ecuaciones lineales con 100 variables y 300 ecuaciones puede tener solución única.
-			\item Un sistema de ecuaciones lineales homogéneo con 10 variables y 7 ecuaciones tiene infinitas soluciones.
-			\item Un sistema de ecuaciones lineales homogéneo con 14 variables y 10 ecuaciones no tiene solución única.
-			\item Un sistema de ecuaciones lineales homogéneo con 100 variables y 300 ecuaciones puede tener solución única.
-			\item Un sistema de ecuaciones lineales consistente con 10 variables y 7 ecuaciones tiene infinitas soluciones.
-			\item Un sistema de ecuaciones lineales consistente con 14 variables y 10 ecuaciones no tiene solución única.
-			\item Un sistema de ecuaciones lineales consistente con 100 variables y 300 ecuaciones puede tener solución única.
+			\item Si un sistema de ecuaciones lineales tiene solución única, su sistema de ecuaciones lineales homogéneo asociado también tiene solución única. \\
+                Primero bozquejemos los sistemas preguntados como sistemas de ecuaciones \(m \times n\)
+                \[
+                    S_1 =
+                    \left\{
+                        \begin{aligned}
+                            a_{11}x_{11} + a_{12}x_{12} + \cdots + a_{1n}x_{1n} &= b_1 \\
+                            a_{21}x_{21} + a_{22}x_{22} + \cdots + a_{2n}x_{2n} &= b_2 \\
+                            & \hspace{0.75ex}\vdots \\
+                            a_{m1}x_{m1} + a_{m2}x_{m2} + \cdots + a_{mn}x_{mn} &= b_m \\
+                        \end{aligned}
+                    \right.
+                    \hspace{0.5cm}
+                    S_h = 
+                    \left\{
+                        \begin{aligned}
+                            a_{11}x_{11} + a_{12}x_{12} + \cdots + a_{1n}x_{1n} &= 0 \\
+                            a_{21}x_{21} + a_{22}x_{22} + \cdots + a_{2n}x_{2n} &= 0 \\
+                            & \hspace{0.75ex}\vdots \\
+                            a_{m1}x_{m1} + a_{m2}x_{m2} + \cdots + a_{mn}x_{mn} &= 0 \\
+                        \end{aligned}
+                    \right.
+                \]
+                Como sabemos que la implicación presentada: \(\text{`soluciónes de }S_1 = 1\text{`} \Rightarrow \text{`soluciones de }S_h = 1\text{`}\); es una tautolgía por la hipotesis del problema, 
+                Además, cabe aclarar, que por definición de un sistema de ecuaciones homogéneo este siempre va a tener almenos una o infinitas soluciones. Siendo la primera, y trivial, solución donde 
+                todas las variables simplemente sean 0: \(x_1 = x_2 = \cdots = x_{n - 1} = x_n = 0\). \\ 
+                Tambien, analizando que el sistema de ecuaciones \(S_1\) solo tenga una solución implica que no tenga ningún elemento libre.
+                Concluyendo que, con esta información de los sistemas, la única solución de \(S_h\) sería la trivial. 
+                Ya que al no tener ningún elemento libre en ambos sistemas solo puede existir la solución trivial para \(S_h\).
+                Dado que cada valor tiene que tomar un valor fijo. Y, los únicos valores que resuelven a \(S_h\) es la solución trival: \(x_1 = x_2 = \cdots = x_{n - 1} = x_n = 0\).
+			\item Un sistema de ecuaciones lineales con 14 variables y 10 ecuaciones no tiene solución única. \\
+                Esta afrimación es bastante directa y sencilla de explicar, ya que, se divide entre el caso donde el sistema es consistente y en el caso contrario.
+                \ResetCases{}
+                \begin{mathcase}{Sistema consistente}
+                    En este caso al pasar el sistema de ecuaciones a su matriz expandida y escalonar esta matriz para realizar el método de \emph{Gauss}, 
+                    se va a poder ver que se cuenta con 10 o menos pivotes para las variables del sistema. 
+                    Consecuentemente, se va a contar con algunas variables libres o con infinitas soluciones, pero con las cuales podrían ser definidas en terminos de estas variables libres.
+                \end{mathcase}
+                \begin{mathcase}{Sistema inconsistente}
+                    En el caso que el sistema sea inconsistente, ya sea porqué se tenga que en la matriz expandida del sistema una fila de coeficientes 0 para todas las variables y un valor 
+                    diferente a 0 como termino independiente. O, el sistema cuente con incongruencias entre las ecuaciones. En general, por definición, no se va a tener ninguna solución para el sistema.
+                \end{mathcase}
+            \setcounter{enumii}{6}
+			%\item Un sistema de ecuaciones lineales con 27 variables y 13 ecuaciones puede no tener solución. \\
+			%\item Un sistema de ecuaciones lineales con 100 variables y 300 ecuaciones puede tener solución única. \\
+			%\item Un sistema de ecuaciones lineales homogéneo con 10 variables y 7 ecuaciones tiene infinitas soluciones. \\
+			%\item Un sistema de ecuaciones lineales homogéneo con 14 variables y 10 ecuaciones no tiene solución única. \\
+			\item Un sistema de ecuaciones lineales homogéneo con 100 variables y 300 ecuaciones puede tener solución única. \\
+                Esta afrimación es bastante sencilla, ya que por definición, un sistema de ecuaciones homogéneo va a tener cómo mínimo una 
+                solución. Esta solución va a ser la solución trivial, el cual para el sistema propuesto sería: \(x_1 = x_2 = x_3 = \cdots = x_{98} = x_{99} = x_{100} = 0\).
+                Además, como la pregunta solo pide explicar la existencia de esta respuesta trivial, no es necesario analizar más información sobre este sistema.
+			\item Un sistema de ecuaciones lineales consistente con 10 variables y 7 ecuaciones tiene infinitas soluciones. \\
+                Dado a que el sistema es consistente, al contar con un número mayor de variables que de variables al momento de escribir la matriz expandida 
+                del sistema y escalonarla, se va a tener 10 o menos pivotes. 
+                Cabe aclarar que, el número de pivotes puede ser menor a 10, a causa de que puede que existan filas en la matriz donde los coeficientes sean 0. 
+                De igual forma, al no poder tener un pivote en cada variable en la forma escalonada de la matriz expandida, se va a tener que las variables sin 
+                pivote van a ser variables libres o variables con infinitas soluciones.
+            %\item Un sistema de ecuaciones lineales consistente con 14 variables y 10 ecuaciones no tiene solución única. \\
+			%\item Un sistema de ecuaciones lineales consistente con 100 variables y 300 ecuaciones puede tener solución única. \\
         \end{enumerate}
 
-    \extramarks{Punto 9}{test?}
+    \extramarks{Punto 9}{}
     \item Justifique POR QUÉ cada una de las siguientes afirmaciones son FALSAS
         \begin{enumerate}[label=\listAlph]
-			\item Si un sistema de ecuaciones lineales tiene solución, cualquier otro sistema de ecuaciones lineales con la misma matriz de coeficientes también tiene solución
-			\item Un sistema de ecuaciones lineales tiene solución siempre que su sistema de ecuaciones lineales homogéneo asociado tenga solución.
-			\item El tipo de conjunto solución de un sistema de ecuaciones lineales y el del sistema de ecuaciones lineales homogéneo asociado siempre es el mismo
-			\item Un sistema de ecuaciones lineales homogéneo con 27 variables y 13 ecuaciones puede no tener solución.
-			\item Un sistema de ecuaciones lineales con 10 variables y 7 ecuaciones tiene infinitas soluciones
-			\item Un sistema de ecuaciones lineales con 20 variables y 20 ecuaciones tiene solución única.
-			\item Un sistema de ecuaciones lineales homogéneo con 20 variables y 20 ecuaciones tiene solución única
-			\item Un sistema de ecuaciones lineales consistente con 20 variables y 20 ecuaciones tiene solución única.
+			\item Si un sistema de ecuaciones lineales tiene solución, cualquier otro sistema de ecuaciones lineales con la misma matriz de coeficientes también tiene solución. \\
+                Esta proposición es bastante simple de demostrar falsa mediante un contra--ejemplo.
+                Consideremos \(S_1\) y \(S_2\), sistemas de ecuaciones lineales asociados. Definidos como:
+                \[
+                    S_1 =
+                    \left\{
+                        \begin{aligned}
+                            x - y &= 5 \\
+                            2x - 2y &= 10
+                        \end{aligned}
+                    \right.
+                    \hspace{1cm}
+                    S_2 =
+                    \left\{
+                        \begin{aligned}
+                            x - y &= 1 \\
+                            2x - 2y &= 10
+                        \end{aligned}
+                    \right.
+                \]
+                Las matrices expandidas de cada sistema de ecuaciones lineales es
+                \[
+                    M_{S_1\text{,}S_2} =
+                    \left(
+                    \begin{array}{cc|cc}
+                        1 & -1 & 5  & 1 \\
+                        2 & -2 & 10 & 10
+                    \end{array}
+                    \right)
+                    \sim
+                    \begin{aligned}
+                        \frac{1}{2}F_2 &\mapsto F_2
+                    \end{aligned}
+                    \left(
+                    \begin{array}{cc|cc}
+                        1 & -1 & 5  & 1 \\
+                        1 & -1 & 5  & 5
+                    \end{array}
+                    \right)
+                \]
+                Despues de una simple operación entre filas, se puede ver que \(S_1\) va a tener infinitas soluciones mientras que 
+                \(S_2\), al ser un sistema inconsistente, no va a tener solución alguna.
+
+			\item Un sistema de ecuaciones lineales tiene solución siempre que su sistema de ecuaciones lineales homogéneo asociado tenga solución. \\
+                Esta proposición es algo curiosa, ya que la implicación que tiene es bastante parecida, y igual de erronea, a otras en el ambito de las matemáticas como:
+                \enquote{Si una función es continua, es derivable}. Donde aunque suena bastante, si no es que completamente, correcto, el caso es totalmente lo contrario.
+                Igualmente, por definición el sistema de ecuaciones lineales homogéneo asociado a otro sistema siempre va a tener una solución, la solución trivial donde todas
+                las variables van a ser igual a 0. Sin embargo, esto no implica que el sistema de ecuaciones lineales tenga una solución. Un contra--ejemplo para esta proposición es:
+                \[
+                    S_{\text{base}} =
+                    \left\{
+                        \begin{aligned}
+                            x + y &= 5 \\
+                            2x + 2y &= 20 
+                        \end{aligned}
+                    \right.
+                    \hspace{1cm}
+                    S_{h} = 
+                    \left\{
+                        \begin{aligned}
+                            x + y &= 0 \\
+                            2x + 2y &= 0 
+                        \end{aligned}
+                    \right.
+                \]
+                Donde \(S_{\text{base}}\) es un sistema de ecuaciones lineales inconsistente y por ende sin soluciones.
+                Pero \(S_h\), el sistema de ecuaciones lineales homogéneo asociado, tiene como mínimo la solución la dupla: \(\left(0, 0\right)\).
+			\item El tipo de conjunto solución de un sistema de ecuaciones lineales y el del sistema de ecuaciones lineales homogéneo asociado siempre es el mismo. \\
+                Esta proposición no es tan sencilla de ver que es falsa, sin embargo, solo es necesario describir un contra--ejemplo para mostrar que la proposición es falsa.
+                Consideremos el sistema de ecuaciones lineales \(S_1\) y su sistema de ecuaciones lineales homogéneo asociado \(S_h\):
+                \[
+                    S_1 = 
+                    \left\{
+                        \begin{aligned}
+                            x_1 + x_3 = 10 \\
+                            x_2 + x_3 = 20 \\
+                            x_3 = 30 \\
+                        \end{aligned}
+                    \right.
+                    \hspace{1cm}
+                    S_h = 
+                    \left\{
+                        \begin{aligned}
+                            x_1 + x_3 = 0 \\
+                            x_2 + x_3 = 0 \\
+                            x_3 = 0 \\
+                        \end{aligned}
+                    \right.
+                \]
+                Podemos convertir a \(S_1\) a su matriz expandida y obtener su conjunto solución.
+                \[
+                    M_{S_{1}} =
+                    \left(
+                    \begin{array}{ccc|c}
+                        1 & 0 & 1 & 10 \\
+                        0 & 1 & 1 & 20 \\
+                        0 & 0 & 1 & 30 \\
+                    \end{array}
+                    \right)
+                    \sim
+                    \begin{aligned}
+                        F_1 - F_3 &\mapsto F_1 \\
+                        F_2 - F_3 &\mapsto F_2 \\
+                    \end{aligned}
+                    \left(
+                    \begin{array}{ccc|c}
+                        1 & 0 & 0 & -20 \\
+                        0 & 1 & 0 & -10 \\
+                        0 & 0 & 1 & 30 \\
+                    \end{array}
+                    \right)
+                \]
+                \[
+                    \left\{\left(-20, -10, 30\right)\right\}
+                \]
+                Ahora, podemos tomar la tupla \(-20, -10, 30\) y verificar si es una solución para \(S_h\), y concluir si \(S_1\) y \(S_h\) tienen el mismo conjunto solución:
+                \[
+                    \left\{
+                        \begin{aligned}
+                            \left(-20\right) + \left(30\right) = 0 \\
+                            \left(-10\right) + \left(30\right) = 0 \\
+                            \left(30\right) = 0 \\
+                        \end{aligned}
+                    \right.
+                \]
+                Solo es necesario evaluar la \(3^{\text{ra}}\) ecuación del sistema para verificar que, no, el conjunto solucíón de un sistema de ecuaciónes lineales 
+                y el sistema de ecuaciones lineales homogéneo asociado \textbf{no siempre} es el mismo.
+
+			\item Un sistema de ecuaciones lineales homogéneo con 27 variables y 13 ecuaciones puede no tener solución. \\
+                Esta proposición es explicitamente falsa por faltar a la definición de un sistema de ecuaciones lineales homogéneo. 
+                Ya que como \textbf{mínimo} se debe tener una solución para un sistema homogéneo, y este va a ser donde todas sus variables son 0.
+			%\item Un sistema de ecuaciones lineales con 10 variables y 7 ecuaciones tiene infinitas soluciones. \\
+			%\item Un sistema de ecuaciones lineales con 20 variables y 20 ecuaciones tiene solución única. \\
+			%\item Un sistema de ecuaciones lineales homogéneo con 20 variables y 20 ecuaciones tiene solución única \\
+			%\item Un sistema de ecuaciones lineales consistente con 20 variables y 20 ecuaciones tiene solución única. \\
         \end{enumerate}
 \end{enumerate}
 \end{document}
