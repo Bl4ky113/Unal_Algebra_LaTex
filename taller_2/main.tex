@@ -1,0 +1,157 @@
+\documentclass{article}
+
+\def\MyAuthor{Martín Steven Hernández Ortiz}
+\def\MyEmail{mahernandezor@unal.edu.co}
+\def\MyClass{Álgebra Lineal}
+\def\MyTitle{Taller 2}
+\def\MyDate{\today}
+
+\def\TemplatePath{../template/}
+
+\input{../template/template.tex}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    \setcounter{enumi}{6}
+    \item Al resolver el sistema homogéneo de ecuaciones lineales \(A\vec{x} = \vec{0}\) se obtuvo la siguiente forma escalonada reducida de A
+        \[
+            \begin{bmatrix}
+                1 & 0 & 1 & 0 & 0 \\
+                0 & 1 & 1 & 0 & 1 \\
+                0 & 0 & 0 & 1 & -1 \\
+                0 & 0 & 0 & 0 & 0 \\
+            \end{bmatrix}
+        \]
+        Diga cuáles de los siguientes vectores de \(\mathbb{R}^5\) son soluciones del sistema original
+        \[
+            v_1 = 
+            \begin{pmatrix}
+                -3 \\ -3 \\ 3 \\ 0 \\ 0
+            \end{pmatrix}
+            \hspace{1cm}
+            v_2 = 
+            \begin{pmatrix}
+                0 \\ -1 \\ 0 \\ 1 \\ 1
+            \end{pmatrix}
+            \hspace{1cm}
+            v_3 = 
+            \begin{pmatrix}
+                -\alpha \\ -\alpha - 1 \\ -\alpha \\ 1 \\ 1
+            \end{pmatrix}
+            \hspace{1cm}
+            v_4 = \lambda v_3 \hspace{3ex} \lambda \in \mathbb{R}
+        \]
+    \setcounter{enumi}{12}
+    \item Determine para que valores de \(\alpha\), tal que
+        \(
+            gen \left\{
+                \begin{pmatrix}
+                    0 \\ 1 \\ \alpha
+                \end{pmatrix},
+                \begin{pmatrix}
+                    \alpha \\ 1 \\ 0
+                \end{pmatrix},
+                \begin{pmatrix}
+                    0 \\ \alpha \\ 1
+                \end{pmatrix}
+            \right\}
+            = \mathbb{R}^3
+        \)
+    \setcounter{enumi}{22}
+    \item Dados los vectores en \(\mathbb{R}^n\), \(v, v, w\) Si \(H = \left\{u, v, w\right\}\) es \(l.i\), determine cuál de la siguientes afirmaciones es falsa.
+        \begin{enumerate}[label=\listAlph]
+            \item \(Gen\left\{u + v, v − w\right\} \subseteq Gen\left(H\right)\)
+            \item \(H \subseteq Gen\left(H\right)\)
+            \item \(\vec{0} \in Gen\left(H\right)\)
+            \item \(\left\{u, u + v, u + v + w\right\}\) es \(l.d\)
+            \item \(w \in H\)
+        \end{enumerate}
+    \item Considiere los vectores en \(\mathbb{R}^3\) dados por 
+        \(
+            u = 
+            \begin{pmatrix}
+                2 \\ -1 \\ 1
+            \end{pmatrix},
+            v =
+            \begin{pmatrix}
+                0 \\ 1 \\ 1
+            \end{pmatrix}
+            \text{ y }
+            w = 
+            \begin{pmatrix}
+                2 \\ 1 \\ 3
+            \end{pmatrix}
+        \). \\
+        Muestre que \(Gen\left\{u + v, v - w\right\} \subseteq Gen\left\{u, v, w\right\}\), y determine si estos conjuntos son iguales.
+
+    \setcounter{enumi}{27}
+    \item Sean \(A\) una matriz de \(m\) filas y \(n\) columnas y \(U\) una matriz escalonada equivalente a \(A\). Si \textbf{para cualquier vector \(b\)}
+        de \(\mathbb{R}^m\), el sistema de ecuaciones lineales, cuya matriz aumentada es \(\left[A \mid b\right]\), \textbf{tiene solución única}, 
+        determine cuales de las siguientes afirmaciones son verdaderas. Justifique su respuesta.
+        \begin{enumerate}[label=\listAlph]
+            \item El vector \(b\) es combinación lineal de las columnas de \(A\).
+            \item El vector \(b\) es combinación lineal de las columnas de \(U\).
+            \item Cada fila de \(U\) tiene un pivote.
+            \item Cada columna de \(U\) tiene un pivote.
+            \item La matriz \(U\) tiene \(n\) pivotes.
+            \item La matriz \(U\) tiene \(m\) pivotes.
+            \item \(m = n\).
+            \item Las columnas de \(A\) generan a \(\mathbb{R}^m\)
+        \end{enumerate}
+    \item Sean \(A\) una matriz de \(m\) filas y \(n\) columnas y \(U\) una matriz escalonada equivalente a \(A\). 
+        Si \textbf{para cualquier vector \(b\) de} \(\mathbb{R}^m\),
+        el sistema de ecuaciones lineales, cuya matriz aumentada es \(\left[A \mid b\right]\), 
+        \textbf{tiene infinitas soluciones},
+        determine cuales de las siguientes afirmaciones son verdaderas. Justifique su respuesta.
+        \begin{enumerate}[label=\listAlph]
+            \item El vector \(b\) es combinación lineal de las columnas de \(A\).
+            \item El vector \(b\) es combinación lineal de las columnas de \(U\).
+            \item Cada fila de \(U\) tiene un pivote.
+            \item Cada columna de \(U\) tiene un pivote.
+            \item La matriz \(U\) tiene \(n\) pivotes.
+            \item La matriz \(U\) tiene \(m\) pivotes.
+            \item \(m < n\).
+            \item Las columnas de \(A\) generan a \(\mathbb{R}^m\).
+        \end{enumerate}
+    \item Sean \(A\) una matriz de \(m\) filas y \(n\) columnas y \(U\) una matriz escalonada equivalente a \(A\). 
+        Si \textbf{para un vector \(b\)} de \(\mathbb{R}^m\),
+        el sistema de ecuaciones lineales, cuya matriz aumentada es \(\left[A \mid b\right]\),
+        \textbf{es inconsistente}, 
+        determine cuales de las siguientes afirmaciones son verdaderas y responda a las preguntas formuladas. 
+        Justifique su respuesta.
+        \begin{enumerate}[label=\listAlph]
+            \item El vector \(b\) es combinación lineal de las columnas de \(A\).
+            \item El vector \(b\) puede ser combinación lineal de las columnas de \(U\).
+            \item Cada fila de \(U\) tiene un pivote.
+            \item El vector \(b\) puede ser \(\vec{0}\)?
+            \item El vector \(b\) puede ser un múltiplo de alguna de las columnas de \(A\)?
+            \item El vector \(b\) puede ser la suma de las columnas de \(A\)?
+            \item Las columnas de \(A\) generan a \(\mathbb{R}^m\).
+            \item ¿Qué puede decirse del número de pivotes de \(U\)?
+        \end{enumerate}
+    \item ¿%
+        \(
+            Gen
+            \left\{
+                \begin{pmatrix}
+                    1 \\ 0 \\ -3
+                \end{pmatrix},
+                \begin{pmatrix}
+                    4 \\ -10 \\ 2
+                \end{pmatrix}
+            \right\}
+            =
+            Gen
+            \left\{
+                \begin{pmatrix}
+                    0 \\ -5 \\ 8
+                \end{pmatrix},
+                \begin{pmatrix}
+                    -1 \\ 5 \\ -5
+                \end{pmatrix}
+            \right\}
+        \)?
+\end{enumerate}
+\end{document}

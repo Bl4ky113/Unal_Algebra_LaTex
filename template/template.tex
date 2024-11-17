@@ -1,11 +1,13 @@
 
 %%% Template Packages %%%
 
+\usepackage{xifthen} % Template stuff 
 \usepackage{graphicx} % Images
 \usepackage{tcolorbox} % Color Box
 \usepackage[%
 vmargin=2cm,%
-hmargin=2.25cm%
+hmargin=2.25cm,%
+headheight=22pt%
 ]{geometry} % Page Geometry
 \usepackage{fancyhdr} % Header / Footer Styles
 \usepackage{extramarks} % Header / Footer Marks
@@ -21,9 +23,12 @@ hmargin=2.25cm%
 \usepackage{unicode-math} % Math Symbols
 
 \usepackage{polyglossia} % Language
-    \setdefaultlanguage{spanish}
+    \setdefaultlanguage{spanish}%
 
-\renewcommand{\thefootnote}{\Roman{footnote}} % Changing footnotes arabic to roman numbers
+%%% Variables and Such %%%
+\ifthenelse{\isundefined{\TemplatePath}}{%
+    \def\TemplatePath{template/}
+}{}
 
 %%% Template Styles %%%
 
@@ -32,31 +37,57 @@ hmargin=2.25cm%
 \RenewDocumentCommand{\headrule}{}{%
     \rule[0.1cm]{\textwidth}{0.1mm}%
 }
+
+\ifthenelse{\isundefined{\MyTitle}}{}{%
+\fancyhf[HC]{{\slshape \MyTitle{}}}
+}%
+%\fancyhead[HL]{\firstleftxmark}
+%\fancyhead[HR]{\lastleftxmark}
+
 \RenewDocumentCommand{\footrule}{}{%
     \rule[0.1cm]{\textwidth}{0.1mm}%
 }
 
-\fancyhf[HC]{{\slshape \MyTitle{}}}
-%\fancyhead[HL]{\firstleftxmark}
-%\fancyhead[HR]{\lastleftxmark}
+\renewcommand{\thefootnote}{\Roman{footnote}} % Changing footnotes arabic to roman numbers
 
 % Redefine \maketitle
 \RenewDocumentCommand{\maketitle}{s}{%
     \begin{@twocolumntrue}%
         \begin{minipage}{0.3\textwidth}%
             \begin{Center}
-                \includegraphics[width=0.6\textwidth]{../template/src/unal_logo.pdf}%
+                \includegraphics[width=0.6\textwidth]{\TemplatePath src/unal_logo.pdf}%
             \end{Center}
         \end{minipage}%
-        \begin{minipage}{0.7\textwidth}{{%
-        \begin{Center}%
-            {\large \itshape \MyClass{}} \\[1ex]
-            {\huge  \slshape \MyTitle{}} \\[4ex]
-            {\Large  \MyAuthor{}} \\[0ex]
-            {\small  \MyEmail{}} \\[4ex] 
-            \MyDate{}
-        \end{Center}%
-        }}%
+        \begin{minipage}{0.7\textwidth}{%
+            \begin{Center}
+                \ifthenelse{\isundefined{\MyClass}}{%
+                    {\large Set \textbackslash{}def\textbackslash{}MyClass\{your\_class\} in the preamble} \\[0ex]%
+                }{%
+
+                    {\large \itshape \MyClass{}} \\[1ex]
+                }%
+                \ifthenelse{\isundefined{\MyTitle}}{%
+                    {\huge Set \textbackslash{}def\textbackslash{}MyTitle\{doc\_title\} in the preamble} \\[4ex]%
+                }{%
+                    {\huge \slshape \MyTitle{}} \\[4ex]%
+                }%
+                \ifthenelse{\isundefined{\MyAuthor}}{%
+                    {\Large Set \textbackslash{}def\textbackslash{}MyAuthor\{your\_name\} in the preamble} \\[0ex]%
+                }{%
+                    {\Large \MyAuthor{}} \\[0ex]%
+                }%
+                \ifthenelse{\isundefined{\MyEmail}}{%
+                    {\small Set \textbackslash{}def\textbackslash{}MyEmail\{your\_email\} in the preamble} \\[4ex]%
+                }{%
+                    {\small \MyEmail{}} \\[4ex]%
+                }%
+                \ifthenelse{\isundefined{\MyDate}}{%
+                    Set \textbackslash{}def\textbackslash{}MyDate\{doc\_date\} in the preamble%
+                }{%
+                    \MyDate{}%
+                }%
+            \end{Center}
+        }%
         \end{minipage}%
     \end{@twocolumntrue}%
     \vspace{0.5cm}%
@@ -69,7 +100,7 @@ hmargin=2.25cm%
 % Enumerate Lists types
 \newcommand\SetItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
 \newcommand{\listSubscript}[2]{\(#1_{#2}\)}
-\newcommand{\listAlph}{(\alph*)}
+\newcommand{\listAlph}{\alph*.}
 
 %%% Template Math stuff %%%
 
@@ -106,7 +137,13 @@ hmargin=2.25cm%
 \newtheorem{TMPMathCases}[]{Caso}
 \NewDocumentCommand{\ResetCases}{} {\setcounter{TMPMathCases}{0}}
 \NewDocumentEnvironment{mathcase}{O{}m} {%
-    \begin{TMPMathCases}[#1] % 
-        #2%
-    \end{TMPMathCases}%
+    \IfValueTF{#1}{%
+        \begin{TMPMathCases}[#1] % 
+            #2%
+        \end{TMPMathCases}%
+    }{%
+        \begin{TMPMathCases} % 
+            #2%
+        \end{TMPMathCases}%
+    }
 } {}
