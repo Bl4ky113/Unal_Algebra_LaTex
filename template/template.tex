@@ -72,9 +72,9 @@ headheight=22pt%
                     {\huge \slshape \MyTitle{}} \\[4ex]%
                 }%
                 \ifthenelse{\isundefined{\MyAuthor}}{%
-                    {\Large Set \textbackslash{}def\textbackslash{}MyAuthor\{your\_name\} in the preamble} \\[0ex]%
+                    {\Large Set \textbackslash{}def\textbackslash{}MyAuthor\{your\_name\} in the preamble} \\%
                 }{%
-                    {\Large \MyAuthor{}} \\[0ex]%
+                    {\Large \MyAuthor{}} \\%
                 }%
                 \ifthenelse{\isundefined{\MyEmail}}{%
                     {\small Set \textbackslash{}def\textbackslash{}MyEmail\{your\_email\} in the preamble} \\[4ex]%
@@ -101,6 +101,10 @@ headheight=22pt%
 \newcommand\SetItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
 \newcommand{\listSubscript}[2]{\(#1_{#2}\)}
 \newcommand{\listAlph}{\alph*.}
+
+% Fast Supper and Sub -scripts
+\NewDocumentCommand{\tsup}{m} {\textsuperscript{#1}}
+\NewDocumentCommand{\tsub}{m} {\textsubscript{#1}}
 
 %%% Template Math stuff %%%
 

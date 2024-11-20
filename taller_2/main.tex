@@ -1,9 +1,9 @@
 \documentclass{article}
 
-\def\MyAuthor{Martín Steven Hernández Ortiz}
-\def\MyEmail{mahernandezor@unal.edu.co}
 \def\MyClass{Álgebra Lineal}
 \def\MyTitle{Taller 2}
+\def\MyAuthor{Martín Steven Hernández Ortiz}
+\def\MyEmail{mahernandezor@unal.edu.co}
 \def\MyDate{\today}
 
 \def\TemplatePath{../template/}
@@ -15,7 +15,7 @@
 
 \begin{enumerate}
     \setcounter{enumi}{6}
-    \item Al resolver el sistema homogéneo de ecuaciones lineales \(A\vec{x} = \vec{0}\) se obtuvo la siguiente forma escalonada reducida de A
+    \item Al resolver el sistema homogéneo de ecuaciones lineales \(Ax = \vec{0}\) se obtuvo la siguiente forma escalonada reducida de \(A\)
         \[
             \begin{bmatrix}
                 1 & 0 & 1 & 0 & 0 \\
@@ -43,10 +43,223 @@
             \hspace{1cm}
             v_4 = \lambda v_3 \hspace{3ex} \lambda \in \mathbb{R}
         \]
+        Veamos el producto de la matriz con cada vector y si su resultado es \(\vec{0}\), entonces sí son una solución para el sistema homogéneo de ecuaciones lineales.
+        \ResetCases
+        \begin{mathcase}{\(v_1 \cdot A\)}
+            \[
+                \begin{aligned}
+                    Av_1 &= 
+                    -3
+                    \begin{pmatrix}
+                        1 \\ 0 \\ 0 \\ 0
+                    \end{pmatrix}
+                    -3
+                    \begin{pmatrix}
+                        0 \\ 1 \\ 0 \\ 0
+                    \end{pmatrix}
+                    +3
+                    \begin{pmatrix}
+                        1 \\ 1 \\ 0 \\ 0
+                    \end{pmatrix}
+                    +0
+                    \begin{pmatrix}
+                        0 \\ 0 \\ 1 \\ 0
+                    \end{pmatrix}
+                    +0
+                    \begin{pmatrix}
+                        0 \\ 1 \\ -1 \\ 0
+                    \end{pmatrix} 
+                    \\
+                    &= 
+                    \begin{pmatrix}
+                        -3 \\ 0 \\ 0 \\ 0
+                    \end{pmatrix}
+                    +
+                    \begin{pmatrix}
+                        0 \\ -3 \\ 0 \\ 0
+                    \end{pmatrix}
+                    +
+                    \begin{pmatrix}
+                        3 \\ 3 \\ 0 \\ 0
+                    \end{pmatrix}
+                    +
+                    \vec{0}
+                    +
+                    \vec{0} 
+                    =
+                    \begin{pmatrix}
+                        0 \\ 0 \\ 0 \\ 0
+                    \end{pmatrix}
+                    =
+                    \vec{0}
+                \end{aligned}
+            \]
+            Para este caso, \(v_1\) es una combinación lineal de las columnas de \(A\).
+        \end{mathcase}
+        \begin{mathcase}{\(v_2 \cdot A\)}
+            \[
+                \begin{aligned}
+                    Av_2 &= 
+                    0
+                    \begin{pmatrix}
+                        1 \\ 0 \\ 0 \\ 0
+                    \end{pmatrix}
+                    -1
+                    \begin{pmatrix}
+                        0 \\ 1 \\ 0 \\ 0
+                    \end{pmatrix}
+                    +0
+                    \begin{pmatrix}
+                        1 \\ 1 \\ 0 \\ 0
+                    \end{pmatrix}
+                    +1
+                    \begin{pmatrix}
+                        0 \\ 0 \\ 1 \\ 0
+                    \end{pmatrix}
+                    +1
+                    \begin{pmatrix}
+                        0 \\ 1 \\ -1 \\ 0
+                    \end{pmatrix} 
+                    \\
+                    &=
+                    \vec{0}
+                    +
+                    \begin{pmatrix}
+                        0 \\ -1 \\ 0 \\ 0
+                    \end{pmatrix}
+                    +
+                    \vec{0}
+                    +
+                    \begin{pmatrix}
+                        0 \\ 0 \\ 1 \\ 0
+                    \end{pmatrix}
+                    +
+                    \begin{pmatrix}
+                        0 \\ 1 \\ -1 \\ 0
+                    \end{pmatrix} 
+                    = 
+                    \begin{pmatrix}
+                        0 \\ 0 \\ 0 \\ 0
+                    \end{pmatrix}
+                    = 
+                    \vec{0}
+                \end{aligned}
+            \]
+            De igual manera para este caso, \(v_2\) es una solución 
+            para el sistema de ecuaciones lineales \(\left[A \mid 0\right]\).
+        \end{mathcase}
+        \begin{mathcase}{\(v_3 \cdot A\)}
+            \[
+                \begin{aligned}
+                    Av_3 &= 
+                    -\alpha
+                    \begin{pmatrix}
+                        1 \\ 0 \\ 0 \\ 0
+                    \end{pmatrix}
+                    +(-\alpha - 1)
+                    \begin{pmatrix}
+                        0 \\ 1 \\ 0 \\ 0
+                    \end{pmatrix}
+                    -\alpha
+                    \begin{pmatrix}
+                        1 \\ 1 \\ 0 \\ 0
+                    \end{pmatrix}
+                    +1
+                    \begin{pmatrix}
+                        0 \\ 0 \\ 1 \\ 0
+                    \end{pmatrix}
+                    +1
+                    \begin{pmatrix}
+                        0 \\ 1 \\ -1 \\ 0
+                    \end{pmatrix} 
+                    \\
+                    &=
+                    \begin{pmatrix}
+                        -\alpha \\ 0 \\ 0 \\ 0
+                    \end{pmatrix}
+                    +
+                    \begin{pmatrix}
+                        0 \\ -\alpha - 1 \\ 0 \\ 0
+                    \end{pmatrix}
+                    +
+                    \begin{pmatrix}
+                        -\alpha \\ -\alpha \\ 0 \\ 0
+                    \end{pmatrix}
+                    +
+                    \begin{pmatrix}
+                        0 \\ 0 \\ 1 \\ 0
+                    \end{pmatrix}
+                    +
+                    \begin{pmatrix}
+                        0 \\ 1 \\ -1 \\ 0
+                    \end{pmatrix} 
+                    = 
+                    \begin{pmatrix}
+                        -2\alpha \\ -2\alpha \\ 0 \\ 0
+                    \end{pmatrix}
+                \end{aligned}
+            \]
+            En el caso que \(\alpha = 0\), se va a tener que \(Av_3 = \vec{0}\), 
+            es decir, \(v_3 \in N_{A}\).
+        \end{mathcase}
+        \begin{mathcase}{\(v_4 \cdot A\)}
+            Este caso va a ser similar al caso de \(v_3\)
+            \[
+                \begin{aligned}
+                    Av_4 &= 
+                    -\lambda\alpha
+                    \begin{pmatrix}
+                        1 \\ 0 \\ 0 \\ 0
+                    \end{pmatrix}
+                    +(-\lambda\alpha - \lambda)
+                    \begin{pmatrix}
+                        0 \\ 1 \\ 0 \\ 0
+                    \end{pmatrix}
+                    -\lambda\alpha
+                    \begin{pmatrix}
+                        1 \\ 1 \\ 0 \\ 0
+                    \end{pmatrix}
+                    +\lambda
+                    \begin{pmatrix}
+                        0 \\ 0 \\ 1 \\ 0
+                    \end{pmatrix}
+                    +\lambda
+                    \begin{pmatrix}
+                        0 \\ 1 \\ -1 \\ 0
+                    \end{pmatrix} 
+                    \\
+                    &=
+                    \begin{pmatrix}
+                        -\lambda\alpha \\ 0 \\ 0 \\ 0
+                    \end{pmatrix}
+                    +
+                    \begin{pmatrix}
+                        0 \\ -\lambda\alpha - \lambda \\ 0 \\ 0
+                    \end{pmatrix}
+                    +
+                    \begin{pmatrix}
+                        -\lambda\alpha \\ -\lambda\alpha \\ 0 \\ 0
+                    \end{pmatrix}
+                    +
+                    \begin{pmatrix}
+                        0 \\ 0 \\ \lambda \\ 0
+                    \end{pmatrix}
+                    +
+                    \begin{pmatrix}
+                        0 \\ \lambda \\ -\lambda \\ 0
+                    \end{pmatrix} 
+                    = 
+                    \begin{pmatrix}
+                        -2\lambda\alpha \\ -2\lambda\alpha \\ 0 \\ 0
+                    \end{pmatrix}
+                \end{aligned}
+            \]
+            En este caso es si \(\lambda = 0\) o \(\alpha = 0\) entonces \(Av_4 = \vec{0}\).
+        \end{mathcase}
     \setcounter{enumi}{12}
     \item Determine para que valores de \(\alpha\), tal que
         \(
-            gen \left\{
+            Gen \left\{
                 \begin{pmatrix}
                     0 \\ 1 \\ \alpha
                 \end{pmatrix},
@@ -58,7 +271,8 @@
                 \end{pmatrix}
             \right\}
             = \mathbb{R}^3
-        \)
+        \) \\
+        Para que el conjunto generado sea igual a \(\mathbb{R}^3\) necesitamos que sus vectores o el conjunto generador sean \(l.i\)
     \setcounter{enumi}{22}
     \item Dados los vectores en \(\mathbb{R}^n\), \(v, v, w\) Si \(H = \left\{u, v, w\right\}\) es \(l.i\), determine cuál de la siguientes afirmaciones es falsa.
         \begin{enumerate}[label=\listAlph]
