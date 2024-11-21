@@ -199,7 +199,7 @@
                     \end{pmatrix}
                 \end{aligned}
             \]
-            En el caso que \(\alpha = 0\), se va a tener que \(Av_3 = \vec{0}\), 
+            En el caso que \(\alpha\) sea igual a 0, se va a tener que \(Av_3\) es igual a \(\vec{0}\), 
             es decir, \(v_3 \in N_{A}\).
         \end{mathcase}
         \begin{mathcase}{\(v_4 \cdot A\)}
@@ -254,7 +254,9 @@
                     \end{pmatrix}
                 \end{aligned}
             \]
-            En este caso es si \(\lambda = 0\) o \(\alpha = 0\) entonces \(Av_4 = \vec{0}\).
+            En este caso es si \(\lambda\) es igual a 0 o \(\alpha\) es igual a 0, entonces 
+            vamos a tener que \(v_4\) es una solución del sistema homogéneo de ecuaciones lineales,
+            o de forma equivalente, \(Av_4 = \vec{0}\).
         \end{mathcase}
     \setcounter{enumi}{12}
     \item Determine para que valores de \(\alpha\), tal que
@@ -272,15 +274,165 @@
             \right\}
             = \mathbb{R}^3
         \) \\
-        Para que el conjunto generado sea igual a \(\mathbb{R}^3\) necesitamos que sus vectores o el conjunto generador sean \(l.i\)
+        Para que el conjunto generado sea igual a \(\mathbb{R}^3\), o de manera similar, que el generador pueda crear cualquier vector en \(\mathbb{R}^3\). 
+        Para lograr esto primero miremos que un generador de los vectores canónicos en \(\mathbb{R}^3\) puede crear cualquier vector en \(\mathbb{R}^3\).
+        Sin embargo, solo para confirmar que esto es verdadero, probemos una generalización en \(R^n\) de esta afirmación.
+        \begin{proof}
+            Debemos probar que si contamos con los vectores canónicos \(e_1, e_2, \ldots, e_n\) en \(\mathbb{R}^n\), el conjunto generado de estos vectores va a ser igual a \(\mathbb{R}^n\),
+            es decir:
+            \[
+                Gen\left\{e_1, e_2, \ldots, e_n\right\} = \mathbb{R}^3
+            \]
+            Primero, si tenemos un vector \(u\) en \(\mathbb{R}^n\) tal que todos sus componentes sean elementos arbitrarios pero fijos en \(\mathbb{R}\),
+            podemos realizar una combinación lineal con el conjunto generador
+            \[
+                u_1 
+                \cdot 
+                \begin{pmatrix}
+                    1 \\ 0 \\ \vdots \\ 0
+                \end{pmatrix}
+                +u_2
+                \cdot
+                \begin{pmatrix}
+                    0 \\ 1 \\ \vdots \\ 0
+                \end{pmatrix}
+                +
+                \cdots
+                +u_n
+                \cdot
+                \begin{pmatrix}
+                    0 \\ 0 \\ \vdots \\ 1
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    u_1 \\ 0 \\ \vdots \\ 0
+                \end{pmatrix}
+                +
+                \begin{pmatrix}
+                    0 \\ u_2 \\ \vdots \\ 0
+                \end{pmatrix}
+                +
+                \cdots
+                +
+                \begin{pmatrix}
+                    0 \\ 0 \\ \vdots \\ u_n
+                \end{pmatrix}
+                =
+                u
+            \]
+            Obteniendo como resultado que al realizar la combinación lineal se obtiene el mismo vector.
+            Con lo cual se puede concluir que, al realizar una combinación lineal entre el conjunto generador y cualquier vector se obtiene el mismo vector.
+            Es decir que, apartir de este conjunto generador se puede obtener cualquier vector en \(\mathbb{R}^n\), o \(Gen\left\{e_1, e_2, \dots, e_n\right\} = \mathbb{R}^3\)
+        \end{proof}
+        Además, podemos que el conjunto generador \(\left\{e_1, e_2, \ldots, e_n\right\}\) es \(l.i\) 
+        ya que la única combinación lineal que de como resultado a \(\vec{0}\) es con el mismo vector \(\vec{0}\).
+        Y por un proceso similar, con \(e_1, e_2, e_3\) en \(\mathbb{R}^3\), tenemos que \(Gen\left\{e_1, e_2, e_3\right\} = \mathbb{R}^3\). Y que \(\left\{e_1, e_2, e_3\right\}\) es \(l.i\).
+        \\
+        Ahora, volviendo a nuestro problema original, podemos mirar un \(\alpha\) tal que el conjunto generador 
+        \(
+        \left\{
+            \begin{pmatrix}
+                0 \\ 1 \\ \alpha
+            \end{pmatrix},
+            \begin{pmatrix}
+                \alpha \\ 1 \\ 0
+            \end{pmatrix},
+            \begin{pmatrix}
+                0 \\ \alpha \\ 1
+            \end{pmatrix}
+        \right\}
+        \)
+        sea \(l.i\). Y probar, de forma similar, si este conjunto generador permite obtener a cualquier vector en \(\mathbb{R}^n\).
+        Para encontrar el \(\alpha\) tal que el conjunto generador sea \(l.i\) vamos a crear un sistema homogéneo de ecuaciones lineales con el conjunto generador, 
+        y tomando a \(\lambda_1, \lambda_2, \lambda_3\) como las variables del sistema.
+        \[
+            \begin{pmatrix}
+                0 & \alpha & 0 \\
+                1 & 1 & \alpha \\
+                \alpha & 0 & 1
+            \end{pmatrix}
+            \cdot
+            \begin{pmatrix}
+                \lambda_1 \\ \lambda_2 \\ \lambda_3
+            \end{pmatrix}
+            =
+            \vec{0}
+            \hspace{1ex};\hspace{1ex}
+            \begin{aligned}
+                F_1 \leftrightarrow F_2
+            \end{aligned}
+            \begin{pmatrix}
+                1 & 1 & \alpha \\
+                0 & \alpha & 0 \\
+                \alpha & 0 & 1
+            \end{pmatrix}
+        \]
     \setcounter{enumi}{22}
     \item Dados los vectores en \(\mathbb{R}^n\), \(v, v, w\) Si \(H = \left\{u, v, w\right\}\) es \(l.i\), determine cuál de la siguientes afirmaciones es falsa.
         \begin{enumerate}[label=\listAlph]
-            \item \(Gen\left\{u + v, v − w\right\} \subseteq Gen\left(H\right)\)
-            \item \(H \subseteq Gen\left(H\right)\)
-            \item \(\vec{0} \in Gen\left(H\right)\)
-            \item \(\left\{u, u + v, u + v + w\right\}\) es \(l.d\)
-            \item \(w \in H\)
+            \item \(Gen\left\{u + v, v − w\right\} \subseteq Gen\left(H\right)\) \\
+                Verdadera, ya que,
+                apartir de cualquier vector \(a\) en \(Gen\left\{u + v, v - w\right\}\) vamos a tener que también van a estar en \(Gen\left(H\right)\)
+                por la combinación lineal de ambos conjuntos generados.
+                Teniendo que, sean \(b, d\) vectores en \(\mathbb{R}^n\) se tiene que
+                \[
+                    \begin{gathered}
+                        b \in Gen\left\{u + v, v - w\right\} \leftrightarrow b = \lambda_1 \cdot \left(u + v\right) + \lambda_2 \cdot \left(v - w\right) \\
+                        d \in Gen\left(H\right) \leftrightarrow d = \gamma_1 \cdot u + \gamma_2 \cdot v + \gamma_3 w
+                    \end{gathered}
+                \]
+                Se puede ver que
+                \[
+                    \begin{aligned}
+                        a \in Gen\left\{u + v, v - w\right\} \leftrightarrow
+                        a &= \lambda_1 \cdot \left(u + v\right) + \lambda_2 \cdot \left(v - w\right) \\
+                        &= \lambda_1u + \lambda_1v + \lambda_2v - \lambda_2w \\
+                        &= \lambda_1u + \left(\lambda_1 + \lambda_2\right)v - \lambda_2w \\
+                        &= \gamma_1u + \gamma_2v + \gamma_3w = a \leftrightarrow
+                        a \in Gen\left(H\right)
+                    \end{aligned}
+                \]
+                Resultando que todo vector en \(Gen\{u + v, v - w\}\) también va a estar en \(Gen(H)\)
+            \item \(H \subseteq Gen\left(H\right)\) \\
+                Verdadera, ya que para cada vector en \(H\), definido como \(a\), va a tener un vector de escalares, definido como \(a_{\lambda}\), tal que 
+                al hacer una combinación lineal de \(H\) por los componentes del vector de escalares se va a obtener a \(a\).
+                \[
+                    \begin{aligned}
+                        u_{\lambda} &= \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}; \hspace{1cm}
+                        1 \cdot u + 0 \cdot v + 0 \cdot w = u \\
+                        v_{\lambda} &= \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}; \hspace{1cm}
+                        0 \cdot u + 1 \cdot v + 0 \cdot w = v \\
+                        w_{\lambda} &= \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}; \hspace{1cm}
+                        0 \cdot u + 0 \cdot v + 1 \cdot w = w \\
+                    \end{aligned}
+                \]
+                Inclusive, como \(H\) y el conjunto generador son el mismo, para obtener los vectores del conjunto generador, definiendo el número de vectores en \(H\) como \(s_H\),
+                vamos a tener que los vectores cuyos componentes generan a un vector del conjunto generador van a ser los vectores canónicos en \(\mathbb{R}^{s_H}\).
+            \item \(\vec{0} \in Gen\left(H\right)\) \\
+                Verdadera, solo es necesario ver que si hacemos una combinación lineal con las componentes del vector \(\vec{0}\) en \(\mathbb{R}^3\) vamos a tener
+                \[
+                    0 \cdot u + 0 \cdot v + 0 \cdot w = \vec{0}
+                \]
+                Por ende, \(\vec{0} \in Gen\left(H\right)\).
+            \item \(\left\{u, u + v, u + v + w\right\}\) es \(l.d\) \\
+                Antes de iniciar, definamos a \(C\) como el conjunto de los vectores \(u, u + v, u + v + w\) para una mejor explicación.
+                Para que \(C\) sea \(l.d\) sabemos que, por definición, debe existir un escalar diferente a 0 tal que la combinación lineal de 
+                estos escalares con los vectores en \(C\) sean igual a el vector \(\vec{0}\). Es decir, vamos a tener
+                \[
+                    \begin{gathered}
+                        \lambda_1\left(u\right) + \lambda_2\left(u + v\right) + \lambda_3\left(u + v + w\right) = 0 \\
+                        \lambda_1u + \lambda_2u + \lambda_2v + \lambda_3u + \lambda_3v + \lambda_3w = 0 \\
+                        \left(\lambda_1 + \lambda_2 + \lambda_3\right)u + \left(\lambda_2 + \lambda_3\right)v + \lambda_3w = 0
+                    \end{gathered}
+                \]
+                Ahora, como \(H\) es \(l.i\), por hipotesis sabemos que los únicos escalares, \(\gamma_1, \gamma_2, \gamma_3\), tal que 
+                su combinación lineal con \(H\) es igual a el vector \(\vec{0}\) van a ser \(\gamma_1 = \gamma_2 = \gamma_3 = 0\).
+                Entonces si alguno de los escalares \(\left(\lambda_1 + \lambda_2 + \lambda_3\right)\), \(\left(\lambda_2 + \lambda_3\right)\) 
+                o \(\lambda_3\) es diferente a 0, vamos a tener una contradicción a la hipotesis. Por ende, 
+                \(\left(\lambda_1 + \lambda_2 + \lambda_3\right)\), \(\left(\lambda_2 + \lambda_3\right)\) y \(\lambda_3\) deben ser iguales a 0. \\
+                En conclusión, \(C\) es \(l.i\), entonces la afirmación es \textbf{falsa}.
+            \item \(w \in H\) \\
+                Verdadera, por definición de \(H\) tiene como elemento a \(w\).
         \end{enumerate}
     \item Considiere los vectores en \(\mathbb{R}^3\) dados por 
         \(
@@ -298,21 +450,201 @@
                 2 \\ 1 \\ 3
             \end{pmatrix}
         \). \\
-        Muestre que \(Gen\left\{u + v, v - w\right\} \subseteq Gen\left\{u, v, w\right\}\), y determine si estos conjuntos son iguales.
+        Muestre que \(Gen\left\{u + v, v - w\right\} \subseteq Gen\left\{u, v, w\right\}\), y determine si estos conjuntos son iguales. \\
+        Primero definamos ambos conjuntos generados como las combinaciones lineales de unos escalares con los vectores del respectivo conjunto generador, 
+        sean \(b, d\) vectores en \(\mathbb{R}^3\), escalares \(\lambda_i, \gamma_i\) para \(i \in \mathbb{N}\) y \(1 \leq i \leq 3\) entonces
+        \[
+            \begin{aligned}
+                b \in Gen\left\{u + v, v - w\right\} &\leftrightarrow b = \lambda_1\left(u + v\right) + \lambda_2\left(v - w\right) \\
+                d \in Gen\left\{u, v, w\right\} &\leftrightarrow d = \gamma_1 \cdot u + \gamma_2 \cdot v + \gamma_3 \cdot w 
+            \end{aligned}
+        \]
+        Además, antes de iniciar, verifiquemos que \(\left\{u + v, v - w\right\}\) y \(\left\{u, v, w\right\}\) son \(l.i\)
+        \[
+            Gen\left\{u + v, v - w\right\} = 
+            Gen\left\{
+                \begin{pmatrix}
+                    2 \\ -1 \\ 1
+                \end{pmatrix}
+                +
+                \begin{pmatrix}
+                    0 \\ 1 \\ 1
+                \end{pmatrix},
+                \begin{pmatrix}
+                    0 \\ 1 \\ 1
+                \end{pmatrix}
+                -
+                \begin{pmatrix}
+                    2 \\ 1 \\ 3
+                \end{pmatrix}
+            \right\}
+            =   
+            Gen\left\{
+                \begin{pmatrix}
+                    2 \\ 0 \\ 2
+                \end{pmatrix},
+                \begin{pmatrix}
+                    -2 \\ 0 \\ -2
+                \end{pmatrix}
+            \right\}
+            =
+            Gen\left\{
+                \begin{pmatrix}
+                    2 \\ 0 \\ 2
+                \end{pmatrix}
+            \right\}
+        \]
+        Al \(Gen\left\{\begin{pmatrix}2 \\ 0 \\ 2\end{pmatrix}\right\}\) tener un conjunto generador de solo un vector, esté va a ser \(l.i\).
+        A continuación, para ver si \(\left\{u, v, w\right\}\) es \(l.i\) vamos a tener mirar si su sistema homogéneo de ecuaciones lineales tiene solo una solución.
+        Partiendo desde una matriz que tenga como columnas a \(u, v, \text{ y  } w\), vamos a tener que
+        \[
+            \begin{pmatrix}
+                2 & 0 & 2 \\
+                -1 & 1 & 1 \\ 
+                1 & 1 & 3
+            \end{pmatrix}
+            \cdot
+            \begin{pmatrix}x_1 \\ x_2 \\ x_3\end{pmatrix}
+            = 
+            \vec{0}
+            ;\hspace{0.5cm}
+            \begin{pmatrix}
+                2 & 0 & 2 \\
+                -1 & 1 & 1 \\ 
+                1 & 1 & 3
+            \end{pmatrix}
+            \sim
+            \begin{aligned}
+                \frac{1}{2}F_1 &\mapsto F_1 \\
+                F_3 + F_2 &\mapsto F_3
+            \end{aligned}
+            \begin{pmatrix}
+                1 & 0 & 1 \\
+                -1 & 1 & 1 \\ 
+                0 & 2 & 4
+            \end{pmatrix}
+            \sim
+            \begin{aligned}
+                \frac{1}{2}F_3 &\mapsto F_3 \\
+                F_2 + F_1 &\mapsto F_2 \\
+                F_3 - F_2 &\mapsto F_3
+            \end{aligned}
+            \begin{pmatrix}
+                1 & 0 & 1 \\
+                0 & 1 & 2 \\ 
+                0 & 0 & 0
+            \end{pmatrix}
+        \]
+        Ahora con esta matriz equivalente vamos a hacer sustitución hacia atrás
+        \[
+            \left\{
+                \begin{aligned}
+                    x_1 + x_3 &= 0 \\
+                    x_2 + x_3 &= 0 
+                \end{aligned}
+            \right.
+            \hspace{0.5cm}
+            \left\{
+                \begin{aligned}
+                    x_1 &= -x_3 \\
+                    x_2 &= -x_3
+                \end{aligned}
+            \right.
+            \hspace{0.5cm}
+            \left\{
+                \begin{aligned}
+                    x_1 &= x_2 \\
+                \end{aligned}
+            \right.
+        \]
+        Aunque pareciera que \(x_3\) puede ser cualquier número real, si verificamos en el sistema homogéneo de ecuaciones lineales inicial vamos a 
+        obtener que si \(x_1\) es igual a \(x_2\), y ambos son iguales a \(-x_3\)
+        \[
+            \left\{
+            \begin{aligned}
+                2x_1 + x_3 = 2\left(-x_3\right) + x_3 = -x_3 &= 0 \\
+                -x_1 + x_2 + x_3 = -x_1 + x_1 + x_3 = x_3 &= 0 \\
+                x_1 + x_2 + 3x_3 = -x_3 + \left(-x_3\right) + 3x_3 = x_3 &= 0
+            \end{aligned}
+            \right.
+        \]
+        El único valor real de \(x_3\) que puede solucionar el sistema homogéneo de ecuaciones lineales es cuando \(v_3\) es igual a 0.
+        Por ende, el sistema homogéneo de ecuaciones lineales equivalente a el conjunto de vectores \(u, v, w\) solo tiene una solución, y además,
+        \(\{u, v, w\}\) es \(l.i\).
+
+                
+        Como sabemos que ambos conjuntos generadores son \(l.i\) vamos a poder hacer un proceso similar al del punto 23--a.
+        Partiendo de este punto, vamos a ver cada caso de contenencia para ver si ambos conjuntos generados son iguales.
+        \ResetCases{}
+        \begin{mathcase}{\(Gen\left\{u + v, v - w\right\} \subseteq Gen\left\{u, v, w\right\}\)}
+            Sea \(a\) un vector elemento del conjunto generado \(Gen\left\{u + v, v - w\right\}\) cualesquiera, por definición es igual a
+            \[
+                a = \lambda_1\left(u + v\right) + \lambda_2\left(v - w\right)
+            \]
+            Distribuimos amobs escalares respecto a la suma de vectores.
+            \[
+                a = \lambda_1u + \lambda_1v + \lambda_2v - \lambda_2w
+            \]
+            Por propiedad asociativa de la suma entre vectores, \emph{juntamos} el vector \(v\)
+            \[
+                a = \lambda_1u + \left(\lambda_1v + \lambda_2v\right) - \lambda_2w
+            \]
+            Por dristribuidad de los escalares entre suma de escalares, factorizamos a \(v\) dentro de la suma de los vectores \(v\)
+            \[
+                a = \lambda_1u + \left(\lambda_1 + \lambda_2\right)v - \lambda_2w
+            \]
+            Reemplazamos \(\lambda_1 = \gamma_1\), \(\left(\lambda_1 + \lambda_2\right) = \gamma_2\) y \(-\lambda_2 = \gamma_3\)
+            \[
+                a = \gamma_1u + \gamma_2v + \gamma_3w
+            \]
+            Obteniendo, por definición que \(a\) es un elemento del conjunto generado \(Gen\left(u, v, w\right)\).
+            Por ende, \(Gen\left\{u + v, v - w\right\}\) va a estar contenido en \(Gen\left(u, v, w\right)\).
+        \end{mathcase}
+        \begin{mathcase}{\(Gen\left\{u + v, v - w\right\} \supseteq Gen\left\{u, v, w\right\}\)}
+            Partiendo desde, \(c \in Gen\left\{u, v, w\right\}\)
+            \[
+                \begin{aligned}
+                    c &= \gamma_1u + \gamma_2v + \gamma_3w \\
+                    &= \lambda_1u + \left(\lambda_1 + \lambda_2\right)v - \lambda_2w \\
+                    &= \lambda_1u + \left(\lambda_1v + \lambda_2v\right) - \lambda_2w \\
+                    &= \lambda_1u + \lambda_1v + \lambda_2v - \lambda_2w \\ 
+                    &= \lambda_1\left(u + v\right) + \lambda_2\left(v - w\right) \\
+                \end{aligned}
+            \]
+            Se tiene que, por definición, \(c \in Gen\{u + v, v - w\}\). 
+            Por ende, \(Gen\{u + v, v - w\} \supseteq Gen\{u, v, w\}\).
+        \end{mathcase}
+        \\
+        Conluyendo por ambos pasos de contenencia, por definición de igualdad de dos conjuntos, se obtiene que
+        \[
+            Gen\left\{u + v, v - w\right\} = Gen\left\{u, v, w\right\}
+        \]
 
     \setcounter{enumi}{27}
     \item Sean \(A\) una matriz de \(m\) filas y \(n\) columnas y \(U\) una matriz escalonada equivalente a \(A\). Si \textbf{para cualquier vector \(b\)}
         de \(\mathbb{R}^m\), el sistema de ecuaciones lineales, cuya matriz aumentada es \(\left[A \mid b\right]\), \textbf{tiene solución única}, 
         determine cuales de las siguientes afirmaciones son verdaderas. Justifique su respuesta.
         \begin{enumerate}[label=\listAlph]
-            \item El vector \(b\) es combinación lineal de las columnas de \(A\).
-            \item El vector \(b\) es combinación lineal de las columnas de \(U\).
-            \item Cada fila de \(U\) tiene un pivote.
-            \item Cada columna de \(U\) tiene un pivote.
-            \item La matriz \(U\) tiene \(n\) pivotes.
-            \item La matriz \(U\) tiene \(m\) pivotes.
-            \item \(m = n\).
-            \item Las columnas de \(A\) generan a \(\mathbb{R}^m\)
+            %\item El vector \(b\) es combinación lineal de las columnas de \(A\).
+                %Verdadera,
+            %\item El vector \(b\) es combinación lineal de las columnas de \(U\).
+                %Verdadera
+            \setcounter{enumii}{2}
+            \item Cada fila de \(U\) tiene un pivote. \\
+                Falsa, ya que puede que exista un sistema de ecuaciones lineales tal que, en su matriz escalonada, cada variable, y por definición columna, tenga un pivote; 
+                pero qué cuente con una ecuación donde cada coeficiente es igual a 0. En este caso, cada fila de la matriz escalonada va a contar con pivote excepto esta última fila.
+            \item Cada columna de \(U\) tiene un pivote. \\
+                Verdadera, ya que por hipotesis tenemos que el sistema de ecuaciones lineales tiene una única solución, o de manera similar, 
+                que la matriz escalonada del sistema de ecuaciones lineales va tener un pivote para cada variable, dado a que no hay variables libres.
+                Y por definición de la matriz de un sistema de ecuaciones lineales, cada columna corresponde a una variable, por ende cada columna tiene un pivote.
+            %\item La matriz \(U\) tiene \(n\) pivotes.
+                %Verdadera
+            %\item La matriz \(U\) tiene \(m\) pivotes.
+                %%
+            %\item \(m = n\).
+                %%
+            %\item Las columnas de \(A\) generan a \(\mathbb{R}^m\)
+                %%
         \end{enumerate}
     \item Sean \(A\) una matriz de \(m\) filas y \(n\) columnas y \(U\) una matriz escalonada equivalente a \(A\). 
         Si \textbf{para cualquier vector \(b\) de} \(\mathbb{R}^m\),
@@ -320,14 +652,34 @@
         \textbf{tiene infinitas soluciones},
         determine cuales de las siguientes afirmaciones son verdaderas. Justifique su respuesta.
         \begin{enumerate}[label=\listAlph]
-            \item El vector \(b\) es combinación lineal de las columnas de \(A\).
-            \item El vector \(b\) es combinación lineal de las columnas de \(U\).
-            \item Cada fila de \(U\) tiene un pivote.
-            \item Cada columna de \(U\) tiene un pivote.
-            \item La matriz \(U\) tiene \(n\) pivotes.
-            \item La matriz \(U\) tiene \(m\) pivotes.
-            \item \(m < n\).
-            \item Las columnas de \(A\) generan a \(\mathbb{R}^m\).
+            %\item El vector \(b\) es combinación lineal de las columnas de \(A\).
+                %Falso, existen vectores tal que no sean una combinación lineal de las columnas de \(A\), o equivalente,
+                %que las componentes del vector no sean una solución para el sistema de ecuaciones lineales. 
+                %Por ejemplo, si el conjunto solución de un sistema de ecuaciones lineales es 
+                %\[
+                    %\left\{
+                        %x_1 \in \mathbb{R} 
+                        %\mid 
+                        %\left(x_1, 2x_1, 4x_1, 8x_1, \ldots, 2^{m}x_1\right)
+                    %\right\}
+                %\]
+            %\item El vector \(b\) es combinación lineal de las columnas de \(U\).
+            %\item Cada fila de \(U\) tiene un pivote.
+            \setcounter{enumii}{3}
+            \item Cada columna de \(U\) tiene un pivote. \\
+                Falso, ya que puede existir un sistema de ecuaciones lianes tal que su matriz cuyas columnas sean \(c_1, c_2, \ldots, \vec{0}, \ldots, c_n\),
+                donde \(c_i\) y \(\vec{0}\) son vectores en \(\mathbb{R}^m\) para \(i \in \mathbb{N} \mid 1 \leq i \leq n\),
+                donde la columna del vector \(\vec{0}\) no va a tener pivote. O, en general, cuando una variable sea libre, esta no va a 
+                tener pivote, y para que un sistema de ecuaciones lineales tenga infinitas soluciones vamos a tener que esta va a tener almenos una variable libre.
+            %\item La matriz \(U\) tiene \(n\) pivotes.
+            %\item La matriz \(U\) tiene \(m\) pivotes.
+            \setcounter{enumii}{6}
+            \item \(m < n\). \\
+                Falso, ya que apartir de un sistema de ecuaciones lineales, denotado \(Ec\), tal que la diferencia entre columnas y filas de su matriz sea de una columna mayor a las filas,
+                es decir \(m = n + 1\). Y además, en \(Ec\) no se cuenta con la ecuación de la solución trivial: \(0x_1 + 0x_2 + \cdots + 0x_n = 0\). 
+                Se va a poder crear un nuevo sistema de ecuaciones linales, denotado \(Ec^+\), tal que tenga todas las ecuaciones de \(Ec\) 
+                y se agregue la ecuación solución trivial. Entonces, la matriz de \(Ec^+\) va a tener el mismo número de columnas y filas.
+            %\item Las columnas de \(A\) generan a \(\mathbb{R}^m\).
         \end{enumerate}
     \item Sean \(A\) una matriz de \(m\) filas y \(n\) columnas y \(U\) una matriz escalonada equivalente a \(A\). 
         Si \textbf{para un vector \(b\)} de \(\mathbb{R}^m\),
@@ -336,14 +688,36 @@
         determine cuales de las siguientes afirmaciones son verdaderas y responda a las preguntas formuladas. 
         Justifique su respuesta.
         \begin{enumerate}[label=\listAlph]
-            \item El vector \(b\) es combinación lineal de las columnas de \(A\).
-            \item El vector \(b\) puede ser combinación lineal de las columnas de \(U\).
-            \item Cada fila de \(U\) tiene un pivote.
-            \item El vector \(b\) puede ser \(\vec{0}\)?
-            \item El vector \(b\) puede ser un múltiplo de alguna de las columnas de \(A\)?
-            \item El vector \(b\) puede ser la suma de las columnas de \(A\)?
-            \item Las columnas de \(A\) generan a \(\mathbb{R}^m\).
-            \item ¿Qué puede decirse del número de pivotes de \(U\)?
+            \item El vector \(b\) es combinación lineal de las columnas de \(A\). \\
+                Falso, por definición de sistema de ecuaciones lineales inconsistente. Si \(b\) es una combinación lineal de las columnas de \(A\) va a existir un vector de escalares
+                \(x = \begin{pmatrix}x_1 \\ x_2 \\ \vdots \\ x_n\end{pmatrix}\) tal que, siendo \(A_i\) una columna de \(A\) para \(i \in \mathbb{N} \mid 1 \leq i \leq n\) 
+                    que es un vector en \(\mathbb{R}^m\) se va a tener que
+                \[
+                    A \cdot x = b
+                \]
+                Sin embargo, al ser el sistema de ecuaciones lineales inconsistente para \(b\), se va a tener que alguna componente de \(x\), para 
+                que se cumpla la igualdad, va a tener que ser dos valores al mismo tiempo, o se va a tener una contradicción en su valor. 
+                Entonces esta combinación lineal no puede existir.
+            %\item El vector \(b\) puede ser combinación lineal de las columnas de \(U\).
+            \setcounter{enumii}{2}
+            \item Cada fila de \(U\) tiene un pivote. \\
+                Falso, esto necesariamente no se cumple para todo sistema de ecuaciones lineales. Ya que en una matriz expandida escalonada tal que su ultima fila sea
+                \[
+                    \left(
+                    \begin{array}{cccc|c}
+                        \vdots & \vdots & \ddots & \vdots & \vdots \\
+                        0 & 0 & \cdots & 0 & p
+                    \end{array}
+                    \right)
+                    \hspace{1cm}
+                    p \neq 0
+                \]
+                En esta fila la matriz escalonada no va a contar con pivote.
+            %\item El vector \(b\) puede ser \(\vec{0}\)?
+            %\item El vector \(b\) puede ser un múltiplo de alguna de las columnas de \(A\)?
+            %\item El vector \(b\) puede ser la suma de las columnas de \(A\)?
+            %\item Las columnas de \(A\) generan a \(\mathbb{R}^m\).
+            %\item ¿Qué puede decirse del número de pivotes de \(U\)? \\
         \end{enumerate}
     \item ¿%
         \(
@@ -366,6 +740,36 @@
                     -1 \\ 5 \\ -5
                 \end{pmatrix}
             \right\}
-        \)?
+        \)? \\
+        Para demostrar esto, simplemente tenemos que demostrar doble contenencia entre ambos conjuntos generados.
+        \ResetCases{}
+        \begin{mathcase}{%
+                \(%
+                    Gen\left\{%
+                        \begin{pmatrix}1 \\ 0 \\ -3\end{pmatrix},%
+                        \begin{pmatrix}4 \\ -10 \\ 2\end{pmatrix}%
+                    \right\}%
+                    \subseteq
+                    Gen\left\{%
+                        \begin{pmatrix}0 \\ -5 \\ 8\end{pmatrix},%
+                        \begin{pmatrix}-1 \\ 5 \\ -5\end{pmatrix}
+                    \right\}%
+                \)%
+            }
+        \end{mathcase}
+        \begin{mathcase}{%
+                \(%
+                    Gen\left\{%
+                        \begin{pmatrix}1 \\ 0 \\ -3\end{pmatrix},%
+                        \begin{pmatrix}4 \\ -10 \\ 2\end{pmatrix}%
+                    \right\}%
+                    \supseteq
+                    Gen\left\{%
+                        \begin{pmatrix}0 \\ -5 \\ 8\end{pmatrix},%
+                        \begin{pmatrix}-1 \\ 5 \\ -5\end{pmatrix}
+                    \right\}%
+                \)%
+            }
+        \end{mathcase}
 \end{enumerate}
 \end{document}
