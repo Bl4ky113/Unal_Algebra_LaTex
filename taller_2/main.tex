@@ -344,7 +344,8 @@
         \)
         sea \(l.i\). Y probar, de forma similar, si este conjunto generador permite obtener a cualquier vector en \(\mathbb{R}^n\).
         Para encontrar el \(\alpha\) tal que el conjunto generador sea \(l.i\) vamos a crear un sistema homogéneo de ecuaciones lineales con el conjunto generador, 
-        y tomando a \(\lambda_1, \lambda_2, \lambda_3\) como las variables del sistema.
+        y tomando a \(\lambda_1, \lambda_2, \lambda_3\) como las variables del sistema. 
+        También, por ahora, asuma que \(\alpha \neq 0\), más adelante se explicara el porqué de esa selección
         \[
             \begin{pmatrix}
                 0 & \alpha & 0 \\
@@ -359,14 +360,184 @@
             \vec{0}
             \hspace{1ex};\hspace{1ex}
             \begin{aligned}
-                F_1 \leftrightarrow F_2
+                F_1 &\leftrightarrow F_2 \\
             \end{aligned}
             \begin{pmatrix}
                 1 & 1 & \alpha \\
                 0 & \alpha & 0 \\
                 \alpha & 0 & 1
             \end{pmatrix}
+            \sim
+            \begin{aligned}
+                \frac{1}{\alpha}F_2 &\mapsto F_2 \\
+                F_1 - \frac{1}{\alpha}F_3 &\mapsto F_1 \\
+            \end{aligned}
+            \begin{pmatrix}
+                0 & 1 & \alpha - \frac{1}{\alpha} \\
+                0 & 1 & 0 \\
+                \alpha & 0 & 1
+            \end{pmatrix}
         \]
+        Apartir de esta matriz equivalente podemos deducir los valores de \(\lambda_1, \lambda_2, \lambda_3\) y \(\alpha\)
+        \[
+            \begin{aligned}
+                \lambda_2 &= 0 \\
+                (\lambda_2 = 0) &\rightarrow \left(\alpha - \frac{1}{\alpha}\right) = 0 \vee \lambda_3 = 0 \\
+            \end{aligned}
+        \]
+        \ResetCases{}
+        \begin{mathcase}{\(\lambda_3 = 0\)}
+            \[
+                \lambda_3 = 0 \rightarrow \alpha = 0 \vee \lambda_1 = 0
+            \]
+            Sin embargo, como \(\alpha\) no puede ser igual a 0 en esta matriz equivalente, ya que tendriamos varias operaciones entre filas
+            indefinidas donde tendriamos escalares iguales a \(\frac{1}{0}\). 
+            Entonces en el caso que \(\alpha\) sea igual a 0, va a solo ser considerado en la matriz inicial, o en la que no se tiene ninguna operación entre filas.
+            Y como por hipotesis del caso, \(\lambda_3\) es igual a 0, para que la implicación sea verdadera, \(\lambda_1\) va a tener que ser igual a 0.
+        \end{mathcase}
+        \begin{mathcase}{\(\alpha - \frac{1}{\alpha} = 0\)}
+            \[
+                \begin{aligned}
+                    \alpha &= \frac{1}{\alpha} \\
+                    \alpha \cdot \alpha = \alpha^2 &= 1 \\
+                    \sqrt{\alpha^2} &= \sqrt{1} \\
+                    |\alpha| &= 1 \\
+                    \alpha = 1 &\vee \alpha = -1
+                \end{aligned}
+            \]
+            Podemos verificar que \(\alpha - \frac{1}{\alpha} = 0\) para cada valor de \(\alpha\)
+            \[
+                \begin{gathered}
+                    1 - \frac{1}{1} = 1 - 1 = 0 \\
+                    -1 - \frac{1}{-1} = -1 - (-1) = -1 + 1 = 0
+                \end{gathered}
+            \]
+            Entonces podemos tomar a \(\alpha\) como 1 o -1.
+        \end{mathcase} \\
+        Cabe aclarar que estos dos casos pueden ser verdaderos al mismo tiempo. Para confirmar que estos si sean los valores de cada variable y de \(\alpha\) 
+        hagamos sustitución hacia atrás. Primero con los valores que estamos completamente segudos \((\lambda_2)\)
+        \[
+            \left\{
+                \begin{aligned}
+                    0 + 0 \cdot \alpha + 0 &= 0 \\
+                    \lambda_1 + 0 + \lambda_3 \cdot \alpha &= 0 \\
+                    \lambda_1 \cdot \alpha + 0 + \lambda_3 &= 0
+                \end{aligned}
+            \right.
+        \]
+        Ahora veamos los posibles casos de \(\alpha\)
+        \[
+            \alpha = 1
+            \left\{
+                \begin{aligned}
+                    0 + 0 + 0 &= 0 \\
+                    \lambda_1 + 0 + \lambda_3 &= 0 \\
+                    \lambda_1 + 0 + \lambda_3 &= 0
+                \end{aligned}
+            \right.
+            \hspace{1cm}
+            \alpha = -1
+            \left\{
+                \begin{aligned}
+                    0 + 0 + 0 &= 0 \\
+                    \lambda_1 + 0 - \lambda_3 &= 0 \\
+                    -\lambda_1 + 0 + \lambda_3 &= 0
+                \end{aligned}
+            \right.
+            \hspace{1cm}
+            \alpha = 0
+            \left\{
+                \begin{aligned}
+                    0 + 0 + 0 &= 0 \\
+                    \lambda_1 + 0 + 0 &= 0 \\
+                    0 + 0 + \lambda_3 &= 0
+                \end{aligned}
+            \right.
+        \]
+        \[
+            \alpha = 1
+            \left\{
+                \begin{aligned}
+                    0 &= 0 \\
+                    \lambda_1 &= -\lambda_3  \\
+                    \lambda_1 &= -\lambda_3
+                \end{aligned}
+            \right.
+            \hspace{1cm}
+            \alpha = -1
+            \left\{
+                \begin{aligned}
+                    0 &= 0 \\
+                    \lambda_1 &= \lambda_3 \\
+                    -\lambda_1 &= -\lambda_3
+                \end{aligned}
+            \right.
+            \hspace{1cm}
+            \alpha = 0
+            \left\{
+                \begin{aligned}
+                    0 &= 0 \\
+                    \lambda_1 &= 0 \\
+                    \lambda_3 &= 0
+                \end{aligned}
+            \right.
+        \]
+        Podemos ver que para el caso donde \(\alpha\) es igual a 0, tenemos de forma directa que \(\lambda_1\) y \(\lambda_3\) son iguales a 0.
+        Sin embargo para los casos donde \(\alpha\) es igual a 1 o -1, podemos retomar los nuevos valores de \(\lambda_1\) y volver a mirar los casos haciendo sustitución hacia atrás
+        \[
+            \begin{aligned}
+                \alpha &= 1 \\
+                \lambda_1 &= -\lambda_3 \\
+            \end{aligned}
+            \left\{
+                \begin{aligned}
+                    0 &= 0 \\
+                    (-\lambda_3) + \lambda_3 &= 0 \\
+                    (-\lambda_3) + \lambda_3 &= 0
+                \end{aligned}
+            \right.
+            \hspace{1cm}
+            \begin{aligned}
+                \alpha &= -1 \\
+                \lambda_1 &= \lambda_3 \\
+            \end{aligned}
+            \left\{
+                \begin{aligned}
+                    0 &= 0 \\
+                    (\lambda_3) - \lambda_3 &= 0 \\
+                    -(\lambda_3) + \lambda_3 &= 0
+                \end{aligned}
+            \right.
+        \]
+        Finalmente concluyendo que si \(\alpha\) es igual a 1, -1 o 0, se va a tener que \(\lambda_1\), \(\lambda_2\) y \(\lambda_3\) van a ser iguales a 0.
+        Es decir, que el sistema homogéneo de ecuaciones lineales equivalente a la matriz del conjunto generador
+        \(\left\{
+            \begin{pmatrix}
+                0 \\ 1 \\ \alpha
+            \end{pmatrix},
+            \begin{pmatrix}
+                \alpha \\ 1 \\ 0
+            \end{pmatrix},
+            \begin{pmatrix}
+                0 \\ \alpha \\ 1
+            \end{pmatrix}
+        \right\}\)
+        va a tener única solución si \(\alpha\) va a ser igual a 1, -1 o 0. \\
+        Y por ende, el conjunto generador, 
+        \(\left\{
+            \begin{pmatrix}
+                0 \\ 1 \\ \alpha
+            \end{pmatrix},
+            \begin{pmatrix}
+                \alpha \\ 1 \\ 0
+            \end{pmatrix},
+            \begin{pmatrix}
+                0 \\ \alpha \\ 1
+            \end{pmatrix}
+        \right\}\), 
+        es \(l.i\). Sin embargo, dado a la gran extensión del desarrollo de este punto, se va a afirmar que apartir de 
+        este conjunto generador que es \(l.i\) y expresar cualquier vector en \(\mathbb{R}^3\) como una combinación lineal de este conjunto generador.
+        Para entender mejor este concepto he leido un poco sobre temas que se veran más adelante, principalmente sobre las \emph{Bases en \(\mathbb{R}^3\)}.
     \setcounter{enumi}{22}
     \item Dados los vectores en \(\mathbb{R}^n\), \(v, v, w\) Si \(H = \left\{u, v, w\right\}\) es \(l.i\), determine cuál de la siguientes afirmaciones es falsa.
         \begin{enumerate}[label=\listAlph]
