@@ -296,9 +296,28 @@
                 \lambda = -1
             \end{cases}
         \]
-        Dado que para que \(\fancyL_1\) y \(\fancyL_2\) sean paralelas, \(\lambda\) tiene que ser consistente, entonces vamos a tener que \(\fancyL_1 \nparallel \fancyL_2\).
-        Ahora, como sabemos que no son paralelas, debemos mirar que no interseccionen en ningún punto. Para esto vamos a igualar ambas ecuaciones vectoriales,
-        y apartir de este punto, mirar cada ecuación parámetrica
+        Dado que, para que \(\fancyL_1\) y \(\fancyL_2\) sean paralelas, \(\lambda\) tiene que ser consistente, entonces vamos a tener que \(\fancyL_1 \nparallel \fancyL_2\).
+        Ahora, veamos si ambias rectas son perpendiculares, para así tener más información de estás.
+        \[
+            d_1 \cdot d_2 = 
+            \begin{pmatrix}
+                -1 \\ 1 \\ -2 
+            \end{pmatrix}
+            \cdot
+            \begin{pmatrix}
+                1 \\ -2 \\ 2
+            \end{pmatrix}
+            =
+            (-1 \cdot 1) + (1 \cdot -2) + (-2 \cdot 2)
+            = 
+            -1 -2 -4
+            = 
+            -6
+        \]
+        De manera similar, tenemos que el producto punto de los vectores directores de \(\fancyL_1\) y \(\fancyL_2\) no es 0. Entonces \(\fancyL_1 \not\perp \fancyL_2\).
+        Entre tanto, para verificar que \(\fancyL_1\) y \(\fancyL_2\) no interseccionen en ningún punto, se va a igualar ambas ecuaciones vectoriales,
+        y apartir de este punto, mirar cada ecuación parámetrica. Esto ya que, 
+        para que dos rectas tengan una intersección en un punto es necesario que exista un \(t\) y \(s\) para cada recta tal que sean iguales a el punto.
         \[
             \begin{aligned}
                 \begin{pmatrix}
@@ -323,7 +342,7 @@
                     1 \\ -2 \\ 2
                 \end{pmatrix} \\
                 \begin{cases}
-                    x = 2 + -t \\
+                    x = 2 -t \\
                     y = 1 + t \\
                     z = -2t
                 \end{cases}
@@ -333,19 +352,36 @@
                     y = -s \\
                     z = 3 + 2s
                 \end{cases} \\
-                \begin{cases}
-                    -x + 2 = t \\
-                    y - 1 = t \\
-                    -\frac{z}{2} = t
-                \end{cases}
-                &=
-                \begin{cases}
-                    x - 1 = s \\
-                    -y = s \\
-                    \frac{z - 3}{2} = s
-                \end{cases} \\
             \end{aligned}
         \]
+        \[
+            \begin{cases}
+                2 -t = x = 1 + s \\
+                1 + t = y = -s \\
+                -2t = z = 3 + 2s
+            \end{cases}
+            \hspace{1cm}
+            \begin{cases}
+                t = 1 - s \\
+                t = -1 - s \\
+                t = -\frac{3}{2} - s
+            \end{cases}
+            \hspace{0.5cm}
+            \text{;}
+            \hspace{0.5cm}
+            \begin{cases}
+                2 -t = x = 1 + s \\
+                1 + t = y = -s \\
+                -2t = z = 3 + 2s
+            \end{cases}
+            \hspace{1cm}
+            \begin{cases}
+                1 -t = s \\
+                -1 - t = s \\
+                -\frac{3}{2} - t = s
+            \end{cases}
+        \]
+        Como resultado se puede ver que no existe un valor consistente de \(t\) y \(s\) tal que \(\fancyL_1\) y \(\fancyL_2\) tengan un punto en común.
 
 \item Acerca de los planos \(\fancyP{}_1: 2x − y + z = 3\) y \(\fancyP{}_2: x + y − z = 7\), es correcto afirmar que estos son:
     \begin{enumerate}[label=\listAlph]
@@ -415,6 +451,7 @@
             \end{cases}
         \end{aligned}
     \]
+    Determine cuáles de las siguientes afirmaciones son \textbf{VERDADERAS} y cuáles \textbf{FALSAS}
 \item Sean \(\fancyL_1, \fancyL_2, \fancyL_3\) y \(\fancyP_1, \fancyP_2, \fancyP_3\) las siguientes rectas y planos de \(\realR^3\) y \(P\) un punto en \(\realR^3\)
     \[
         \begin{aligned}
@@ -432,7 +469,7 @@
             \begin{pmatrix}x \\ y \\ z\end{pmatrix}
             \begin{pmatrix}0 \\ -1 \\ 2\end{pmatrix}
             +
-            \begin{pmatrix}3 \\ 1 \\ -1\end{pmatrix}
+            t\begin{pmatrix}3 \\ 1 \\ -1\end{pmatrix}
         \end{aligned}
         \hspace{1cm}
         \text{y}
@@ -461,10 +498,269 @@
     \]
     \begin{enumerate}[label=\listAlph]
 		\item Encuentre un punto de cada recta y cada plano.
-		\item Encuentre un vector director de cada recta.
+            \[
+                \begin{aligned}
+                    \fancyL_1:&
+                    t = 1;
+                    \begin{cases}
+                        x = -1 \\
+                        y = 1 + 2 = 3 \\
+                        z = -2 + 3 = 1
+                    \end{cases};
+                    \hspace{0.5cm}
+                    &
+                    \begin{pmatrix}
+                        -1 \\ 3 \\ 1
+                    \end{pmatrix}
+                    \in \fancyL_1
+                    \\
+                    \fancyL_2:&
+                    t = 1;
+                    \frac{x + 5}{6} =
+                    \frac{z - 1}{2} = 1,
+                    y = -1;
+                    \hspace{0.5cm}
+                    \begin{aligned}
+                        \frac{x + 5}{6} &= 1 \\
+                        \frac{z - 1}{2} &= 1 \\
+                    \end{aligned};
+                    \hspace{0.5cm}
+                    \begin{aligned}
+                        x &= 6 - 5 = 1 \\
+                        z &= 2 + 1 = 3 \\
+                    \end{aligned};
+                    \hspace{0.5cm}
+                    &
+                    \begin{pmatrix}
+                        1 \\ -1 \\ 3
+                    \end{pmatrix}
+                    \in \fancyL_2
+                    \\
+                    \fancyL_3:&
+                    t = 1;
+                    \begin{pmatrix}0 \\ -1 \\ 2\end{pmatrix}
+                    +
+                    \begin{pmatrix}3 \\ 1 \\ -1\end{pmatrix}
+                    =
+                    \begin{pmatrix}3 \\ 0 \\ 1\end{pmatrix};
+                    \hspace{0.5cm}
+                    &\begin{pmatrix}3 \\ 0 \\ 1\end{pmatrix}
+                    \in \fancyL_3
+                    \\
+                    \fancyP_1:&
+                    \begin{aligned}
+                        t &= 1 \\
+                        s &= 1
+                    \end{aligned};
+                    \begin{cases}
+                        x = -3 -2 = -5 \\
+                        y = 5 - 6 = -1 \\ 
+                        z = 1 - 4 + 4 = 1
+                    \end{cases};
+                    \hspace{0.5cm}
+                    &
+                    \begin{pmatrix}
+                        -5 \\ -1 \\ 1
+                    \end{pmatrix}
+                    \in \fancyP_1
+                    \\
+                    \fancyP_2:&
+                    \begin{aligned}
+                        x &= 0 \\
+                        y &= -1 \\
+                        z &= 1 \\
+                    \end{aligned};
+                    \begin{aligned}
+                        x − 4y + 3z − 7 &= 0 \\
+                        x − 4y + 3z &= 7
+                    \end{aligned}
+                    \hspace{0.5cm}
+                    \begin{aligned}
+                        −4(-1) + 3(1) &= 7 \\
+                        7 &= 7
+                    \end{aligned}
+                    &
+                    \begin{pmatrix}
+                        0 \\ -1 \\ 1
+                    \end{pmatrix}
+                    \in
+                    \fancyP_2
+                    \\
+                    \fancyP_3:&
+                    \begin{aligned}
+                        t &= 1 \\
+                        s &= 1
+                    \end{aligned};
+                    \begin{pmatrix}x_1 \\ x_2 \\ x_3\end{pmatrix}
+                    =
+                    \begin{pmatrix}-1 \\ 0 \\ 2\end{pmatrix}
+                    + \begin{pmatrix}3 \\ -3 \\ -5\end{pmatrix}
+                    + \begin{pmatrix}6 \\ 0 \\ -2\end{pmatrix}
+                    =
+                    \begin{pmatrix}8 \\ -3 \\ -5\end{pmatrix}
+                    &
+                    \begin{pmatrix}
+                        8 \\ -3 \\ -5
+                    \end{pmatrix}
+                    \in \fancyP_3
+                \end{aligned}
+            \]
+		\item Encuentre un vector director de cada recta. \\
+            \[
+                \fancyL_1:
+                d_1 =
+                \begin{pmatrix}
+                    -1 \\ 2 \\ 3
+                \end{pmatrix}
+                \hspace{1.5cm}
+                \fancyL_2:
+                d_2 =
+                \begin{pmatrix}
+                    6 \\ 0 \\ 2
+                \end{pmatrix}
+                \hspace{1.5cm}
+                \fancyL_3:
+                d_3 =
+                \begin{pmatrix}
+                    3 \\ 1 \\ -1
+                \end{pmatrix}
+            \]
 		\item Encuentre los otros dos tipos de ecuaciones de las rectas.
+            \[
+                \begin{aligned}
+                    &\fancyL_1:
+                    \begin{aligned}
+                        A &= 
+                        \begin{pmatrix}
+                            0 \\ 1 \\ -2
+                        \end{pmatrix} \\
+                        B &= 
+                        \begin{pmatrix}
+                            -1 \\ 3 \\ 1
+                        \end{pmatrix}
+                    \end{aligned}
+                    \hspace{0.5cm}
+                    \overline{AB} =
+                    \begin{pmatrix}
+                        1 \\ -2 \\ -3
+                    \end{pmatrix}
+                    \hspace{0.5cm}
+                    \fancyL_{1_\text{alt}}:& 
+                    \begin{cases}
+                        x = t \\
+                        y = 1 -2t \\
+                        z = -2 -3t 
+                    \end{cases}
+                    \\
+                    &\fancyL_2:
+                    \begin{aligned}
+                        A &= \begin{pmatrix}
+                            -5 \\ 1 \\ -1
+                        \end{pmatrix} \\
+                        B &= \begin{pmatrix}
+                            1 \\ -1 \\ 3
+                        \end{pmatrix}
+                    \end{aligned}
+                    \hspace{0.5cm}
+                    \overline{AB} = 
+                    \begin{pmatrix}
+                        -6 \\ 2 \\ -4
+                    \end{pmatrix}
+                    \hspace{0.5cm}
+                    \fancyL_{2_{\text{alt}}}:&
+                        \frac{x + 5}{-6} 
+                        =
+                        \frac{y - 1}{2}
+                        =
+                        \frac{z + 1}{-4}
+                    \\
+                    &\fancyL_3:
+                    \begin{aligned}
+                        A &= \begin{pmatrix}
+                            0 \\ -1 \\ 2
+                        \end{pmatrix} \\
+                        B &= \begin{pmatrix}
+                            3 \\ 0 \\ 1
+                        \end{pmatrix}
+                    \end{aligned}
+                    \hspace{0.5cm}
+                    \overline{AB} = 
+                    \begin{pmatrix}
+                        -3 \\ -1 \\ 1
+                    \end{pmatrix}
+                    \hspace{0.5cm}
+                    \fancyL_{3_{\text{alt}}}:&
+                    \begin{pmatrix}
+                        0 \\ -1 \\ 2 
+                    \end{pmatrix}
+                    +
+                    t\begin{pmatrix}
+                        -3 \\ -1 \\ 1
+                    \end{pmatrix}
+                \end{aligned}
+            \]
 		\item Encuentre dos vectores directores de cada plano.
+            \[
+                \begin{aligned}
+                    \fancyP_1:&
+                    \hspace{0.5cm}
+                    t_1 = \begin{pmatrix}
+                        -2 \\ 5 \\ -4
+                    \end{pmatrix}
+                    \hspace{0.5cm}
+                    s_1 = \begin{pmatrix}   
+                        0 \\ -6 \\ 4
+                    \end{pmatrix}
+                    \\
+                    \fancyP_2:&
+                    \hspace{0.5cm}
+                    t_2 = \begin{pmatrix}
+                        10 \\ e^{128} \\ \phi^{26}
+                    \end{pmatrix}
+                    \hspace{0.5cm}
+                    s_2 = \begin{pmatrix}
+                        3 \\ e^{128} \\ \phi^{26}
+                    \end{pmatrix}
+                    \\
+                    \fancyP_3:&
+                    \hspace{0.5cm}
+                    t_3 = \begin{pmatrix}
+                        3 \\ -3 \\ -5
+                    \end{pmatrix}
+                    \hspace{0.5cm}
+                    s_3 = \begin{pmatrix}
+                        6 \\ 0 \\ -2
+                    \end{pmatrix}
+                \end{aligned}
+            \]
 		\item Encuentre un vector normal de cada plano.
+            \[
+                \fancyP_1:
+                n_1 = 
+                \left(
+                \begin{pmatrix}
+                    -2 \\ 5 \\ -4
+                \end{pmatrix}
+                -
+                \begin{pmatrix}
+                    0 \\ -6 \\ 4
+                \end{pmatrix}
+                \right)
+                \cdot
+                \begin{pmatrix}
+                
+                \end{pmatrix}
+                \hspace{1.5cm}
+                \fancyP_2:
+                n_2 = \begin{pmatrix}
+                    1 \\ -4 \\ 3
+                \end{pmatrix}
+                \hspace{1.5cm}
+                \fancyP_3:
+                n_3 = \begin{pmatrix}
+                    0 \\ 0 \\ 0
+                \end{pmatrix}
+            \]
 		\item Encuentre los otros dos tipos de ecuaciones de los planos.
         \item Encuentre una recta paralela a la recta \(\fancyL_1\) que pase por el origen. Existe otra?
         \item Encuentre una recta ortogonal a la recta \(\fancyL_2\) que corte a la recta \(\fancyL_3\). Existe otra?
