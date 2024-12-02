@@ -1311,13 +1311,59 @@
                     \]
                     Como no se mantiene la igualdad, se tiene que \(Q \not\in \fancyP_2\)
             \end{itemize}
-        \item La recta \(\fancyL_2\) y el plano \(\fancyP_2\) se interceptan en:
-            \begin{itemize}
-				\item Ningún punto
-				\item Un punto
-				\item Infinitos puntos
-				\item N.A
-            \end{itemize}
+        \item La recta \(\fancyL_2\) y el plano \(\fancyP_2\) se interceptan en: \\
+            Primero veamos si el vector director de \(\fancyL_2\), \(d_2\), es ortogonal al vector normal \(n_2\) del plano \(\fancyP_2\).
+            Para ver si \(d_2\) es paralelo a el plano. Esto lo podemos verificar viendo si el producto punto entre ambos vectores es igual a cero.
+            \[
+                d_2 \cdot n_2 =
+                \begin{pmatrix}
+                    -2 \\ 8 \\ -4
+                \end{pmatrix}
+                \cdot
+                \begin{pmatrix}
+                    -1 \\ 4 \\ -2
+                \end{pmatrix}
+                =
+                (-2 \cdot -1) + (8 \cdot 4) + (-4 \cdot -2)
+                =
+                2 + 32 + 8
+                =
+                42
+                \neq
+                0
+            \]
+            Como \(d_2 \cdot n_2 \neq 0\), ahora sabemos que \(\fancyL_2\) no es paralela a \(\fancyP_2\), el cual elimina la opción de una intersección de 
+            infinitos puntos y ningún punto. Ya \(\fancyL_2\) por definición tampoco puede estar contenida en \(\fancyP_2\).
+            Sin embargo, podemos verificar si \(\fancyL_2\) y \(\fancyP_2\) son ortogonales, viendo si el producto cruz entre \(d_2\) y \(n_2\) es igual al vector nulo.
+            \[
+                d_2 \times n_2 =
+                \begin{pmatrix}
+                    -2 \\ 8 \\ -4
+                \end{pmatrix}
+                \times
+                \begin{pmatrix}
+                    -1 \\ 4 \\ -2
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    (8 \cdot -2) - (-4 \cdot 4) \\
+                    -( (-2 \cdot -2) - (-4 \cdot -1) ) \\
+                    (-2 \cdot 4) - (8 \cdot -1)
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    -16 + 16 \\
+                    -4 + 4 \\
+                    -8 + 8
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    0 \\ 0 \\ 0
+                \end{pmatrix}
+                =
+                \vec{0}
+            \]
+            Como \(d_2 \parallel n_2\) entonces \(\fancyL_2 \perp \fancyP_2\), por lo que nos confirma que \(\fancyL_2\) solo corta a \(\fancyP_2\) en un solo punto.
         \item De las rectas \(\fancyL_1\) y \(\fancyL_2\) se puede decir que:
             \begin{itemize}
                 \item \(\fancyL_1 \perp \fancyL_2\) \\
