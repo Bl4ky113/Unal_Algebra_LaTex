@@ -1,0 +1,67 @@
+\pagebreak
+\begin{definition}
+    Decimos que una matriz \(A\) es \textbf{idempotente}, si y sólo si, \(A^2 = A\) y decimos que una matriz \(A\) es \textbf{nilpotente},
+    si y solo si, existe un \(k \in \realN\) tal que \(A^k = O\).
+\end{definition}
+\item Demuestre porque son \textbf{VERDADERAS} las siguientes proposiciones.
+    \begin{enumerate}[label=\listAlph]
+        %\item Ninguna matriz nilpotente es invertible.
+        \setcounter{enumii}{1}
+        \item La matriz idéntica es una matriz idempotente.
+            \begin{proof}
+                Primero partamos desde una matriz idéntica, de orden \(n\) o identidad, \(I_n\), donde \(n \in \realN\).
+                Podemos ver que \(I_n^2\) es, donde \(i_k\) es la \(k\)-ésima fila de \(I_n\)
+                \[
+                    I_n^2 = I_n \cdot I_n = 
+                    \begin{pmatrix}
+                        1 & 0 & 0 & \cdots & 0 \\ 
+                        0 & 1 & 0 & \cdots & 0 \\ 
+                        0 & 0 & 1 & \cdots & 0 \\ 
+                        \vdots & \vdots & \vdots & \ddots & \vdots \\
+                        0 & 0 & 0 & \cdots & 1
+                    \end{pmatrix}
+                    \cdot 
+                    \begin{pmatrix}
+                        1 & 0 & 0 & \cdots & 0 \\ 
+                        0 & 1 & 0 & \cdots & 0 \\ 
+                        0 & 0 & 1 & \cdots & 0 \\ 
+                        \vdots & \vdots & \vdots & \ddots & \vdots \\
+                        0 & 0 & 0 & \cdots & 1
+                    \end{pmatrix}
+                    =
+                    \left[I_n i_1, I_n i_2, \ldots, I_n i_n\right]
+                    \hspace{1cm}
+                \]
+                Podemos ver que para la \(j\)-ésima columna de \(I_n^2\), podemos ver que su \(j\)-ésima componente va a ser igual a
+                \[
+                    \begin{aligned}
+                        (I_n i_j){}_j &= \sum_{k = 0}^{j - 1} (1 \cdot 0) + (1 \cdot 1) + \sum_{k = 0}^{n - j} (1 \cdot 0) \\
+                        &= 0 + 1^2 + 0 \\
+                        &= 1
+                    \end{aligned}
+                \]
+                Y las otras componentes diferentes a \(j\) de \(I_n i_j\) van a ser iguales a cero, ya que solo se va a tener multiplicaciones entre filas y columnas de ceros.
+                Además con este resultado de \(I_n^2\) se puede ver que \(I_n = I_n^2\) ya que comparten las mismas componentes, es decir \(I_n\) es idempotente.
+            \end{proof}
+        %\item Una matriz triangular con los elementos de la diagonal iguales a cero es una matriz nilpotente.
+        %\item Si \(A^4 = O\), la matriz \(A\) es nilpotente.
+        \setcounter{enumii}{4}
+        \item Si \(A^4 = O\), la matriz \(A^2\) es nilpotente.
+            \begin{proof}
+                Primero, sabemos que \(A^4 = O\) es nilpotente y que \(A\) es una matriz de orden \(n\) para que sus potencias esten definidas, con \(n \in \realN\).
+                Seguidamente, vamos a probar que si \(A^4\) es nilpotente entonces \(A^2\) también por reducción al absurdo, es decir, 
+                veamos si \(A^4\) es nilpotente y \(A^2\) no es nilpotente, o por definición, no existe \(k \in \realN\) tal que \(\left(A^2\right){}^k = O\). 
+                Sin embargo, si tomamos \(k = 2\) vamos a tener que \(\left(A^2\right){}^2 = A^{2 \cdot 2} = A^4\),
+                lo cual ya sabemos por hipotesis que \(A^4 = O\) o que \(A^4\) es nilpotente. Entonces, obtenemos una contradicción ya que no existe \(k \in \realN\) tal que 
+                \(\left(A^2\right){}^k = O\), pero al mismo tiempo si \(k = 2\) se tiene que \(\left(A^2\right){}^2 = A^{2 \cdot 2} = A^4 = O\).
+                Concluyendo que si \(A^4\) es nilpotente, entonces \(A^2\) también lo será.
+            \end{proof}
+        \setcounter{enumii}{5}
+        \item Si \(A^4 = A^2\), la matriz \(A^2\) es idempotente.
+            \begin{proof}
+                Siguiendo un razonamiento directo, sea \(B = A^2\), entonces \(B^2 = \left(A^2\right){}^2 = A^{2 \cdot 2} = A^4\)
+                Como sabemos que \(A^4 = A^2\) por la hipotesis, entonces se va de manera similar que\(B = B^2\), y por definición \(B\) es idempotente.
+                Y como \(B = A^2\), entonces \(A^2\) también va a ser idempotente.
+            \end{proof}
+        %\item Si \(A\) es idempotente, \(A^2\) también es idempotente.
+    \end{enumerate}

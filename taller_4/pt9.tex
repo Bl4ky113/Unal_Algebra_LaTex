@@ -1,0 +1,54 @@
+\item Demuestre porque son \textbf{FALSAS} las siguientes proposiciones.
+    \begin{enumerate}[label=\listAlph]
+        \item Toda matriz idempotente es invertible. \\
+            Como para demostrar que una afirmación sea falsa solo es necesario un contra ejemplo:
+            Sea \(A\) una matriz de orden 2, tal que \(A = A^2\)
+            \[
+                A = \begin{pmatrix}
+                    3 & -6 \\
+                    1 & -2
+                \end{pmatrix}
+                \hspace{0.35cm}
+                A^2 = 
+                \begin{pmatrix}
+                    3 & -6 \\
+                    1 & -2
+                \end{pmatrix}
+                \cdot 
+                \begin{pmatrix}
+                    3 & -6 \\
+                    1 & -2
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    3 \cdot 3 + (-6) \cdot 1 & 3 \cdot (-6) + (-6) \cdot (-2) \\
+                    1 \cdot 3 + (-2) \cdot 1 & 1 \cdot (-6) + (-2) \cdot (-2)
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    3 & -6 \\
+                    1 & -2
+                \end{pmatrix}
+            \]
+            Sin embargo al realizar operaciones elementales en \(A\) hasta que se obtenga una matriz escalonada equivalente, se 
+            puede ver que no cuenta con 2 pivotes necesarios para que \(A\) cuente con inversa.
+            \[
+                \begin{pmatrix}
+                    3 & -6 \\
+                    1 & -2
+                \end{pmatrix}
+                \sim
+                \begin{aligned}
+                    \frac{1}{3}F_3 &\mapsto F_3 \\
+                    F_2 - F_3 &\mapsto F_2 \\
+                \end{aligned}
+                \begin{pmatrix}
+                    1 & -2 \\
+                    0 & 0
+                \end{pmatrix}
+            \]
+        
+        \item Si \(A^4 = A^2\), la matriz \(A\) es idempotente. \\
+            Primero, sabemos que \(A^2\) es idempotente por definición ya que \(A^2 = \left(A^2\right){}^2 = A^4\).
+            Consecuentemente, podemos verificar si \(A\) es idempotente, sin embargo como sabemos por hipotesis que, \(A^2 = A^4\),
+    \end{enumerate}

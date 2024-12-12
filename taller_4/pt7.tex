@@ -1,0 +1,51 @@
+\item Las siguientes proposiciones son \textbf{VERDADERAS} justifique el \textbf{POR QUÉ}.
+    \begin{enumerate}[label=\listAlph]
+        \item Cualquier múltiplo diferente de cero de una matriz invertible es invertible. \\
+            Verdadero, para cualquier matriz cuadrada \(A\) y escalar \(\realR - \left\{0\right\}\). 
+            Partiendo de una matriz de orden \(n\) \(A\), con \(n \in \realN\), tal que tenga su inversa \(A^{-1}\), 
+            tal que \(A \cdot A^{-1} = I_n\). Además sea \(\lambda\) un escalar cualesquiera pero diferente de cero, veamos 
+            si la inversa de \(\lambda A\) es \(\frac{1}{\lambda}A^{-1}\). 
+            \[
+                \left(\lambda A\right) \cdot \left(\frac{1}{\lambda} A^{-1}\right)
+                = \left(\lambda \cdot \frac{1}{\lambda}\right) A \cdot A^{-1}
+                = 1 \cdot I_n
+                = I_n
+            \]
+        %\item Si una matriz es invertible, cualquier forma escalonada equivalente también es invertible.
+        %\item Si la forma escalonada equivalente de una matriz es invertible, la matriz también es invertible.
+        \setcounter{enumii}{3}
+        \item Si la matriz \(A\) es invertible, el sistema \(Ax = b\) tiene solución única. \\
+            Verdadero. Primero podemos ver que al tomar el sistema \(Ax = b\) y transformarlo tenemos \(A^{-1} \cdot (A \cdot x) = I_n \cdot x = x = A^{-1} \cdot b\), 
+            es decir \(A^{-1} \cdot b\) es una solución para el sistema. Podemos verificar esto simplemente reemplazando a \(x\) en el sistema. Además podemos verificar si 
+            esta solución es única viendo si existe otra solución para el sistema, \(y\)
+            \[
+                \begin{aligned}
+                    Ax &= b \\
+                    A \cdot (A^{-1} \cdot b) &= \\
+                    (A \cdot A^{-1}) \cdot b &= \\
+                    I_n \cdot b &= \\
+                    b &= b\\
+                \end{aligned}
+                \hspace{1cm}
+                \begin{aligned}
+                    Ay &= b \\
+                    A^{-1} \cdot (A \cdot y) &= A^{-1} \cdot b; \text{multiplicamos por } A^{-1} \\
+                    (A^{-1} \cdot A) \cdot y &= A^{-1} \cdot b \\
+                    I_n \cdot y &= A^{-1} \cdot b \\
+                    y &= A^{-1} \cdot b \\
+                    y &= x \\
+                \end{aligned}
+            \]
+            Concluyendo que, ya que \(A\) es invertible se tiene que la solución del sistema planteado es \(A^{-1} \cdot b\) y esta solución es única.
+        %\item Si la suma de las columnas de una matriz es igual al vector 0, la matriz no es invertible.
+        \setcounter{enumii}{5}
+        \item Si el sistema \(Ax = b\) tiene infinitas soluciones, la matriz \(A\) no es invertible. \\
+            Verdadero, se va a tener que la matriz \(A_{m \times n}\) no es cuadrada o \(A\) no cuenta con \(n\) pivotes, con \(n, m \in \realN\).
+            Inicialmente podemos definir a \(E\) como la matriz escalonada equivalente a \(A\), la cual al no tener una única solución no tiene \(n\)
+            pivotes, ya que en el sistema de ecuaciones equivalente, almenos debe haber una variable libre para que sus soluciones sean infinitas. 
+            Aunque se podrían ver los casos donde \(E\) es una matriz cuadrada, cuenta con una fila de ceros como ultima columna, o donde \(m < n\),
+            no teniendo suficientes filas para tener \(n\) pivotes, solo es necesario que no se cuente con \(n\) pivotes en \(E\) para que \(A\) no 
+            sea invertible.
+        %\item Si el sistema \(Ax = b\) tiene solución única y A es cuadrada, la matriz \(A\) es invertible. (ñapa) \\
+        %\item Si la matriz aumentada de un sistema de ecuaciones lineales es invertible, el sistema es inconsistente.
+    \end{enumerate}

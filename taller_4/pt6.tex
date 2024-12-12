@@ -1,0 +1,28 @@
+\item Las siguientes proposiciones son \textbf{FALSAS} justifique el \textbf{POR QUÉ}.
+    \begin{enumerate}[label=\listAlph]
+        %\item Si las columnas de una matriz forman un conjunto de vectores \(l.i\), la matriz es invertible.
+        \setcounter{enumii}{1}
+        \item La suma de dos matrices invertibles es una matriz invertible. \\
+            Falso, ya que se tiene un contraejemplo, la suma entre una matriz y su suma inversa.
+            Primero, definiendo a \(A\) y \(-A\) matrices con orden \(n\), con \(n \in \realN\), además existen \(A^{-1}\) y \(-A^{-1}\), sus inversas respectivamente.
+            La suma de ambas matrices, \(A + (-A) = O_n\), sigue siendo un cantidato para ser inversa ya que es de orden \(n\). 
+            Sin embargo como \(O_n\), al ser escalonada, no tienen ningún pivote, o almenos no tiene \(n\) pivotes, \(A + (-A)\) no va a ser invertible.
+        %\item Si la solución de un sistema de ecuaciones lineales homogéneo es única, la matriz de coeficientes del sistema es invertible.
+        %\item Si la suma de dos matrices es invertible, cada una de las matrices es invertible.
+        %\item El producto de dos matrices cuadradas siempre es invertible.
+        \setcounter{enumii}{5}
+        \item Si el sistema \(Ax = b\) tiene solución única, la matriz \(A\) es invertible. \\
+            Falso, ya que no es necesario que \(A\) sea una matriz cuadrada.
+            Inicialmente, sabemos que si \(E_{m \times n}\), con \(m,n \in \realN\), es la matriz escalonada equivalente a \(A\), 
+            \(E\) va a tener \(n\) pivotes ya que el sistema \(Ex = b\) debe tener una solución única. 
+            Sin embargo, puede que \(m > n\) y que en \(E\) se tenga filas de ceros en la ultima fila de la matriz.
+            Haciendo que no afecte el número de soluciones del sistema al no añádir información, pero haciendo que \(E\) no 
+            sea una matriz cuadrada y por ende no invertible. De manera similar, se va a poder ver que \(A\) no va a ser 
+            cuadrada y por ende tampoco va a ser invertible.
+        %\item Para concluir que una matriz es invertible, es necesario calcular su inversa.
+        %\item Si la matriz aumentada de un sistema de ecuaciones lineales es invertible, el sistema tiene solucion única.
+        \setcounter{enumii}{8}
+        \item Si el producto de dos matrices es invertible, cada una de las matrices es invertible. \\
+            Falso, sean dos matrices no cuadradas, \(A_{m \times n}\) y \(B_{n \times m}\), con \(m,n \in \realN\), tal que \(AB_{m \times m}\)
+            sea invertible. Tenemos que \(AB\) es invertible, pero ya que \(A\) y \(B\) no son matrices cuadradas, estas no pueden ser invertibles.
+    \end{enumerate}

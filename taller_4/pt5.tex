@@ -1,0 +1,49 @@
+\item Demuestre, teniendo en cuenta que \(A, B, C, O\) son matrices.
+    \begin{enumerate}[label=\listAlph]
+        \item Si \(A\) es invertible y \(AB = AC\), entonces \(B = C\).
+            \begin{proof}
+                Primero podemos ver que \(A, B, C\) son de orden \(n\) con \(n\) siendo un número natural cualesquiera.
+                Seguidamente, de manera directa, sabemos por hipotesis que existe \(A^{-1}\) tal que \(A^{-1} \cdot A = I_n\), entonces 
+                tomando la igualdad dada en la hipotesis \(A \cdot B = A \cdot C\) la podemos transformar de la siguiente forma.
+                \[
+                    \begin{aligned}
+                        A \cdot B &= A \cdot C \\
+                        A^{-1} \cdot (A \cdot B) &= A^{-1} \cdot (A \cdot C) \\
+                        \left(A^{-1} \cdot A\right) \cdot B &= \left(A^{-1} \cdot A\right) \cdot C \\
+                        I_n \cdot B &= I_n \cdot C \\
+                        B &= C
+                    \end{aligned}
+                \]
+                Concluyendo que, por la propiedad de asociatividad del producto entre matrices y definición de inversa, se obtiene que \(B = C\).
+            \end{proof}
+        \item \(AA^T\) es una matriz simétrica para cualquier matriz \(A\).
+            \begin{proof}
+                Primero sabemos que una matriz simétrica si y solo si su transpuesta es igual a si misma, o de manera similar \(A = A^T\).
+                Seguidamente, de manera directa, si \(A\) tiene \(m\) filas y \(n\) columnas, 
+                entonces su transpuesta \(A^T\) va a tener \(n\) filas y \(m\) columnas, 
+                haciendo que la pre-multiplicación de \(A^T\) por \(A\) exista. Ahora teniendo esta matriz 
+                \(A \cdot A^T\), veamos si su transpuesta es igual a si misma.
+                \[
+                    \left(A \cdot A^T\right){}^T = \left(A^T\right){}^T \cdot A^T = A \cdot A^T
+                \]
+                Este resultado se basa fuertemente en la propiedad de distribución de la transpuesta en el producto entre matrices, sin embargo, aún así
+                se obtiene que la matriz \(AA^T = \left(AA^T\right){}^T\), es decir, \(AA^T\) es una matriz simétrica para cualquier matriz \(A\).
+            \end{proof}
+        \item Si la matriz \(A\) es invertible y \(AB = O\), entonces \(B = O\).
+            \begin{proof}
+                Primero, podemos ver que \(A\) es de orden \(n\), sin embargo solo sabemos que \(B\) tiene \(n\) filas y \(k\) columnas, y de manera similar, 
+                \(O\) tiene \(n\) filas y \(k\) columnas, además donde \(n\) y \(k\) son números naturales cualesquiera.
+                Posteriormente, de manera directa, sabemos que por hipotesis existe \(A^{-1}\) tal que \(A^{-1} \cdot A = I_n\). 
+                Ahora, podemos tomar la igualdad definida en la hipotesis \(A \cdot B = O\), la cual se puede transforma de la siguiente forma.
+                \[
+                    \begin{aligned}
+                        A \cdot B &= O \\
+                        A^{-1} \cdot (A \cdot B) &= A^{-1} \cdot O \\
+                        \left(A^{-1} \cdot A\right) \cdot B &= O \\
+                        I_n \cdot B &= O \\
+                        B &= O \\
+                    \end{aligned}
+                \]
+                Cabe aclarar que \(I_n \cdot B\) esta definida ya que \(B\), como anteriormente mencionado, tiene \(n\) columnas. Concluyendo que \(B = O\).
+            \end{proof}
+    \end{enumerate}
