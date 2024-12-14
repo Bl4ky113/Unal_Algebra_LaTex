@@ -101,10 +101,19 @@ headheight=22pt%
 \newcommand\SetItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
 \newcommand{\listSubscript}[2]{\(#1_{#2}\)}
 \newcommand{\listAlph}{\alph*.}
+\newcommand{\listALPH}{\Alph*.}
 
 % Fast Supper and Sub -scripts
 \NewDocumentCommand{\tsup}{m} {\textsuperscript{#1}}
 \NewDocumentCommand{\tsub}{m} {\textsubscript{#1}}
+
+% Set of Numbers
+\def\realR{\symbb{R}} % Real
+\def\realN{\symbb{N}} % Natural
+\def\realZ{\symbb{Z}} % Integers
+\def\realQ{\symbb{Q}} % Rational
+\def\realC{\symbb{C}} % Complex
+\def\realC{\symbb{I}} % Irrational
 
 %%% Template Math stuff %%%
 

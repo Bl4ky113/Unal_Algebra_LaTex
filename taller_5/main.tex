@@ -1,0 +1,30 @@
+\documentclass{article}
+
+\def\MyClass{Álgebra Lineal}
+\def\MyTitle{Taller 5}
+\def\MyAuthor{Martín Steven Hernández Ortiz}
+\def\MyEmail{mahernandezor@unal.edu.co}
+\def\MyDate{\today}
+
+\def\TemplatePath{../template/}
+\input{../template/template.tex}
+
+\def\fancyL{\symscr{L}}
+\def\fancyP{\symscr{P}}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    \setcounter{enumi}{9}
+    \input{pt10.tex}
+    \setcounter{enumi}{18}
+    \input{pt18.tex}
+    \setcounter{enumi}{25}
+    \input{pt26.tex}
+    \setcounter{enumi}{27}
+\end{enumerate}
+\begin{enumerate}[label=\listALPH]
+    \input{ptlu.tex}
+\end{enumerate}
+\end{document}
