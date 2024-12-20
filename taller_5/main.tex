@@ -1,13 +1,18 @@
 \documentclass{article}
 
+\def\TemplatePath{../template/}
+\input{../template/template.tex}
+
+\usepackage{biblatex}
+
+\addbibresource{src/taller.bib}
+
 \def\MyClass{Álgebra Lineal}
 \def\MyTitle{Taller 5}
 \def\MyAuthor{Martín Steven Hernández Ortiz}
 \def\MyEmail{mahernandezor@unal.edu.co}
 \def\MyDate{\today}
 
-\def\TemplatePath{../template/}
-\input{../template/template.tex}
 
 \def\fancyL{\symscr{L}}
 \def\fancyP{\symscr{P}}
@@ -18,13 +23,15 @@
 \begin{enumerate}
     \setcounter{enumi}{9}
     \input{pt10.tex}
-    \setcounter{enumi}{18}
+    \setcounter{enumi}{17}
     \input{pt18.tex}
     \setcounter{enumi}{25}
     \input{pt26.tex}
     \setcounter{enumi}{27}
+    \input{pt28.tex}
 \end{enumerate}
 \begin{enumerate}[label=\listALPH]
     \input{ptlu.tex}
 \end{enumerate}
+\printbibliography
 \end{document}

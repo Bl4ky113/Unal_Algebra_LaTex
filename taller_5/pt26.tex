@@ -2,7 +2,7 @@
     \[
         \begin{pmatrix}
             \lambda & 1 \\
-            0 \lambda
+            0 & \lambda
         \end{pmatrix} ^ {n}
         =
         \begin{pmatrix}
@@ -10,3 +10,113 @@
             0 & \lambda^{n}
         \end{pmatrix}
     \]
+    \begin{proof}
+        Sea 
+        \(
+            X = 
+            \left\{
+                m \in \realN |
+                \left(
+                \begin{smallmatrix}
+                    \lambda & 1 \\
+                    0 & \lambda
+                \end{smallmatrix} 
+                \right){} ^ {m}
+                =
+                \left(
+                \begin{smallmatrix}
+                    \lambda^{m} & m\lambda^{m - 1} \\
+                    0 & \lambda^{m}
+                \end{smallmatrix}
+                \right)
+            \right\}
+        \), como caso base, veamos que 1 pertenece a \(X\).
+        \[
+            \begin{pmatrix}
+                \lambda & 1 \\
+                0 & \lambda
+            \end{pmatrix} ^ {1}
+            =
+            \begin{pmatrix}
+                \lambda^1 & 1 \cdot \lambda^{0} \\
+                0 & \lambda^1
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+                \lambda^1 & 1 \cdot \lambda^{1 - 1} \\
+                0 & \lambda^1
+            \end{pmatrix}
+        \]
+        Ahora, como hipótesis de inducción vamos a tener que \(n\), sea un número natural fijo pero arbitrario, tal que
+        \(n\) pertenece a \(X\), es decir
+        \[
+            \begin{pmatrix}
+                \lambda & 1 \\
+                0 & \lambda
+            \end{pmatrix} ^ {n}
+            =
+            \begin{pmatrix}
+                \lambda^{n} & n\lambda^{n - 1} \\
+                0 & \lambda^{n}
+            \end{pmatrix}
+        \]
+        Ahora, veamos que \(n + 1\) también pertence a \(X\), o equivalentemente
+        \[
+            \begin{aligned}
+                \begin{pmatrix}
+                    \lambda & 1 \\
+                    0 & \lambda
+                \end{pmatrix} ^ {n + 1}
+                &=
+                \begin{pmatrix}
+                    \lambda & 1 \\
+                    0 & \lambda
+                \end{pmatrix}
+                \cdot
+                \begin{pmatrix}
+                    \lambda & 1 \\
+                    0 & \lambda
+                \end{pmatrix} ^ {n}
+                =
+                \begin{pmatrix}
+                    \lambda & 1 \\
+                    0 & \lambda
+                \end{pmatrix}
+                \cdot
+                \begin{pmatrix}
+                    \lambda^{n} & n\lambda^{n - 1} \\
+                    0 & \lambda^{n}
+                \end{pmatrix}
+                \\
+                &=
+                \begin{pmatrix}
+                    \lambda \cdot \lambda^{n} + 1 \cdot 0 & \lambda \cdot n\lambda^{n - 1} + 1 \cdot \lambda^{n} \\
+                    0 \cdot \lambda^{n} + \lambda \cdot 0 & 0 \cdot n\lambda^{n - 1} + \lambda \cdot \lambda^{n}
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    \lambda^{n + 1} & n\lambda^{n} + \lambda^{n} \\
+                    0 & \lambda^{n + 1}
+                \end{pmatrix}
+                \\
+                &=
+                \begin{pmatrix}
+                    \lambda^{n + 1} & (n + 1)\lambda^{n} \\
+                    0 & \lambda^{n + 1}
+                \end{pmatrix}
+            \end{aligned}
+        \]
+        Entonces tenemos que, por \emph{PIM-1}, \(X = \realN\). En conclusión, para cualquier matriz de orden 2 se va a tener para 
+        cualquier número natural que 
+        \[
+            \begin{pmatrix}
+                \lambda & 1 \\
+                0 & \lambda
+            \end{pmatrix} ^ {n}
+            =
+            \begin{pmatrix}
+                \lambda^{n} & n\lambda^{n - 1} \\
+                0 & \lambda^{n}
+            \end{pmatrix}
+        \]
+    \end{proof}

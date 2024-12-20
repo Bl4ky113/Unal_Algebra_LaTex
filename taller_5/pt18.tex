@@ -1,2 +1,162 @@
-\item Si \(p(t) = t3 − 6t2 − 5t − 12\) y \(A = \begin{bmatrix}2 & 3 & -2 \\ 0 & 5 & 4 \\ 1 & 0 & -1\end{bmatrix}\), 
-    se verifica que \(p(A) = A^3 − 6A^2 − 5A − 12I\) es igual a la matriz nula?
+\item Si \(p(t) = t^3 − 6t^2 − 5t − 12\) y 
+    \(A = \left[\begin{smallmatrix}2 & 3 & -2 \\ 0 & 5 & 4 \\ 1 & 0 & -1\end{smallmatrix}\right]\), 
+    se verifica que \(p(A) = A^3 − 6A^2 − 5A − 12I\) es igual a la matriz nula? \\
+    Simplemente operemos las matrices y veamos si es verdadera esta proposición.
+    \[
+        p(A)=
+        A^3 − 6(A^2) − 5A − 12I
+        =
+        \begin{bmatrix}
+            2 & 3 & -2 \\ 
+            0 & 5 & 4 \\ 
+            1 & 0 & -1
+        \end{bmatrix}^3
+        -
+        6
+        \left(
+        \begin{bmatrix}
+            2 & 3 & -2 \\ 
+            0 & 5 & 4 \\ 
+            1 & 0 & -1
+        \end{bmatrix}^2
+        \right)
+        -
+        5
+        \left(
+        \begin{bmatrix}
+            2 & 3 & -2 \\ 
+            0 & 5 & 4 \\ 
+            1 & 0 & -1
+        \end{bmatrix}
+        \right)
+        -
+        12
+        \left(
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 1
+        \end{bmatrix}
+        \right)
+    \]
+    Para un desarrollo más simple, se va a realizar por partes.
+    \[
+        \begin{aligned}
+            A^2 &= 
+            \begin{bmatrix}
+                2 & 3 & -2 \\ 
+                0 & 5 & 4 \\ 
+                1 & 0 & -1
+            \end{bmatrix}
+            \cdot
+            \begin{bmatrix}
+                2 & 3 & -2 \\ 
+                0 & 5 & 4 \\ 
+                1 & 0 & -1
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+                2 & 21 & 10 \\ 
+                4 & 25 & 16 \\
+                1 & 3 & -1
+            \end{bmatrix};
+            \hspace{0.5cm}
+            -6 \left(A^2\right) =
+            \begin{bmatrix}
+                -12 & -126 & -60 \\ 
+                -24 & -150 & -96 \\
+                -6 & -18 & 6
+            \end{bmatrix};
+            \\
+            A^3 &= A \cdot A^2 = 
+            \begin{bmatrix}
+                2 & 3 & -2 \\ 
+                0 & 5 & 4 \\ 
+                1 & 0 & -1
+            \end{bmatrix}
+            \cdot
+            \begin{bmatrix}
+                2 & 21 & 10 \\ 
+                4 & 25 & 16 \\
+                1 & 3 & -1
+            \end{bmatrix}
+            = 
+            \begin{bmatrix}
+                14 & 111 & 70 \\
+                24 & 137 & 76 \\
+                1 & 18 & 11
+            \end{bmatrix};
+            \\
+            -5A &= 
+            -5
+            \begin{bmatrix}
+                2 & 3 & -2 \\ 
+                0 & 5 & 4 \\ 
+                1 & 0 & -1
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+                -10 & -15 & 10 \\ 
+                0 & -25 & -20 \\ 
+                -5 & 0 & 5
+            \end{bmatrix};
+            \hspace{0.5cm}
+            -12I =
+            \begin{bmatrix}
+                -12 & 0 & 0 \\
+                0 & -12 & 0 \\
+                0 & 0 & -12
+            \end{bmatrix};
+        \end{aligned}
+    \]
+    Ahora que tenemos cada matriz podemos simplemente sumarlas.
+    \[
+        \begin{aligned}
+            p(A) &=
+            \begin{bmatrix}
+                14 & 111 & 70 \\
+                24 & 137 & 76 \\
+                1 & 18 & 11
+            \end{bmatrix}
+            +
+            \begin{bmatrix}
+                -12 & -126 & -60 \\ 
+                -24 & -150 & -96 \\
+                -6 & -18 & 6
+            \end{bmatrix}
+            +
+            \begin{bmatrix}
+                -10 & -15 & 10 \\ 
+                0 & -25 & -20 \\ 
+                -5 & 0 & 5
+            \end{bmatrix}
+            +
+            \begin{bmatrix}
+                -12 & 0 & 0 \\
+                0 & -12 & 0 \\
+                0 & 0 & -12
+            \end{bmatrix} 
+            \\
+            &=
+            \begin{bmatrix}
+                2 & -15 & 10 \\
+                0 & -13 & -20 \\
+                -5 & 0 & 17
+            \end{bmatrix}
+            +
+            \begin{bmatrix}
+                -22 & -15 & 10 \\ 
+                0 & -37 & -20 \\ 
+                -5 & 0 & -7
+            \end{bmatrix}
+            \\
+            &=
+            \begin{bmatrix}
+                -20 & -30 & 20 \\
+                0 & -50 & -40 \\
+                -10 & 0 & 10
+            \end{bmatrix}
+        \end{aligned}
+    \]
+    Como se puede ver, al operar cada matriz, el resultado de \(p(A)\) es diferente a la matriz nula.
+    

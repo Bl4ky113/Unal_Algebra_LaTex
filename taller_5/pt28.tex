@@ -1,13 +1,73 @@
-\item Por qué son FALSAS las siguientes proposiciones
+\item Por qué son \textbf{FALSAS} las siguientes proposiciones
     \begin{enumerate}[label=\listAlph]
-        \item Una matriz ortogonal simétrica es una matriz idempotente.
-        \item El determinante de \(3A\) es 3 veces el determinante de \(A\).
-        \item Si el determinante de la matriz de coeficientes de un sistema de ecuaciones lineales es cero, el sistema es inconsistente.
-        \item Si el determinante del producto de dos matrices es cero, una de las matrices es cero.
-        \item Toda matriz es el producto de matrices elementales.
-        \item Si dos matrices tienen dos filas iguales, sus determinantes también son iguales.
-        \item Al pre-multiplicar una matriz por una matriz elemental, el determinante de la matriz no cambia.
-        \item Si el determinante del producto de dos matrices es cero, el determinante de una de las matrices es cero.
-        \item Si la solución de un sistema de ecuaciones lineales homogéneo cuadrado es única, el determinante de la matriz de coeficientes del sistema puede ser cero.
-        \item Toda matriz cuadrada \(A \neq O\) es el producto de matrices elementales.
+        %\item Una matriz ortogonal simétrica es una matriz idempotente.
+        \setcounter{enumii}{1}
+        \item El determinante de \(3A\) es 3 veces el determinante de \(A\). \\
+            Si consideramos la matriz \(A\) de orden \(n\)
+            \[
+                A = \begin{pmatrix}
+                    \frac{1}{3} & 0 & 0 & \cdots & 0 \\
+                    0 & \frac{1}{3} & 0  & \cdots & 0 \\
+                    0 & 0 & \frac{1}{3} & \cdots & 0 \\
+                    \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    0 & 0 & 0 & \cdots & \frac{1}{3} \\
+                \end{pmatrix}
+            \]
+            El determinante de \(A\) va a ser \(\frac{1}{3^n}\), pero \(3A\) va a ser equivalente a \(I_n\), y por ende 
+            su determinante va a ser igual a 1. Siendo determinantes completamente diferentes ya que \(1 \neq 3 \cdot \frac{1}{3^n} = \frac{1}{3^{n-1}}\).
+        %\item Si el determinante de la matriz de coeficientes de un sistema de ecuaciones lineales es cero, el sistema es inconsistente.
+        %\item Si el determinante del producto de dos matrices es cero, una de las matrices es cero.
+        %\item Toda matriz es el producto de matrices elementales.
+        \setcounter{enumii}{5}
+        \item Si dos matrices tienen dos filas iguales, sus determinantes también son iguales. \\
+            Si consideramos las matices de orden 2, \(A\) y \(B\)
+            \[
+                A = \begin{pmatrix}
+                    \lambda_1 & \lambda_2 \\
+                    \lambda_3 & \lambda_4
+                \end{pmatrix}
+                B = \begin{pmatrix}
+                    \lambda_3 & \lambda_4 \\
+                    \lambda_1 & \lambda_2
+                \end{pmatrix}
+            \]
+            El determinante de cada matriz va a ser
+            \[
+                \begin{aligned}
+                    Det(A) &= (\lambda_1 \cdot \lambda_4) - (\lambda_3 \cdot \lambda_2) \\
+                    Det(B) &= (\lambda_3 \cdot \lambda_2) - (\lambda_1 \cdot \lambda_4) \\
+                \end{aligned}
+            \]
+            Donde en solo se necesario ver el caso donde \(\lambda_1 \cdot \lambda_4 > 0\) y \(\lambda_3 \cdot \lambda_2 > 0\) o 
+            para que ambos determinantes sean diferentes.
+        \item Al pre-multiplicar una matriz por una matriz elemental, el determinante de la matriz no cambia. \\
+            Consideremos una matriz diagonal de orden 3, \(A\), y una matriz elemental de permutación del mismo orden, \(P\) tal que la pre-multiplicación
+            de ambas sea:
+            \[
+                A = 
+                \begin{pmatrix}
+                    \lambda_1 & 0 & 0 \\
+                    0 & \lambda_2 & 0 \\
+                    0 & 0 & \lambda_3
+                \end{pmatrix}
+                \hspace{0.5cm}
+                P \cdot A = 
+                \begin{pmatrix}
+                    0 & 0 & \lambda_3 \\
+                    0 & \lambda_2 & 0 \\
+                    \lambda_1 & 0 & 0
+                \end{pmatrix}
+            \]
+            El determinante de \(A\) va a ser el producto entre cada componente en la diagonal, sin embargo el determinante de 
+            \(P \cdot A\) va a ser
+            \[
+                Det(P \cdot A) 
+                = \lambda_1 \cdot \left(-1\right){}^{3 + 1} \cdot -(\lambda_2 \cdot \lambda_3)
+                = \lambda_1 \cdot -(\lambda_2 \cdot \lambda_3)
+                = -(\lambda_1 \cdot \lambda_2 \cdot \lambda_3)
+                \neq \lambda_1 \cdot \lambda_2 \cdot \lambda_3 = Det(A)
+            \]
+        %\item Si el determinante del producto de dos matrices es cero, el determinante de una de las matrices es cero.
+        %\item Si la solución de un sistema de ecuaciones lineales homogéneo cuadrado es única, el determinante de la matriz de coeficientes del sistema puede ser cero.
+        %\item Toda matriz cuadrada \(A \neq O\) es el producto de matrices elementales.
     \end{enumerate}

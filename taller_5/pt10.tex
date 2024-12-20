@@ -3,11 +3,50 @@
 \end{definition}
 \item Demuestre porque son \textbf{VERDADERAS} las siguientes proposiciones.
     \begin{enumerate}[label=\listAlph]
-        \item Si \(A\) es una matriz ortogonal, entonces \(A^{T} \cdot A = I\).
-        \item Toda matriz ortogonal es invertible. 
-        \item Si \(A\) es una matriz ortogonal, entonces \(A \cdot A^{T} = I\).
-        \item Si \(A\) es una matriz ortogonal, entonces \(A^{T}\) también es ortogonal.
+        %\item Si \(A\) es una matriz ortogonal, entonces \(A^{T} \cdot A = I\).
+        %\item Toda matriz ortogonal es invertible. 
+        %\item Si \(A\) es una matriz ortogonal, entonces \(A \cdot A^{T} = I\).
+        %\item Si \(A\) es una matriz ortogonal, entonces \(A^{T}\) también es ortogonal.
+        \setcounter{enumii}{4}
         \item La matriz idéntica es ortogonal.
-        \item La inversa de una matriz ortogonal es su transpuesta.
-        \item Si \(A\) es una matriz ortogonal, la solución del sistema de ecuaciones lineales \(A \cdot x = b\) es \(x = A^{T} \cdot b\).
+            \begin{proof}
+                Consideremos la matriz identidad o idéntica, \(I\), de orden \(n\), con \(n\) siendo un número natural cualesquiera
+                con columnas \(I = \left[e_1, e_2, \ldots, e_n\right]\).
+                Si \(I\) es ortogonal se va a tener que, para todo \(i\) y \(j\) natural, tal que \(1 \leq i, j \leq n\) y \(i \neq j\), 
+                tenemos que \(e_i \cdot e_j = 0\), o de manera similar \(e_i\) y \(e_j\) son ortogonales. Y además, toda columna de \(I\)
+                va a ser unitaria, es decir para todo \(i\) natural tal que \(1 \leq i \leq n\), \(\|e_i\| = 1\).
+                \\[0.25cm]
+                Inicialmente, podemos ver que comprobar la segunda proposición es bastante sencillo usando la definición de la norma de un vector. 
+                Tomando, otra vez, para todo \(i\) natural tal que \(1 \leq i \leq n\), la norma de \(e_i\) va a ser igual a
+                \[
+                    \|e_i\| 
+                    = \sqrt{e_i \cdot e_i} 
+                    = \sqrt{\sum_{k = 0}^{i - 1} 0 \cdot 0 + 1 \cdot 1 + \sum_{k = 0}^{n - i} 0 \cdot 0}
+                    = \sqrt{0 + 1 + 0}
+                    = \sqrt{1} 
+                    = 1
+                \]
+                Cumpliendo que la columna \(e_i\) va a ser un vector unitario, o por el cuantificador de \(i\), toda columna de \(I\) va a ser un vector unitario.
+                \\[0.25cm]
+                Ahora, para la primera proposición podemos ver que el producto punto entre cada diferente columna de \(I\) va a ser definido,
+                siendo \(i, j\) números naturales tal que \(1 \leq i, j \leq n\)
+                \[
+                    e_i \cdot e_j: 
+                    \hspace{0.5cm}
+                    \begin{aligned}
+                        \sum_{k = 0}^{i - 1} 0 \cdot 0 + 1 \cdot 0 + \sum_{k = 0}^{(j - 1) - i} 0 \cdot 0 + 0 \cdot 1 + \sum_{k = 0}^{n - j} 0 \cdot 0
+                        \hspace{1cm}
+                        i < j
+                        \\
+                        \sum_{k = 0}^{j - 1} 0 \cdot 0 + 1 \cdot 0 + \sum_{k = 0}^{(i - 1) - j} 0 \cdot 0 + 0 \cdot 1 + \sum_{k = 0}^{n - i} 0 \cdot 0 
+                        \hspace{1cm}
+                        i > j
+                    \end{aligned}
+                \]
+                Como el producto punto siempre va a ser igual a 0 para cualquier \(i, j\), vamos a tener que las columnas, o vectores, de \(I\) 
+                van a ser ortogonales entre si.
+                Concluyendo que la matriz \(I\) de orden \(n\) va a ser ortogonal ya que cada columna de \(I\) es ortogonal entre si y son vectores unitarios.
+            \end{proof}
+        %\item La inversa de una matriz ortogonal es su transpuesta.
+        %\item Si \(A\) es una matriz ortogonal, la solución del sistema de ecuaciones lineales \(A \cdot x = b\) es \(x = A^{T} \cdot b\).
     \end{enumerate}

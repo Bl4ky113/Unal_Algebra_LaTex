@@ -1,1 +1,174 @@
-\item Explicar en qué consiste la factorización LU de una matríz y hacer un ejemplo.
+\item Explicar en qué consiste la factorización \(LU\) de una matríz y hacer un ejemplo. \\
+    Antes de iniciar, para poder entender correctamente la factorización \(LU\) de una matriz es necesario entender los conceptos de 
+    pre-multiplicación, obtención y inversa de matrices elementales, y el método de eliminación de \emph{Gauss} para escalonar matrices.
+    Estos temas, conceptos y secciones dedicadas estan disponibles en~\cite{martinez}. \\[0.25cm]
+    Inicialmente la factorización en \(LU\) se considera una forma de obtener una matriz base apartir de la multipliación de una matriz \emph{Lower},
+    \(L\) o triangular hacía abajo, a una matriz \emph{Upper}, \(U\) o triangular hacía arriba. O de forma más clara, pre-multipliación por \(L\) a \(U\).
+    El punto importante en la factorización \(LU\) es como se pueden obtener las matrices \(L\) y \(U\), lo cual vamos a necesitar los conceptos previamente mencionados. 
+    \\[0.25cm]
+    Previamente, vamos a definir a la matriz base como \(A\) una matriz de orden \(n\), por ahora solo por convenencia, y que sea inversible.
+    Primero, vamos a obtener a \(U\), realizando el método de eliminación de \emph{Gauss}, aunque también aplica para el método de eliminación \emph{Gauss-Jordan},
+    sin embargo debemos tener en cuenta que solo debemos realizar operaciones de eliminación, y enumerarlas en orden según cada operación realizada, 
+    para así facilitar el proceso de obtener a \(L\). Una vez se haya terminado de aplicar este método y tengamos una matriz escalonada equivalente a \(A\), 
+    vamos a tomarla como nuestra matriz \(U\). Después, vamos a tomar en orden cada operación elemental realizada para obtener a \(U\) 
+    y vamos a obtener cada matriz elemental inversa a estas operaciones, definiendolas como \(E_i\) con \(i\) siendo el número de la operación elemental,
+    para luego multiplicar a cada una de estas matrices siguiendo el orden, obteniendo la matriz \(L\). 
+    Este procedimiento se puede ver de una manera bastante sencilla con el uso de las matrices elementales y sus inversas,
+    partiendo desde que la premultiplicación de \(A\) por todas las matrices elementales obtenidas va a ser igual a \(U\), 
+    siendo \(k\) el número de operaciones y de matrices elementales
+    \[
+        \begin{aligned}
+            E_k \cdot \cdots \cdot E_2 \cdot E_1 \cdot A &= U \\
+            E^{-1}_1 \cdot E^{-1}_2 \cdot \cdots \cdot E^{-1}_k \cdot E_k \cdot \cdots \cdot E_2 \cdot E_1 \cdot A &= E^{-1}_1 \cdot E^{-1}_2 \cdot \cdots \cdot E^{-1}_k \cdot U \\
+            I \cdot A = A &= E^{-1}_1 \cdot E^{-1}_2 \cdot \cdots \cdot E^{-1}_k \cdot U \\
+            A &= L \cdot U \\
+        \end{aligned}
+    \]
+    Apartir de este desarrollo podemos crear una definición de la factorización \(LU\).
+    \begin{definition}
+        Sea una matriz \(A\) de orden \(m \times n\), tal que sea \(U\) la matriz escalonada equivalente a \(A\) teniendo la 
+        restricción que se haya obtenido únicamente realizando operaciones de eliminación en \(A\). Y \(L\), una matriz 
+        triangular inferior de orden \(m \times m\), cual se obtiene de la multiplicación en orden de las matrices elementales inversas 
+        que se obtienen de las operaciones elementales aplicadas en \(A\) para obtener a \(U\), cabe aclarar que el orden de la multipliación entre 
+        las matrices es el mismo orden de las operaciones realizadas. \\
+        Con lo cual se logra \emph{factorizar} o \emph{descomponer} a \(A\) de la siguiente manera
+        \[
+            A = LU
+        \]
+        Definida esta factorización como \emph{factorización \(LU\)}.
+    \end{definition}
+    Un detalle bastante importante en la definición, que aún no se ha mencionado, es que se puede realizar una factorización \(LU\) una matriz no cuadrada. 
+    Y además, que podemos usar esta factorización \(LU\) para encontrar soluciones para un sistema de ecuaciones lineales cuya matriz de coeficientes sea equivalente a \(A\).
+    Ya que, tomando a \(Ax = b\), es equivalente a \(LUx = b\) y desde ahí podemos definir las igualdades
+    \[
+        Ly = b
+        \hspace{2cm}
+        Ux = y
+    \]
+    Donde primero vamos a obtener a \(y\), y apartir de este, obtener a \(x\), la solución del sistema de ecuaciones lineales equivalente.
+    \subsubsection*{Ejemplo factorización \(LU\)}
+    Ejercicios tomados de la sección de problemas 1.1, punto 5 y 36 en~\cite{grossman}.
+    Apatir de una matriz \(A\) vamos a obtener su factorización \(LU\), inicialmente obteniendo a \(U\) y después obteniendo a \(L\). \\
+    Primero realizamos el método de eliminación de \emph{Gauss} en \(A\) para obtener a \(U\)
+    \[
+        A = 
+        \begin{pmatrix}
+            2 & 1 & 7 \\
+            4 & 3 & 5 \\ 
+            2 & 1 & 6 
+        \end{pmatrix}
+        \sim
+        \begin{aligned}
+            F_2 - 2F_1 &\mapsto F_2 \\
+            F_3 - F_1 &\mapsto F_3
+        \end{aligned}
+        \begin{pmatrix}
+            2 & 1 & 7 \\
+            0 & 1 & -9 \\ 
+            0 & 0 & -1 
+        \end{pmatrix}
+    \]
+    Con las operaciones realizadas para obtener a \(U\), ahora obtenemos a \(E_1, E_2\) y sus respectivas inversas
+    \[
+        \begin{aligned}
+            E_1 &:
+            \begin{pmatrix}
+                1 & 0 & 0 \\
+                0 & 1 & 0 \\
+                0 & 0 & 1
+            \end{pmatrix}
+            \sim
+            \begin{aligned}
+                F_2 - 2F_1 &\mapsto F_2 \\
+            \end{aligned}
+            \begin{pmatrix}
+                1 & 0 & 0 \\
+                -2 & 1 & 0 \\
+                0 & 0 & 1
+            \end{pmatrix} \\
+            E_1^{-1} &= 
+            \begin{pmatrix}
+                1 & 0 & 0 \\
+                2 & 1 & 0 \\
+                0 & 0 & 1
+            \end{pmatrix}
+        \end{aligned}
+        \hspace{0.5cm}
+        \begin{aligned}
+            E_2 &: 
+            \begin{pmatrix}
+                1 & 0 & 0 \\
+                0 & 1 & 0 \\
+                0 & 0 & 1
+            \end{pmatrix}
+            \sim
+            \begin{aligned}
+                F_3 - F_1 &\mapsto F_3 \\
+            \end{aligned}
+            \begin{pmatrix}
+                1 & 0 & 0 \\
+                0 & 1 & 0 \\
+                -1 & 0 & 1
+            \end{pmatrix} \\
+            E_2^{-1} &=
+            \begin{pmatrix}
+                1 & 0 & 0 \\
+                0 & 1 & 0 \\
+                1 & 0 & 1
+            \end{pmatrix}
+        \end{aligned}
+    \]
+    Y multiplicamos a \(E_1^{-1}, E_2^{-2}\) para obtener a \(L\).
+    \[
+        E_1^{-1} \cdot E_2^{-1} =
+        \begin{pmatrix}
+            1 & 0 & 0 \\
+            2 & 1 & 0 \\
+            0 & 0 & 1
+        \end{pmatrix}
+        \cdot
+        \begin{pmatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            1 & 0 & 1
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            1 & 0 & 0 \\
+            2 & 1 & 0 \\
+            1 & 0 & 1 
+        \end{pmatrix}
+    \]
+    Obteniendo así, y verificando
+    \[
+        A = LU = 
+        \begin{pmatrix}
+            1 & 0 & 0 \\
+            2 & 1 & 0 \\
+            1 & 0 & 1 
+        \end{pmatrix}
+        \cdot 
+        \begin{pmatrix}
+            2 & 1 & 7 \\
+            0 & 1 & -9 \\ 
+            0 & 0 & -1 
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            2 & 1 & 7 \\
+            4 & 3 & 5 \\
+            2 & 1 & 6
+        \end{pmatrix}
+    \]
+    \\[0.5cm]
+    Sin embargo, se debe aclarar que existe la factorización \(PLU\), la cual es bastante similar a la factorización \(LU\),
+    pero con el añadido de agregar las operaciones elementales de permutación a su proceso. 
+    Donde, apartir de una matriz \(A\) de orden \(m \times n\), inicialmente al realizar el método de eliminación de \emph{Gauss}
+    se tienen que hacer una o más operaciones elementales de permutación se puede obtener la matriz triangular hacía abajo \(P\). 
+    Ahora, Se obtienen las matrices elementales de estas permutaciones, denotadas como \(D_i\) con \(i\) siendo el número de la operación elemental, 
+    y se multiplican según el orden inverso de las operaciones elementales.
+    Es decir, para \(k\) operaciones elementaes de permutación
+    \[
+        D_k \cdot D_{k - 1} \cdot \cdots \cdot D_2 \cdot D_1 = P
+    \]
+    Apartir del producto entre \(P\) y \(A\), se puede realizar el mismo procedimiento de la factorización \(LU\) para obtener a \(U\) y \(L\) respectivamente.

@@ -138,7 +138,8 @@ headheight=22pt%
 \NewDocumentEnvironment{definition}{+b} {%
     \begin{tcolorbox}[left=0mm,right=0mm]%
         \begin{TMPMathDefinition}%
-            #1 \(\bigtriangleup\)%
+            #1 %
+            \hspace{\fill}\(\bigtriangleup\)%
         \end{TMPMathDefinition}%
     \end{tcolorbox}%
 } {}
