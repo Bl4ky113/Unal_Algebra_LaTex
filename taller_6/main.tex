@@ -1,0 +1,42 @@
+\documentclass{article}
+
+\def\TemplatePath{../template/}
+\input{../template/template.tex}
+
+%\usepackage{biblatex}
+%\addbibresource{src/taller.bib}
+
+\def\MyClass{Álgebra Lineal}
+\def\MyTitle{Taller 5}
+\def\MyAuthor{Martín Steven Hernández Ortiz}
+\def\MyEmail{mahernandezor@unal.edu.co}
+\def\MyDate{\today}
+
+\newcommand{\adj}{\text{Adj}}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    \begin{definition}
+        Decimos que una matriz \(A\) es idempotente, si y sólo si, \(A^2 = A\) y decimos que una matriz \(A\) es nilpotente,
+        si y solo si, existe un \(k \in \realN\) tal que \(A^k = O\).
+    \end{definition}
+    \begin{definition}
+        Decimos que una matriz \(A\) cuadrada es ortogonal, si y solo si, 
+        las columnas de \(A\) son vectores unitarios y ortogonales entre si.
+    \end{definition}
+    \setcounter{enumi}{23}
+    \input{pt24.tex}
+    \setcounter{enumi}{27}
+    \input{pt28.tex}
+    \setcounter{enumi}{30}
+    \input{pt31.tex}
+    \setcounter{enumi}{40}
+    \input{pt41.tex}
+    \setcounter{enumi}{53}
+    \input{pt54.tex}
+    \setcounter{enumi}{71}
+    \input{pt72.tex}
+\end{enumerate}
+\end{document}

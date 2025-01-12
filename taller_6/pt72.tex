@@ -1,0 +1,33 @@
+\begin{definition}
+    \textbf{Regla de Cramer}.
+    Dado un sistema de ecuaciones lineales \(Ax = b\) de tamaño \(n \times n\), donde \(A\) es invertible.
+    Entonces las componentes de la solución \(x^T = \left(x_1 , x_2 , \ldots , x_n \right)\) satisfacen
+    \[
+        x_i = \frac{\det A_i}{\det A}
+    \]
+    donde \(A_i\) es la matriz que se obtiene de \(A\) reemplazando la columna \(i\) por el vector \(b\).
+\end{definition}
+\item Resolver el sistema dado por la \textbf{Regla de Cramer}, siempre que sea posible.
+    \begin{enumerate}[label=\listAlph]
+        \item 
+            \(
+                \left\{
+                \begin{aligned}
+                    x + y + z - 2w &= -4 \\
+                    2y + z + 3w &= 1 \\
+                    2x + y - z + 2w &= 5 \\
+                    x - y + w &= 4
+                \end{aligned}
+                \right.
+            \)
+        \item 
+            \(
+                \left\{
+                \begin{aligned}
+                    2x + 3y + 7z &= 2 \\
+                    -2x - 4z &= 0 \\
+                    x + 2y + 4z &= 0
+                \end{aligned}
+                \right.
+            \)
+    \end{enumerate}
