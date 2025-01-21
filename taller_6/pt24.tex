@@ -1,12 +1,79 @@
 \item Si \(A\) y \(B\) son matrices \(5 \times 5\) tales que \(\det A = −3\) y \(\det B = \frac{1}{2}\), calcule, de ser posible
     \begin{enumerate}[label=\listAlph]
         \item \(\det\left(A^{-1}\right)\)
+            \[
+                \pdet{A^{-1}} 
+                = \frac{1}{\pdet{A}}
+                = -\frac{1}{3}
+            \]
         \item \(\det\left(2B\right)\)
+            \[
+                \pdet{2B} 
+                = 2^5 \cdot \pdet{B}
+                = 32 \cdot \frac{1}{2}
+                = 16
+            \]
         \item \(\det\left(AB\right)\)
-        \item \(\det\left(A + B\right)\)
+            \[
+                \pdet{AB}
+                =
+                \pdet{A} \cdot \pdet{B}
+                = 
+                -\frac{3}{2}
+            \]
+        \item \(\det\left(A + B\right)\) \\
+            Primero debemos mirar cual es el resultado de \(A + B\) para poder calcular este determinante. 
+            Sin embargo, al solo contar con el determinante de la matriz no es posible calcular su determinante.
+            Puede que exista el caso donde el \(\pdet{A+B}\) sea igual a \(\pdet{A} + \pdet{B} = -\frac{5}{2}\),
+            sin embargo en general se tiene que \(\pdet{A + B} \neq \pdet{A} + \pdet{B}\).
         \item \(\det\left(A^2\right)\)
+            \[
+                \pdet{A^2}
+                =
+                \pdet{A}^2
+                =
+                9
+            \]
         \item \(\det\left(A^T\right)\)
+            \[
+                \pdet{A^T}
+                =
+                \pdet{A}
+                =
+                -3
+            \]
         \item \(\det\left(\left(3A\right){}^{-1}\right)\)
+            \[
+                \pdet{\left(3A\right){}^{-1}}
+                =
+                \frac{1}{\pdet{3A}}
+                =
+                \frac{1}{3^5 \cdot \pdet{A}}
+                =
+                \frac{1}{232 \cdot -3}
+                =
+                \frac{1}{729}
+            \]
         \item \(\det\left(\adj\left(A\right)\right)\)
+            \[
+                \pdet{\padj{A}}
+                =
+                \pdet{A}^{5 - 1}
+                =
+                \pdet{A}^{4}
+                =
+                (-3)^{4}
+                =
+                81
+            \]
         \item \(\det\left(\left(2B\right){}^{-1} A\left(\adj\left(A\right)\right)B^2\right)\)
+            \[
+                \begin{aligned}
+                    &\phantom{=} \pdet{\left(2B\right){}^{-1} \cdot A \cdot \padj{A} \cdot B^2} \\
+                    &= \pdet{\left(2B\right){}^{-1}} \cdot \pdet{A} \cdot \pdet{\padj{A}} \cdot \pdet{B^2} \\
+                    &= \frac{1}{2^5 \cdot \pdet{B}} \cdot \pdet{A} \cdot \pdet{A}^{4} \cdot \left(2^5 \cdot \pdet{B}\right) \\
+                    &= \frac{1}{16} \cdot -3 \cdot 81 \cdot 16 
+                    = -243
+                \end{aligned}
+            \]
     \end{enumerate}

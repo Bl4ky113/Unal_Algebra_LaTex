@@ -158,3 +158,19 @@ headheight=22pt%
         \end{TMPMathCases}%
     }
 } {}
+
+% Custom det of a Matrix
+\NewDocumentCommand{\pdet}{m} {%
+    \text{det}%
+    \left(%
+    #1 %
+    \right)%
+}
+
+% Custom Adj of a Matrix
+\NewDocumentCommand{\padj}{m} {%
+    \text{Adj}%
+    \left(%
+    #1 %
+    \right)%
+}

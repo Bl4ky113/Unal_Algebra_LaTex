@@ -14,9 +14,128 @@
             0 & 0 & -\frac{17}{11}
         \end{pmatrix}
     \]
+    Primero vamos a continuar reduciendo la matriz con \emph{Gauss-Jordan}.
+    \[
+        \begin{aligned}
+            \begin{aligned}
+                -\frac{1}{2}F_1 &\mapsto F_1 \\
+                -\frac{11}{17}F_3 &\mapsto F_3 \\
+            \end{aligned}
+            \begin{pmatrix}
+                1 & -2 & -2 \\ 
+                0 & 11 & 6 \\ 
+                0 & 0 & 1
+            \end{pmatrix}
+            \hspace{0.15cm}
+            &\sim
+            \hspace{0.15cm}
+            \begin{aligned}
+                F_2 - 6F_3 &\mapsto F_2 \\
+                F_1 + 2F_3 &\mapsto F_1 
+            \end{aligned}
+            \begin{pmatrix}
+                1 & -2 & 0 \\ 
+                0 & 11 & 0\\ 
+                0 & 0 & 1
+            \end{pmatrix}
+            \hspace{0.15cm}
+            &\sim
+            \hspace{0.15cm}
+            \\
+            \begin{aligned}
+                \frac{1}{11}F_2 &\mapsto F_2
+            \end{aligned}
+            \begin{pmatrix}
+                1 & -2 & 0 \\ 
+                0 & 1 & 0 \\ 
+                0 & 0 & 1
+            \end{pmatrix}
+            \hspace{0.15cm}
+            &\sim
+            \hspace{0.15cm}
+            \begin{aligned}
+                F_1 + 2F_2 &\mapsto F_1
+            \end{aligned}
+            \begin{pmatrix}
+                1 & 0 & 0 \\ 
+                0 & 1 & 0 \\ 
+                0 & 0 & 1
+            \end{pmatrix}
+            \hspace{0.15cm}
+            &\phantom{\sim}
+            \hspace{0.15cm}
+        \end{aligned}
+    \]
     \begin{enumerate}[label=\listAlph]
-        \item Calcule \(\det A\)
-        \item ¿Existe \(A^{-1}\)?
-        \item Calcule \(\det U\)
-        \item Calcule \(\det \adj\left(A\right)\)
+        \item Calcule \(\det A\) \\
+            Vamos a \emph{reconstruir} a la matriz \(A\), siguiendo en orden contrario las operaciones elementales dadas. 
+            Y apartir de esta matriz, calcular su determinante.
+        \item ¿Existe \(A^{-1}\)? \\
+            Como la matriz escalonada reducida equivalente a \(A\) cuenta con 3 pivotes, podemos afirmar que existe la matriz inversa para \(A\).
+            %Inclusive, como hemos obtenido la matriz escalonada reducida mediante operaciones elementales, podemos aplicar estas operaciones a 
+            %una matriz identidad de orden 3 para obtener la inversa de \(A\).
+            %\[
+                %\begin{aligned}
+                    %\begin{aligned}
+                        %F_1 &\leftrightarrow F_3 \\
+                        %F_2 + 2F_1 &\mapsto F_2 \\ 
+                        %F_3 - \frac{5}{2}F_1 &\mapsto F_3 \\
+                    %\end{aligned}
+                    %\begin{pmatrix}
+                        %0 & 0 & 1 \\
+                        %0 & 1 & 2 \\ 
+                        %1 & 0 & -\frac{5}{2} \\ 
+                    %\end{pmatrix}
+                    %\hspace{0.15cm}
+                    %&\sim
+                    %\hspace{0.15cm}
+                    %\begin{aligned}
+                        %5F_2 &\mapsto F_2 \\ 
+                        %F_3 + \frac{10}{11}F_2 &\mapsto F_3 \\
+                        %-\frac{1}{2}F_1 &\mapsto F_1 \\
+                    %\end{aligned}
+                    %\begin{pmatrix}
+                        %0 & 0 & -\frac{1}{2} \\
+                        %0 & 5 & 10 \\ 
+                        %1 & \frac{50}{11} & -\frac{35}{22} \\ 
+                    %\end{pmatrix}
+                    %\hspace{0.15cm}
+                    %&\sim
+                    %\hspace{0.15cm}
+                    %\\
+                    %\begin{aligned}
+                        %-\frac{11}{17}F_3 &\mapsto F_3 \\
+                        %F_2 - 6F_3 &\mapsto F_2 \\
+                        %F_1 + 2F_3 &\mapsto F_1 \\
+                    %\end{aligned}
+                    %\begin{pmatrix}
+                        %-\frac{11}{17} & \frac{50}{17} & -\frac{26}{17} \\
+                        %\frac{11}{17} & -\frac{215}{17} & \frac{65}{17} \\ 
+                        %-\frac{11}{17} & \frac{50}{17} & -\frac{35}{34} \\ 
+                    %\end{pmatrix}
+                    %\hspace{0.15cm}
+                    %&\sim
+                    %\hspace{0.15cm}
+                    %\begin{aligned}
+                        %\frac{1}{11}F_2 &\mapsto F_2 \\
+                        %F_1 + 2F_2 &\mapsto F_1
+                    %\end{aligned}
+                    %\begin{pmatrix}
+                        %-\frac{11}{17} & \frac{50}{17} & -\frac{26}{17} \\
+                        %\frac{11}{17} & -\frac{215}{17} & \frac{65}{17} \\ 
+                        %-\frac{11}{17} & \frac{50}{17} & -\frac{35}{34} \\ 
+                    %\end{pmatrix}
+                    %\hspace{0.15cm}
+                    %&\sim
+                    %\hspace{0.15cm}
+                %\end{aligned}
+            %\]
+        \item Calcule \(\det U\) \\
+            Simplemente, vamos a obtener a \(\pdet{U}\) multiplicando las componentes diagonales al ser una matriz triángular superior.
+            \[
+                \pdet{U} =
+                -2 \cdot 11 \cdot -\frac{17}{11} =
+                34
+            \]
+        \item Calcule \(\det \adj\left(A\right)\) \\
     \end{enumerate}

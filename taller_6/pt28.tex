@@ -1,13 +1,46 @@
 \item Por qué son \textbf{FALSAS} las siguientes proposiciones
     \begin{enumerate}[label=\listAlph]
         \item Una matriz ortogonal simétrica es una matriz idempotente.
-        \item El determinante de \(3A\) es 3 veces el determinante de \(A\).
+            Primero, consideremos a \(A\), una matriz de orden \(n\); con \(n \in \realN\), 
+            tal que \(A\) es una matriz simétrica, es decir, \(A = A^T\) y ortogonal.
+        \item El determinante de \(3A\) es 3 veces el determinante de \(A\). \\
+            Primero, definamos que la matriz \(A\) es de orden \(n\), con \(n\) siendo cualquier natural mayor a 1.
+            Ya que en el caso que la matriz es de orden 1, su determinante va a ser igual al único valor de \(A\), 
+            entonces \(\pdet{3A} = 3 \cdot \pdet{A} = 3 \cdot a\), siendo \(a\) el elemento de \(A\).
+            Una vez aclarado este caso, podemos ver a \(3A\) como la multiplación de cada fila de \(A\) por 3, 
+            Entonces, podemos tomar una matriz \(B\) que sea el resultado de multiplicar una fila \(i\) de \(A\) por 3,
+            tal que por \emph{expanción de Laplace} podamos ver que
+            \[
+                \begin{aligned}
+                    \pdet{B} &= 3 \cdot a_{i1}A_{i1} + 3 \cdot a_{i2}A_{i2} + \cdots + 3 \cdot a_{in}A_{in} \\
+                    &= 3 \cdot \left(a_{i1}A_{i1} + 3 \cdot a_{i2}A_{i2} + \cdots + 3 \cdot a_{in}A_{in}\right) \\
+                    &= 3 \cdot \pdet{A}
+                \end{aligned}
+            \]
+            Con este resultado, podemos considerar que si multiplicamos cada fila por 3, o cualquier escalar, por cada fila que se tenga 
+            la matriz se debera multiplicar por el escalar. Obteniendo así
+            \[
+                \pdet{3A} = 3^n \cdot \pdet{A}
+            \]
+            Lo cual podemos verificar que \(\pdet{3A} \neq 3 \cdot \pdet{A}\) para matrices de orden mayor a 1.
         \item Si el determinante de la matriz de coeficientes de un sistema de ecuaciones lineales es cero, el sistema es inconsistente.
         \item Si el determinante del producto de dos matrices es cero, una de las matrices es cero.
         \item Toda matriz es el producto de matrices elementales.
-        \item Si dos matrices tienen dos filas iguales, sus determinantes también son iguales.
+        \item Si dos matrices tienen dos filas iguales, sus determinantes también son iguales. \\
+            Primero, definamos las matrices \(A\) y \(B\), ambas de orden \(n\); con \(n \in \realN\),
+            tal que comparten las filas de componentes \(c_1, \ldots, c_i, \ldots, c_n\) y \(d_1, \ldots, d_i, \ldots, d_n\). 
+            En el caso que alguna de las dos filas de componentes compartidas es de únicamente ceros, se puede observar que
+            \[
+                \pdet{A} = 0A_{k1} + \cdots + 0A_{ki} + \cdots + 0A_{kn} = 0 = 0B_{k1} + \cdots + 0B_{ki} + \cdots + 0B_{kn} = \pdet{B}
+            \]
+            donde \(k\) es el número de la fila de ceros compartida por \(A\) y \(B\).
+            En el caso que para algún \(i\) tal que \(1 \leq i \leq n\) se tenga \(c_i \neq 0\) y \(d_i \neq 0\)
         \item Al pre-multiplicar una matriz por una matriz elemental, el determinante de la matriz no cambia.
-        \item Si el determinante del producto de dos matrices es cero, el determinante de una de las matrices es cero.
+        \item Si el determinante del producto de dos matrices es cero, el determinante de una de las matrices es cero. \\
+            Inicialmente, definiendo a \(A\) y \(B\), ambas matrices de orden \(n\); donde \(n \in \realN\).
+            Cabe aclarar que el orden de ambas matrices debe ser igual para que se tenga definida 
+            la multiplicación entre ambas matrices, así para que se tenga que \(\pdet{AB} = 0\).
+            Apartir de esto, 
         \item Si la solución de un sistema de ecuaciones lineales homogéneo cuadrado es única, el determinante de la matriz de coeficientes del sistema puede ser cero.
         \item Toda matriz cuadrada \(A \neq O\) es el producto de matrices elementales.
     \end{enumerate}
