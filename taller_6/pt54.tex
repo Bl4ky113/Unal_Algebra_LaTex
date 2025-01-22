@@ -1,10 +1,81 @@
 \item Responder \textbf{Verdadero} o \textbf{Falso}, justificando cada respuesta.
     \begin{enumerate}[label=\listAlph]
-        \item \(\det\left(AA^T\right) = \det\left(A^2\right)\).
-        \item \(\det -A = -\det A\).
-        \item Si \(A^T = A^{-1}\), entonces \(\det A = 1\).
-        \item Si \(\det \left(A\right) = 4\), entonces el sistema \(Ax = \vec{0}\) tiene sólo la solución trivial.
-        \item Si \(\det \left(A\right) = 0\), entonces \(\det \left( \adj \left(A\right)\right) = 0\).
-        \item Si \(A, B, P\) son matrices tales que \(P\) no es invertible y \(B = P \cdot A \cdot P^{-1}\) entonces \(\det (A)\) coincide con \(\det (B)\).
-        \item Si \(A^4 = I_n\), entonces \(\det(A) = 1\).
+        \item \(\det\left(AA^T\right) = \det\left(A^2\right)\). \\
+            En primer lugar, al contar con la matriz \(A\) de orden \(n\); con \(n \in \realN\),
+            sabemos que el determinante de una matriz transpuesta es igual a la matriz base, y además,
+            que el determinante del producto entre dos matrices es igual al producto entre los determinantes de las matrices, es decir 
+            \[
+                \pdet{A} = \pdet{A^T}
+                \hspace{1cm}
+                \pdet{AB} = \pdet{A}\pdet{B} \hspace{1cm} A,B \in \symbfscr{M}_{n \times n}
+            \]
+            Apartir de esta información, podemos afirmar lo siguiente
+            \[
+                \pdet{AA^{T}} = \pdet{A}\pdet{A^T} = \pdet{A}\pdet{A} = \pdet{AA} = \pdet{A^2}
+            \]
+            concluyendo que la proposición es \textbf{Verdadera}.
+        \item \(\pdet{-A} = -\pdet{A}\). \\
+            Inicialmente, teniendo la matriz \(A\) de orden \(n\); con \(n \in \realN\),
+            partiendo desde el punto, para cualquier escalar real \(\alpha\) se tiene que \(\pdet{\alpha A} = \alpha^n \pdet{A}\).
+            En el caso que \(n\) sea par se va tener que
+            \[
+                \pdet{-A} = \pdet{-1 \cdot A} = -1^{n} \pdet{A} = \pdet{A} \neq -\pdet{A}
+            \]
+            entonces la proposición va a ser \textbf{Falsa}.
+            \\[0.25cm]
+            Sin embargo, en el caso que \(n\) sea impar se va tener que
+            \[
+                \pdet{-A} = \left(-1\right){}^{n} \pdet{A} = -\pdet{A}
+            \]
+            entonces la proposición va a ser \textbf{Verdadera}.
+        \item Si \(A^T = A^{-1}\), entonces \(\pdet{A} = 1\). \\
+            Inicialmente, sabemos que si \(A\) es una matriz de orden \(n\) invertible; con \(n \in \realN\), 
+            entonces \(\pdet{A^T} = \pdet{A}\), \(\pdet{A^{-1}} = \frac{1}{\pdet{A}}\) y además \(\pdet{A} \neq 0\). 
+            Añadiendo que, por hipotesís tenemos que \(A^T = A^{-1}\), es decir \(\pdet{A^T} = \pdet{A^{-1}}\), entonces tenemos
+            \[
+                \pdet{A} = \frac{1}{\pdet{A}} = \pdet{A}^{-1}
+            \]
+            Ahora, el único número tal que su inverso multiplicativo sea igual a sí mismo es el elemento identidad de la operación, 
+            para nuestro caso \(\left(\realR, \cdot\right)\) este elemento es el 1, por ende podemos concluir que
+            \[
+                \pdet{A} = 1
+            \]
+            Siendo nuestra proposición \textbf{Verdadera}.
+        \item Si \(\pdet{A} = 4\), entonces el sistema \(Ax = \vec{0}\) tiene sólo la solución trivial. \\
+            Inicialmente, teniendo la matriz \(A\) de orden \(n\); con \(n \in \realN\),
+            sabemos que si el determinante de una matriz es diferente de cero, esta matriz va a ser invertible. 
+            Lo cual nos indica, mediante la equivalencia de conceptos, que la matriz escalonada equivalente a \(A\) tiene \(n\) pivotes,
+            o que el sistema de ecuaciones lineales \(Ax = b\) tiene solución única, o que las columnas de \(A\) son \(l.i\), o que el sistema 
+            de ecuaciones lineales \(Ax = \vec{0}\) tiene como única solución la solución tivial, es decir \(x = \vec{0}\).
+            Por ende, esta proposición es \textbf{Verdadera}.
+        \item Si \(\pdet{A} = 0\), entonces \(\pdet{\padj{A}} = 0\). \\
+            Partiendo desde la matriz \(A\) de orden \(n\); con \(n \in \realN\), 
+            tenemos que el determinante de la matriz adjunta de \(A\) va a ser igual a 
+            \[
+                \pdet{\padj{A}} = \pdet{A}^{n-1}
+            \]
+            Y, como por hipotesís tenemos que \(\pdet{A} = 0\), es fácil ver que \(\pdet{A}^{n - 1} = 0^{n - 1} = 0\),
+            es decir 
+            \[
+                \pdet{\padj{A}} = 0
+            \]
+            Concluyendo que la proposición es \textbf{Verdadera}.
+        \item Si \(A, B, P\) son matrices tales que \(P\) es invertible y \(B = P \cdot A \cdot P^{-1}\) entonces \(\pdet{A}\) coincide con \(\pdet{B}\). \\
+            Antes que nada, vamos a definir a \(A\) y \(P\) como matrices de orden \(n\); donde \(n \in \realN\), de tal forma como \(B\) es el producto entre 
+            \(A\), \(P\) y la inversa de \(P\), \(B\) también va a ser de orden \(n\). Añadiendo qué, sabemos que el determinante del producto de dos matrices es 
+            \[
+                \pdet{GH} = \pdet{G} \cdot \pdet{H}; \hspace{0.5cm} G, H \in \symbfscr{M}_{n \times n}
+            \]
+            Entonces, podemos aplicar el determinante a \(B\), el cual como lo hemos definido va a ser
+            \[
+                \pdet{B} = \pdet{P} \cdot \pdet{A} \cdot{P^{-1}} = \pdet{P} \cdot \frac{1}{\pdet{P}} \cdot \pdet{A} = \pdet{A}
+            \]
+            Y como, al ser un número real, el determinante de una matriz es una operación conmutativa y el determinante de la inversa de una matriz 
+            el inverso multiplicativo del determinante de la matriz invertida podemos simplificar el determinante de \(P\) y \(P^{-1}\), dejando solo 
+            \[
+                \pdet{B} = \pdet{A}
+            \]
+            por ende, la proposición es \textbf{Verdadera}.
+        \item Si \(A^4 = I_n\), entonces \(\pdet{A} = 1\). \\
+            Iniciando primero vamos a definir a \(A\) como una matriz \(n \times n\); donde \(n \in \realN\), 
     \end{enumerate}
