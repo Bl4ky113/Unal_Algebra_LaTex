@@ -328,3 +328,82 @@
         = 
         1 + a + b + c + d + e
     \]
+    \[
+        \begin{aligned}
+            &\phantom{\sim}
+            \begin{vmatrix}
+                1 + a & b & c & d & e \\
+                a & 1 + b & c & d & e \\
+                a & b & 1 + c & d & e \\
+                a & b & c & 1 + d & e \\
+                a & b & c & d & 1 + e \\
+            \end{vmatrix}
+            \\
+            &\sim
+            \begin{aligned}
+                F_2 -\frac{a}{1 + a}F_1 &\mapsto F_2 \\
+                F_3 -\frac{a}{1 + a}F_1 &\mapsto F_3 \\
+                F_4 -\frac{a}{1 + a}F_1 &\mapsto F_4 \\
+                F_5 -\frac{a}{1 + a}F_1 &\mapsto F_5 \\
+            \end{aligned}
+            \begin{vmatrix}
+                1 + a & b & c & d & e \\
+                0 & \frac{b + a + 1}{a + 1} & \frac{c}{a + 1} & \frac{d}{a + 1} & \frac{e}{a + 1} \\
+                0 & \frac{b}{a + 1} & \frac{c + a + 1}{a + 1} & \frac{d}{a + 1} & \frac{e}{a + 1} \\
+                0 & \frac{b}{a + 1} & \frac{c}{a + 1} & \frac{d + a + 1}{a + 1} & \frac{e}{a + 1} \\
+                0 & \frac{b}{a + 1} & \frac{c}{a + 1} & \frac{d}{a + 1} & \frac{e + a + 1}{a + 1} \\
+            \end{vmatrix}
+            \\
+            &\sim
+            \begin{aligned}
+                F_3 -\frac{b}{1 + a + b}F_2 &\mapsto F_3 \\
+                F_4 -\frac{b}{1 + a + b}F_2 &\mapsto F_4 \\
+                F_5 -\frac{b}{1 + a + b}F_2 &\mapsto F_5 \\
+            \end{aligned}
+            \begin{vmatrix}
+                1 + a & b & c & d & e \\
+                0 & \frac{b + a + 1}{a + 1} & \frac{c}{a + 1} & \frac{d}{a + 1} & \frac{e}{a + 1} \\
+                0 & 0 & \frac{c + b + a + 1}{a + b + 1} & \frac{d}{a + b + 1} & \frac{e}{a+b+1} \\
+                0 & 0 & \frac{c}{a + b + 1} & \frac{d + a + b + 1}{a + b + 1} & \frac{e}{a + b + 1} \\
+                0 & 0 & \frac{c}{a + b + 1} & \frac{d}{a + b + 1} & \frac{e + a + b + 1}{a + b + 1} \\
+            \end{vmatrix}
+        \end{aligned}
+    \]
+    \[
+        \begin{aligned}
+            &\sim
+            \begin{aligned}
+                F_4 -\frac{c}{1 + a + b + c}F_3 &\mapsto F_4 \\
+                F_5 -\frac{c}{1 + a + b + c}F_3 &\mapsto F_5 \\
+            \end{aligned}
+            \begin{vmatrix}
+                1 + a & b & c & d & e \\
+                0 & \frac{b + a + 1}{a + 1} & \frac{c}{a + 1} & \frac{d}{a + 1} & \frac{e}{a + 1} \\
+                0 & 0 & \frac{c + b + a + 1}{a + b + 1} & \frac{d}{a + b + 1} & \frac{e}{a+b+1} \\
+                0 & 0 & 0 & \frac{a + b + c + d + 1}{a + b + c + 1} & \frac{e}{a + b + c + 1} \\
+                0 & 0 & 0 & \frac{d}{a + b + c + 1} & \frac{e + a + b + c + 1}{a + b + c + 1} \\
+            \end{vmatrix}
+            \\
+            &\sim
+            \begin{aligned}
+                F_5 -\frac{d}{1 + a + b + c + d}F_4 &\mapsto F_5 \\
+            \end{aligned}
+            \begin{vmatrix}
+                1 + a & b & c & d & e \\
+                0 & \frac{b + a + 1}{a + 1} & \frac{c}{a + 1} & \frac{d}{a + 1} & \frac{e}{a + 1} \\
+                0 & 0 & \frac{c + b + a + 1}{a + b + 1} & \frac{d}{a + b + 1} & \frac{e}{a+b+1} \\
+                0 & 0 & 0 & \frac{a + b + c + d + 1}{a + b + c + 1} & \frac{e}{a + b + c + 1} \\
+                0 & 0 & 0 & 0 & \frac{a + b + c + d + e + 1}{a + b + c + d + 1} \\
+            \end{vmatrix}
+            \\
+            &=
+            \left(a + 1\right)
+            \left(\frac{a + b + 1}{a + 1}\right)
+            \left(\frac{a + b + c + 1}{a + b + 1}\right)
+            \left(\frac{a + b + c + d + 1}{a + b + c + 1}\right)
+            \left(\frac{a + b + c + d + e + 1}{a + b + c + d + 1}\right)
+            \\
+            &=
+            a + b + c + d + e + 1
+        \end{aligned}
+    \]

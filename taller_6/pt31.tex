@@ -14,62 +14,105 @@
             0 & 0 & -\frac{17}{11}
         \end{pmatrix}
     \]
-    Primero vamos a continuar reduciendo la matriz con \emph{Gauss-Jordan}.
-    \[
-        \begin{aligned}
-            \begin{aligned}
-                -\frac{1}{2}F_1 &\mapsto F_1 \\
-                -\frac{11}{17}F_3 &\mapsto F_3 \\
-            \end{aligned}
-            \begin{pmatrix}
-                1 & -2 & -2 \\ 
-                0 & 11 & 6 \\ 
-                0 & 0 & 1
-            \end{pmatrix}
-            \hspace{0.15cm}
-            &\sim
-            \hspace{0.15cm}
-            \begin{aligned}
-                F_2 - 6F_3 &\mapsto F_2 \\
-                F_1 + 2F_3 &\mapsto F_1 
-            \end{aligned}
-            \begin{pmatrix}
-                1 & -2 & 0 \\ 
-                0 & 11 & 0\\ 
-                0 & 0 & 1
-            \end{pmatrix}
-            \hspace{0.15cm}
-            &\sim
-            \hspace{0.15cm}
-            \\
-            \begin{aligned}
-                \frac{1}{11}F_2 &\mapsto F_2
-            \end{aligned}
-            \begin{pmatrix}
-                1 & -2 & 0 \\ 
-                0 & 1 & 0 \\ 
-                0 & 0 & 1
-            \end{pmatrix}
-            \hspace{0.15cm}
-            &\sim
-            \hspace{0.15cm}
-            \begin{aligned}
-                F_1 + 2F_2 &\mapsto F_1
-            \end{aligned}
-            \begin{pmatrix}
-                1 & 0 & 0 \\ 
-                0 & 1 & 0 \\ 
-                0 & 0 & 1
-            \end{pmatrix}
-            \hspace{0.15cm}
-            &\phantom{\sim}
-            \hspace{0.15cm}
-        \end{aligned}
-    \]
     \begin{enumerate}[label=\listAlph]
         \item Calcule \(\det A\) \\
             Vamos a \emph{reconstruir} a la matriz \(A\), siguiendo en orden contrario las operaciones elementales dadas. 
-            Y apartir de esta matriz, calcular su determinante.
+            Y apartir de esta matriz, calcular su determinante. Para esto, vamos a aplicar la inversa de cada operación elemental realizada en 
+            \(A\) para obtener la matriz dada en sentido contrario
+            \[
+                \begin{pmatrix}
+                    -2 & 4 & 4 \\ 
+                    0 & 11 & 6 \\ 
+                    0 & 0 & -\frac{17}{11}
+                \end{pmatrix}
+                \sim
+                \begin{aligned}
+                    F_3 - \frac{10}{11} &\mapsto F_3 \\
+                \end{aligned}
+                \begin{pmatrix}
+                    -2 & 4 & 4 \\ 
+                    0 & 11 & 6 \\ 
+                    0 & -10 & -7
+                \end{pmatrix}
+                \sim
+                \begin{aligned}
+                    \frac{1}{5}F_2 &\mapsto F_2 \\ 
+                    F_3 + \frac{5}{2}F_1 &\mapsto F_3 \\
+                \end{aligned}
+                \begin{pmatrix}
+                    -2 & 4 & 4 \\ 
+                    0 & \frac{11}{5} & \frac{6}{5} \\ 
+                    -5 & 0 & 3
+                \end{pmatrix}
+            \]
+            \[
+                \sim
+                \begin{aligned}
+                    F_2 - 2F_1 &\mapsto F_2 \\ 
+                \end{aligned}
+                \begin{pmatrix}
+                    -2 & 4 & 4 \\ 
+                    2 & -\frac{9}{5} & -\frac{14}{5} \\ 
+                    -5 & 0 & 3
+                \end{pmatrix}
+                \sim
+                \begin{aligned}
+                    F_3 &\leftrightarrow F_1 \\
+                \end{aligned}
+                \begin{pmatrix}
+                    -5 & 0 & 3 \\
+                    2 & -\frac{9}{5} & -\frac{14}{5} \\ 
+                    -2 & 4 & 4 
+                \end{pmatrix}
+            \]
+            Ahora, con \(A\) reconstruida, podemos calcular su determinante mediante \textbf{La Regla de Sarrus}, 
+            al ser una matriz de orden 3.
+            \[
+                \begin{aligned}
+                    \pdet{A}&=
+                    \begin{aligned}
+                    \begin{vmatrix}
+                        -5 & 0 & 3 \\
+                        2 & -\frac{9}{5} & -\frac{14}{5} \\ 
+                        -2 & 4 & 4 
+                    \end{vmatrix}
+                    \\
+                    \begin{array}{ccc}
+                        -5 & 0 & 3 \\
+                        2 & -\frac{9}{5} & -\frac{14}{5} \\ 
+                    \end{array}
+                    \end{aligned}
+                    \\
+                    &=
+                    \left(
+                        \left(-5 \cdot -\frac{9}{5} \cdot 4\right)
+                        +\left(2 \cdot 4 \cdot 3\right)
+                        +\left(-2 \cdot 0 \cdot -\frac{14}{5}\right)
+                    \right)
+                    -
+                    \left(
+                        \left(3 \cdot -\frac{9}{5} \cdot -2\right)
+                        +\left(-\frac{14}{5} \cdot 4 \cdot -5\right)
+                        +\left(4 \cdot 0 \cdot 2\right)
+                    \right)
+                    \\
+                    &=
+                    \left(
+                        36 + 24
+                    \right)
+                    -
+                    \left(
+                        \frac{54}{5} + 56
+                    \right)
+                    =
+                    \frac{300}{5}
+                    - 
+                    \frac{334}{5}
+                    \\
+                    &=
+                    -\frac{34}{5}
+                \end{aligned}
+            \]
         \item ¿Existe \(A^{-1}\)? \\
             Como la matriz escalonada reducida equivalente a \(A\) cuenta con 3 pivotes, podemos afirmar que existe la matriz inversa para \(A\).
             %Inclusive, como hemos obtenido la matriz escalonada reducida mediante operaciones elementales, podemos aplicar estas operaciones a 
@@ -138,4 +181,16 @@
                 34
             \]
         \item Calcule \(\det \adj\left(A\right)\) \\
+            Como contamos con \(\pdet{A}\), por el punto anterior, podemos calcular el \(\pdet{\padj{A}}\) apartir de esté. Obteniendo
+            \[
+                \pdet{\padj{A}}
+                =
+                \pdet{A}^{3 - 1}
+                =
+                \pdet{A}^2
+                =
+                \left(-\frac{34}{5}\right){}^2
+                =
+                \frac{1156}{25}
+            \]
     \end{enumerate}

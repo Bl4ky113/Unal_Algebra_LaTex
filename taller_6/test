@@ -1,0 +1,86 @@
+Find the determinant:
+ left bracketing bar 1 + a | b | c | x | e
+a | b + 1 | c | x | e
+a | b | c + 1 | x | e
+a | b | c | x + 1 | e
+a | b | c | x | e + 1 right bracketing bar 
+Hint: | Add a multiple of one row to another.
+Add -a/(1 + a) × (row 1) to row 2:
+ = left bracketing bar 1 + a | b | c | x | e
+0 | (1 + a + b)/(1 + a) | c/(1 + a) | x/(1 + a) | e/(1 + a)
+a | b | 1 + c | x | e
+a | b | c | 1 + x | e
+a | b | c | x | 1 + e right bracketing bar 
+Hint: | Add a multiple of one row to another.
+Add -a/(1 + a) × (row 1) to row 3:
+ = left bracketing bar 1 + a | b | c | x | e
+0 | (1 + a + b)/(1 + a) | c/(1 + a) | x/(1 + a) | e/(1 + a)
+0 | b/(1 + a) | (1 + a + c)/(1 + a) | x/(1 + a) | e/(1 + a)
+a | b | c | 1 + x | e
+a | b | c | x | 1 + e right bracketing bar 
+Hint: | Add a multiple of one row to another.
+Add -a/(1 + a) × (row 1) to row 4:
+Answer: | 
+ | = left bracketing bar 1 + a | b | c | x | e
+0 | (1 + a + b)/(1 + a) | c/(1 + a) | x/(1 + a) | e/(1 + a)
+0 | b/(1 + a) | (1 + a + c)/(1 + a) | x/(1 + a) | e/(1 + a)
+0 | b/(1 + a) | c/(1 + a) | (1 + a + x)/(1 + a) | e/(1 + a)
+a | b | c | x | 1 + e right bracketing bar
+
+Find the determinant:
+ left bracketing bar 1 + a | b | c | x | e
+0 | (b + a + 1)/(a + 1) | c/(a + 1) | x/(a + 1) | e/(a + 1)
+0 | b/(a + 1) | (c + a + 1)/(a + 1) | x/(a + 1) | e/(a + 1)
+0 | b/(a + 1) | c/(a + 1) | (x + a + 1)/(a + 1) | e/(a + 1)
+0 | b/(a + 1) | c/(a + 1) | x/(a + 1) | (e + a + 1)/(a + 1) right bracketing bar 
+Hint: | Add a multiple of one row to another.
+Add -b/(1 + a + b) × (row 2) to row 3:
+ = left bracketing bar 1 + a | b | c | x | e
+0 | (1 + a + b)/(1 + a) | c/(1 + a) | x/(1 + a) | e/(1 + a)
+0 | 0 | (1 + a + b + c)/(1 + a + b) | x/(1 + a + b) | e/(1 + a + b)
+0 | b/(1 + a) | c/(1 + a) | (1 + a + x)/(1 + a) | e/(1 + a)
+0 | b/(1 + a) | c/(1 + a) | x/(1 + a) | (1 + a + e)/(1 + a) right bracketing bar 
+Hint: | Add a multiple of one row to another.
+Add -b/(1 + a + b) × (row 2) to row 4:
+ = left bracketing bar 1 + a | b | c | x | e
+0 | (1 + a + b)/(1 + a) | c/(1 + a) | x/(1 + a) | e/(1 + a)
+0 | 0 | (1 + a + b + c)/(1 + a + b) | x/(1 + a + b) | e/(1 + a + b)
+0 | 0 | c/(1 + a + b) | (1 + a + b + x)/(1 + a + b) | e/(1 + a + b)
+0 | b/(1 + a) | c/(1 + a) | x/(1 + a) | (1 + a + e)/(1 + a) right bracketing bar 
+Hint: | Add a multiple of one row to another.
+Add -b/(1 + a + b) × (row 2) to row 5:
+Answer: | 
+ | = left bracketing bar 1 + a | b | c | x | e
+0 | (1 + a + b)/(1 + a) | c/(1 + a) | x/(1 + a) | e/(1 + a)
+0 | 0 | (1 + a + b + c)/(1 + a + b) | x/(1 + a + b) | e/(1 + a + b)
+0 | 0 | c/(1 + a + b) | (1 + a + b + x)/(1 + a + b) | e/(1 + a + b)
+0 | 0 | c/(1 + a + b) | x/(1 + a + b) | (1 + a + b + e)/(1 + a + b) right bracketing bar
+
+Find the determinant:
+ left bracketing bar 1 + a | b | c | x | e
+0 | (b + a + 1)/(a + 1) | c/(a + 1) | x/(a + 1) | e/(a + 1)
+0 | b/(a + 1) | (c + a + 1)/(a + 1) | x/(a + 1) | e/(a + 1)
+0 | b/(a + 1) | c/(a + 1) | (x + a + 1)/(a + 1) | e/(a + 1)
+0 | b/(a + 1) | c/(a + 1) | x/(a + 1) | (e + a + 1)/(a + 1) right bracketing bar 
+Hint: | Add a multiple of one row to another.
+Add -b/(1 + a + b) × (row 2) to row 3:
+ = left bracketing bar 1 + a | b | c | x | e
+0 | (1 + a + b)/(1 + a) | c/(1 + a) | x/(1 + a) | e/(1 + a)
+0 | 0 | (1 + a + b + c)/(1 + a + b) | x/(1 + a + b) | e/(1 + a + b)
+0 | b/(1 + a) | c/(1 + a) | (1 + a + x)/(1 + a) | e/(1 + a)
+0 | b/(1 + a) | c/(1 + a) | x/(1 + a) | (1 + a + e)/(1 + a) right bracketing bar 
+Hint: | Add a multiple of one row to another.
+Add -b/(1 + a + b) × (row 2) to row 4:
+ = left bracketing bar 1 + a | b | c | x | e
+0 | (1 + a + b)/(1 + a) | c/(1 + a) | x/(1 + a) | e/(1 + a)
+0 | 0 | (1 + a + b + c)/(1 + a + b) | x/(1 + a + b) | e/(1 + a + b)
+0 | 0 | c/(1 + a + b) | (1 + a + b + x)/(1 + a + b) | e/(1 + a + b)
+0 | b/(1 + a) | c/(1 + a) | x/(1 + a) | (1 + a + e)/(1 + a) right bracketing bar 
+Hint: | Add a multiple of one row to another.
+Add -b/(1 + a + b) × (row 2) to row 5:
+Answer: | 
+ | = left bracketing bar 1 + a | b | c | x | e
+0 | (1 + a + b)/(1 + a) | c/(1 + a) | x/(1 + a) | e/(1 + a)
+0 | 0 | (1 + a + b + c)/(1 + a + b) | x/(1 + a + b) | e/(1 + a + b)
+0 | 0 | c/(1 + a + b) | (1 + a + b + x)/(1 + a + b) | e/(1 + a + b)
+0 | 0 | c/(1 + a + b) | x/(1 + a + b) | (1 + a + b + e)/(1 + a + b) right bracketing bar

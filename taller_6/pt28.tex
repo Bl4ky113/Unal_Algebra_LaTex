@@ -1,8 +1,9 @@
 \item Por qué son \textbf{FALSAS} las siguientes proposiciones
     \begin{enumerate}[label=\listAlph]
-        \item Una matriz ortogonal simétrica es una matriz idempotente.
-            Primero, consideremos a \(A\), una matriz de orden \(n\); con \(n \in \realN\), 
-            tal que \(A\) es una matriz simétrica, es decir, \(A = A^T\) y ortogonal.
+        %\item Una matriz ortogonal simétrica es una matriz idempotente.
+            %Primero, consideremos a \(A\), una matriz de orden \(n\); con \(n \in \realN\), 
+            %tal que \(A\) es una matriz simétrica, es decir, \(A = A^T\) y ortogonal.
+        \setcounter{enumii}{1}
         \item El determinante de \(3A\) es 3 veces el determinante de \(A\). \\
             Primero, definamos que la matriz \(A\) es de orden \(n\), con \(n\) siendo cualquier natural mayor a 1.
             Ya que en el caso que la matriz es de orden 1, su determinante va a ser igual al único valor de \(A\), 
@@ -23,24 +24,42 @@
                 \pdet{3A} = 3^n \cdot \pdet{A}
             \]
             Lo cual podemos verificar que \(\pdet{3A} \neq 3 \cdot \pdet{A}\) para matrices de orden mayor a 1.
-        \item Si el determinante de la matriz de coeficientes de un sistema de ecuaciones lineales es cero, el sistema es inconsistente.
-        \item Si el determinante del producto de dos matrices es cero, una de las matrices es cero.
-        \item Toda matriz es el producto de matrices elementales.
-        \item Si dos matrices tienen dos filas iguales, sus determinantes también son iguales. \\
-            Primero, definamos las matrices \(A\) y \(B\), ambas de orden \(n\); con \(n \in \realN\),
-            tal que comparten las filas de componentes \(c_1, \ldots, c_i, \ldots, c_n\) y \(d_1, \ldots, d_i, \ldots, d_n\). 
-            En el caso que alguna de las dos filas de componentes compartidas es de únicamente ceros, se puede observar que
-            \[
-                \pdet{A} = 0A_{k1} + \cdots + 0A_{ki} + \cdots + 0A_{kn} = 0 = 0B_{k1} + \cdots + 0B_{ki} + \cdots + 0B_{kn} = \pdet{B}
-            \]
-            donde \(k\) es el número de la fila de ceros compartida por \(A\) y \(B\).
-            En el caso que para algún \(i\) tal que \(1 \leq i \leq n\) se tenga \(c_i \neq 0\) y \(d_i \neq 0\)
-        \item Al pre-multiplicar una matriz por una matriz elemental, el determinante de la matriz no cambia.
-        \item Si el determinante del producto de dos matrices es cero, el determinante de una de las matrices es cero. \\
-            Inicialmente, definiendo a \(A\) y \(B\), ambas matrices de orden \(n\); donde \(n \in \realN\).
-            Cabe aclarar que el orden de ambas matrices debe ser igual para que se tenga definida 
-            la multiplicación entre ambas matrices, así para que se tenga que \(\pdet{AB} = 0\).
-            Apartir de esto, 
-        \item Si la solución de un sistema de ecuaciones lineales homogéneo cuadrado es única, el determinante de la matriz de coeficientes del sistema puede ser cero.
+        %\item Si el determinante de la matriz de coeficientes de un sistema de ecuaciones lineales es cero, el sistema es inconsistente.
+        %\item Si el determinante del producto de dos matrices es cero, una de las matrices es cero.
+        %\item Toda matriz es el producto de matrices elementales.
+        %\item Si dos matrices tienen dos filas iguales, sus determinantes también son iguales. \\
+            %Primero, definamos las matrices \(A\) y \(B\), ambas de orden \(n\); con \(n \in \realN\),
+            %tal que comparten las filas de componentes \(c_1, \ldots, c_i, \ldots, c_n\) y \(d_1, \ldots, d_i, \ldots, d_n\). 
+            %En el caso que alguna de las dos filas de componentes compartidas es de únicamente ceros, se puede observar que
+            %\[
+                %\pdet{A} = 0A_{k1} + \cdots + 0A_{ki} + \cdots + 0A_{kn} = 0 = 0B_{k1} + \cdots + 0B_{ki} + \cdots + 0B_{kn} = \pdet{B}
+            %\]
+            %donde \(k\) es el número de la fila de ceros compartida por \(A\) y \(B\).
+            %En el caso que para algún \(i\) tal que \(1 \leq i \leq n\) se tenga \(c_i \neq 0\) y \(d_i \neq 0\)
+        %\item Al pre-multiplicar una matriz por una matriz elemental, el determinante de la matriz no cambia.
+            %Consideremos 
+        %\item Si el determinante del producto de dos matrices es cero, el determinante de una de las matrices es cero. \\
+            %Inicialmente, definiendo a \(A\) y \(B\), ambas matrices de orden \(n\); donde \(n \in \realN\).
+            %Cabe aclarar que el orden de ambas matrices debe ser igual para que se tenga definida 
+            %la multiplicación entre ambas matrices, así para que se tenga que \(\pdet{AB} = 0\).
+            %Si consideramos que \(C = AB \neq 0\), y además en la matriz \(C\) o se cuenta con una fila o columna de ceros.
+            %Su determinante por propiedades va a ser igual a cero. Un ejemplo de este caso es
+        \setcounter{enumii}{8}
+        \item Si la solución de un sistema de ecuaciones lineales homogéneo cuadrado es única, el determinante de la matriz de coeficientes del sistema puede ser cero. \\
+            Se puede considerar una matriz \(A\) de orden \(n\); con \(n \in \realN\), tal que el sistema de ecuaciones homogéneo, \(Ax = \vec{0}\) tenga como única solución
+            a \(x = \vec{0}\). Consecuentemente, podemos afirmar por equivalencia de conceptos que la matriz \(A\) es invertible, es decir, que su determinante debe ser diferente 
+            a cero. Entonces, en el caso que el determinante de una matriz pueda ser cero por equivalencia en ese caso no se va a tener una única solución en el sistema de ecuaciones 
+            homogéneo equivalente. Por lo tanto la proposición es \textbf{Falsa}.
         \item Toda matriz cuadrada \(A \neq O\) es el producto de matrices elementales.
+            Esta proposición es falsa, ya que se puede considerar una matriz singular como 
+            \[
+                A = 
+                \begin{pmatrix}
+                    1 & 1 \\
+                    0 & 0
+                \end{pmatrix}
+            \]
+            Además, al estar ya escalonada \(A\), no se puede realizar ningún proceso para obtener alguna matriz elemental tal que \(E \cdot U = A\), 
+            siendo \(U\) la matriz escalonada equivalente a \(A\). Y si consideramos el caso donde se obtiene a \(A\) despues de escalonar otra matriz \(B\),
+            es decir \(E_1 \cdot E_2 \cdots E_k \cdot A = B\), llegamos a la misma conclusión, \(A\) no se expresar como la multiplicación de matrices elementales.
     \end{enumerate}
