@@ -1,0 +1,101 @@
+\item Determinar si los siguientes conjuntos son subespacios del espacio vectorial \(\fm_2\)
+    \begin{enumerate}[label=\listAlph]
+        \item \(W = \left\{ A \in \fm_2 : A = A^T\right\}\) \\
+            Inicialmente, podemos notar que \(\fm_2\) es un espacio vectorial.
+            Y como toda matriz símetrica de orden \(2\) esta en \(\fm_2\) 
+            podriamos mirar si \(W\) es un subespacio vectorial de \(\fm_2\), 
+            por lo que solo debemos verificar las propiedades clausurativa de la suma y multiplicación escalar en \(W\). \\
+            Tomando a \(A, B \in W\) cualesquiera y \(\lambda\) un escalar real fijo pero arbitrario, podemos ver que 
+            \[
+                A + B = A^T + B^T = \left(A + B\right){}^T \in W
+            \]
+            \[
+                \lambda B = \lambda B^T = \left(\lambda B\right){}^T \in W
+            \]
+            Concluyendo que \(W \lesssim \fm_2\).
+        \item \(W = \left\{ \begin{pmatrix}a & b \\ c & d\end{pmatrix}: a = d \right\}\) \\
+            Inicialmente, podemos notar que \(\fm_2\) es un espacio vectorial.
+            Y como toda matriz perteneciente a \(W\) esta en \(\fm_2\), 
+            con esta información, para verificar que \(W\) es un subespacio vectorial de \(\fm_2\)
+            se debe verificar las propiedades clausurativas de la suma y producto escalar. \\
+            Tomando a \(A, B \in W\) cualesquiera y \(\lambda\) un escalar real fijo pero cualquiera, 
+            podemos operar componente a componente, simplificamos \(m_{11} = m_{22}\) por la definición de las matrices en \(W\)
+            \[
+                A + B =
+                \begin{pmatrix}
+                    a_{11} & a_{12} \\
+                    a_{21} & a_{11}
+                \end{pmatrix}
+                +
+                \begin{pmatrix}
+                    b_{11} & b_{12} \\
+                    b_{21} & b_{11}
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    a_{11} + b_{11} & a_{12} + b_{12} \\
+                    a_{21} + b_{21} & a_{11} + b_{11}
+                \end{pmatrix}
+            \]
+            \[
+                \lambda A =
+                \lambda
+                \begin{pmatrix}
+                    a_{11} & a_{12} \\
+                    a_{21} & a_{11}
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    \lambda a_{11} & \lambda a_{12} \\
+                    \lambda a_{21} & \lambda a_{11}
+                \end{pmatrix}
+            \]
+            Como \(A + B, \lambda A \in W\), entonces vamos a tener que \(W \lesssim \fm_2\)
+        \item \(W = \left\{ A \in \fm_2 : \pdet{A} = 0 \right\}\) \\
+            Se puede ver que \(W \subset \fm_2\), sin embargo, con la misma rápidez también se puede notar que \(W \not\lesssim \fm_2\).
+            Ya que, no se cuenta con la propiedad clausurativa, necesaria para que \(W\) sea un subespacio vectorial de \(\fm_2\), vease que
+            con las matrices \(A, B \in W\)
+            \[
+                \begin{aligned}
+                    A &= 
+                    \begin{pmatrix}
+                        1 & 0 \\
+                        0 & 0
+                    \end{pmatrix}
+                    \\
+                    \pdet{A} &= 0
+                \end{aligned}
+                \hspace{1cm}
+                \begin{aligned}
+                    B &= 
+                    \begin{pmatrix}
+                        0 & 0 \\
+                        0 & 1
+                    \end{pmatrix}
+                    \\
+                    \pdet{B} &= 0
+                \end{aligned}
+            \]
+            se tiene que
+            \[
+                A + B 
+                =
+                \begin{pmatrix}
+                    1 & 0 \\
+                    0 & 0
+                \end{pmatrix}
+                +
+                \begin{pmatrix}
+                    0 & 0 \\
+                    0 & 1
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    1 & 0 \\
+                    0 & 1
+                \end{pmatrix}
+                \hspace{1cm}
+                \pdet{A + B} = 1
+            \]
+            Como \(\pdet{A + B} \neq 0\) entonces \(A + B \not \in W\) y se concluye que \(W \not\lesssim \fm_2\).
+    \end{enumerate}

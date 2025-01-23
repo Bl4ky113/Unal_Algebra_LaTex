@@ -1,0 +1,36 @@
+\item Si \(V = \fp{}_2\) es el espacio de todos los polinomios de grado menor o igual a 2,
+    \begin{enumerate}[label=\listAlph]
+        \item ¿Es \(H = \{p\left(x\right) = a + bx + cx^2 \in \fp{}_2 : a = −2\}\) un subespacio vectorial de \(\fp{}_2\)? \\
+            No, ya que para verificar si es un subespacio de \(\fp_2\) primero tendriamos que mirar si la suma entre polinomios es 
+            clausurativa, y podemos ver que con \(p(x) = -2 + bx + cx^2\) y \(q(x) = -2 + dx + ex^2\) se tiene que 
+            \[
+                p(x) + q(x)
+                =
+                (-2 -2) + (b + d)x + (c + e)x^2
+                =
+                -4 + (b + d)x + (c + e)x^2
+                =
+                o(x)
+            \]
+            Y como \(o(x) \not\in H\) ya que \(a \neq -2\), entonces \(H \not\lesssim \fp_2\).\footnote{{La notación \(A \lesssim B\) se usa para determinar que un subconjunto \(A\) es un subespacio vectorial de un conjunto \(B\).}}
+        \item ¿Es verdad que si \(B\) es un conjunto de 3 polinomios, entonces \(B\) genera a \(\fp_2\)? \\
+            No necesariamente, para que \(B\) genere a \(\fp_2\) es necesario que \(B\) sea \(l.i\) y, aunque redundante, 
+            que \(B\) genere a \(\fp_2\) lo cual es tener una doble contenencia. 
+            Además se tiene que añádir que el generador de \(B\) tiene la misma dimensión que cualquier generador de \(\fp_2\),
+            se debe añadir que un conjunto \(B\) no \(l.i\) no va a ser de la misma dimensión de cual\(\fp_2\), ya que 
+            el generador sería equivalente a un generador con un conjunto generador de 2 o solo 1 polinomio. 
+            Sin embargo, en general y como mencionado anteriormente, que \(B\) tenga 3 polinomios no implica que \(\pgen{B} = \fp_2\).
+        \item ¿Es verdad que cualquier subconjunto de \(V\) con 2 o menos polinomios es linealmente independiente? \\
+            Falso, ya que puede exitir del subconjunto de \(V\), \(v\), que sus elementos sean un polinomio cualquiera
+            y un multiplo escalar de ese polinomio, es decir
+            \[
+                v = \left\{p(x), \lambda p(x)\right\}; \hspace{1cm} \text{para algún escalar real } \lambda 
+            \]
+        \item ¿Es verdad que si \(B\) genera a \(\fp_2\), entonces el numero mínimo de elemento de \(B\) es 3? \\
+            Verdadero, por definición de dimensión, el número de elementos de un conjunto generador de un espacio vectorial debe 
+            ser igual para todos los conjuntos generadores del espacio vectorial. 
+            Y podemos ver que son necesarios 3 elementos para generar a \(\fp_2\), por ejemplo \(\left\{a_0, a_1x, a_2x^2\right\}\), 
+            los polinomios desde el grado 0 hasta 2 es un conjunto generador de \(\fp_2\). 
+            Entonces, es totalmente verdadero que el mínimo número, aunque verdaderamente único, número de elementos que \(B\)
+            puede tener para ser un conjunto generador de \(\fp_2\) es 3.
+    \end{enumerate}

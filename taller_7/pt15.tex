@@ -1,0 +1,79 @@
+\item Determine si la matriz 
+    \(
+        \left(\begin{smallmatrix}
+            -3 & 2 & 8 \\
+            -1 & 9 & 3
+        \end{smallmatrix}\right)
+    \)
+    es una combinacion lineal de las matrices
+    \(
+        \left(\begin{smallmatrix}
+            -1 & 0 & 4 \\
+            1 & 1 & 5
+        \end{smallmatrix}\right),
+        \left(\begin{smallmatrix}
+            0 & 1 & -2 \\
+            -2 & 3 & -6
+        \end{smallmatrix}\right)
+    \) \\
+    Primero, las combinaciones lineales de las matrices estan dadas por, para \(\alpha\), \(\beta\) escalares cualesquiera
+    \[
+        \alpha
+        \begin{pmatrix}
+            -1 & 0 & 4 \\
+            1 & 1 & 5
+        \end{pmatrix}
+        +
+        \beta
+        \begin{pmatrix}
+            0 & 1 & -2 \\
+            -2 & 3 & -6
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            -\alpha & 0 & 4\alpha \\
+            \alpha & \alpha & 5\alpha
+        \end{pmatrix}
+        +
+        \begin{pmatrix}
+            0 & \beta & -2\beta \\
+            -2\beta & 3\beta & -6\beta
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            -\alpha & \beta & 4\alpha - 2\beta \\
+            \alpha -2\beta & \alpha + 3\beta & 5\alpha - 6\beta
+        \end{pmatrix}
+    \]
+    Para verificar que la matriz dada sea una combinación lineal de las matrices generadoras, podemos igualarlas
+    \[
+        \begin{pmatrix}
+            -\alpha & \beta & 4\alpha - 2\beta \\
+            \alpha -2\beta & \alpha + 3\beta & 5\alpha - 6\beta
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            -3 & 2 & 8 \\
+            -1 & 9 & 3
+        \end{pmatrix}
+    \]
+    Entonces, podemos ver que la primera componente de la primera fila de la matriz va a ser igual a 
+    \((-1) \alpha = (-1) 3\), o \(\alpha = 3\), y por la segunda componente de la primera fila \(\beta = 2\).
+    Ahora, podemos reemplazar estos valores en la matriz de las combinaciones lineales obtenidas
+    \[
+        \begin{pmatrix}
+            -3 & 2 & 4(3) - 2(2) \\
+            3 -2(2) & (3) + 3(2) & 5(3) - 6(2)
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            -3 & 2 & 12 - 4 \\
+            3 -4 & 3 + 6 & 15 - 12
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            -3 & 2 & 8 \\
+            -1 & 9 & 3
+        \end{pmatrix}
+    \]
+    Como con \(\alpha = 3\) y \(\beta = 2\) se obtiene la matriz dada, se puede afirmar que está es una combinación lineal de las matrices generadoras.

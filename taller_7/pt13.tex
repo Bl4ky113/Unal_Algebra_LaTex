@@ -1,0 +1,114 @@
+\item Determine si los siguientes conjuntos son subespacios vectoriales (reales). Identifique el espacio vectorial al que pertenecen.
+    \begin{enumerate}[label=\listAlph]
+        \setcounter{enumii}{1}
+        \item El conjunto de matrices simétricas \(8 \times 8\) \\
+            Primero, debemos saber que el conjunto de matrices de orden 8 o \(\fm_8\)\footnote{{La notación \(\fm_n, \fs_n, \ft_n\) se usa para determinar matrices de orden \(n\)}}, es un espacio vectorial. 
+            Y como las matrices simétricas de orden 8, o \(\fs_8\), son un subconjunto de \(\fm_8\), podriamos confirmar que son un subespacio vectorial 
+            verificando la propiedad clausurativa para la suma y producto escalar.\\
+            Partiendo de las matrices simétricas \(A\) y \(B\), ambas de orden 8,
+            se tiene que \(A = A^T\) y \(B = B^T\), y además sea \(\lambda\) un escalar real cualescualquiera.
+            Entonces, tenemos que \(A + B = A^T + B^T = \left(A + B\right){}^T\), por propiedades de la transpuesta de una matriz.
+            Ahora, veamos que \(\lambda A = \lambda A^T\). Concluyendo que \(\left(A + B\right){}^T, \lambda A^T \in \fs_8\), 
+            y entonces tenemos que \(\fs_8 \lesssim \fm_8\).
+        \setcounter{enumii}{10}
+        \item El conjunto de números racionales. \\
+            Primero, podriamos definir este conjunto de la siguiente manera
+            \[
+                \realQ = \left\{ \frac{p}{q} \mid p \in \realZ, q \in \realZ \setminus {0} \right\}
+            \]
+            y directamente podemos ver que falla la propiedad clausurativa de la multiplicación de los escalares \textbf{Reales}.
+            Ya que, tomando cualquier \(m \in \realQ\) tal que \(m = \frac{p}{q}\) con \(p \in \realZ\), 
+            \(q \in \realZ \setminus {0}\) fijos pero arbitrarios y \(\lambda\) un escalar real cualesquiera. 
+            Tenemos que
+            \[
+                \lambda \cdot m = \frac{\lambda}{1} \cdot \frac{p}{q} = \frac{\lambda p}{q}
+            \]
+            Y podemos ver que, como \(\lambda p \not \in \realZ\) entonces \(\lambda m \not\in \realQ\).
+            Es decir, \(\realQ\) no es un espacio vectorial \textbf{Real}.
+        \setcounter{enumi}{13}
+        \item \(W = \left\{ A \in \fm_n: A^T = A \right\}\) \\
+            Inicialmente, podemos notar que \(\fm_n\) es un espacio vectorial.
+            Y como toda matriz símetrica de orden \(n\) esta en \(\fm_n\) 
+            podriamos mirar si \(W\) es un subespacio vectorial de \(\fm_n\), 
+            por lo que solo debemos verificar las propiedades clausurativa de la suma y multiplicación escalar en \(W\). \\
+            Tomando a \(A, B \in W\) cualesquiera y \(\lambda\) un escalar real fijo pero arbitrario, podemos ver que 
+            \[
+                A + B = A^T + B^T = \left(A + B\right){}^T \in W
+            \]
+            \[
+                \lambda B = \lambda B^T = \left(\lambda B\right){}^T \in W
+            \]
+            Concluyendo que \(W \lesssim \fm_n\).
+        \item El conjunto de matrices triangulares superiores \(3 \times 3\) \\
+            Antes de iniciar, podemos definir el conjunto dado como
+            \[
+                \ft_3 = \left\{A \in \fm_3: a_{ij} = 0, i > j\right\}
+            \]
+            Como toda matriz triángular superior de orden 3 estan son elementos de el conjunto de matrices de orden 3, 
+            tenemos que \(\ft_3 \subset \fm_3\), entonces para ver que \(\ft_3\) es un subespacio vectorial de \(\fm_3\)
+            simplemente debemos verificar que se cumplan las propiedades clausurativas.
+            \\
+            Ahora, sean culquier \(A, B \in \ft_3\) y \(\lambda\) un escalar real cualesquiera. 
+            Se puede realizar la suma y producto escalar entre cada componente de \(A\), \(B\) y \(\lambda\) para verificar que se cumpla la propiedad.
+            \[
+                A + B = 
+                \begin{pmatrix}
+                    a_{11} & a_{12} & a_{13} \\
+                    0 & a_{22} & a_{23} \\
+                    0 & 0 & a_{33}
+                \end{pmatrix}
+                +
+                \begin{pmatrix}
+                    b_{11} & b_{12} & b_{13} \\
+                    0 & b_{22} & b_{23} \\
+                    0 & 0 & b_{33}
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    a_{11} + b_{11} & a_{12} + b_{12} & a_{13} + b_{13} \\
+                    0 & a_{22} + b_{22} & a_{23} + b_{23} \\
+                    0 & 0 & a_{33} + b_{33}
+                \end{pmatrix}
+            \]
+            \[
+                \lambda \cdot A =
+                \lambda \cdot 
+                \begin{pmatrix}
+                    a_{11} & a_{12} & a_{13} \\
+                    0 & a_{22} & a_{23} \\
+                    0 & 0 & a_{33}
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    \lambda a_{11} & \lambda a_{12} & \lambda a_{13} \\
+                    \lambda 0 & \lambda a_{22} & \lambda a_{23} \\
+                    \lambda 0 & \lambda 0 & \lambda a_{33}
+                \end{pmatrix}
+                \begin{pmatrix}
+                    \lambda a_{11} & \lambda a_{12} & \lambda a_{13} \\
+                    0 & \lambda a_{22} & \lambda a_{23} \\
+                    0 & 0 & \lambda a_{33}
+                \end{pmatrix}
+            \]
+            Podemos ver que por la definición de una matriz triángular superior tenemos que 
+            \(A + B, \lambda A \in \ft_3\), entonces tenemos que \(\ft_3 \lesssim \fm_3\).
+        \item El conjunto de funciones de \(\realR \mapsto \realR\), derivables.
+            Inicialmente, definimos el conjunto dado como
+            \[
+                \ff = \left\{ f: \realR \mapsto \realR \mid \exists f'\right\}
+            \]
+            Como cualquier función definida en \(\realR\) a \(\realR\) derivable esta contenida en el 
+            conjunto de las funciones \(\realR \mapsto \realR\), el cual es un espacio vectorial. 
+            Por lo que solo es necesario tener que verificar que \(\ff\) cumple con las propiedades clausurativas 
+            de la suma y producto escalar para que esté sea un subespacio vectorial del conjunto de las funciones \(\realR \mapsto \realR\).
+            \\
+            Ahora, sean funciones \(f, g \in \ff\) cualesquiera y \(\gamma\) un escalar real cualquiera,
+            se puede ver que 
+            \[
+                f' + g' = \left(f + g\right)'
+            \]
+            \[
+                \gamma f' = \left(\gamma f\right)'
+            \]
+            Como \(f + g, \gamma f \in \ff\) vamos a tener que \(\ff\) es un subespacio vectorial del conjunto de las funciones \(\realR \mapsto \realR\).
+    \end{enumerate}

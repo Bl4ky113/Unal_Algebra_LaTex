@@ -1,0 +1,30 @@
+\item \textbf{PREGUNTAS}
+    \begin{enumerate}[label=\listAlph]
+        \setcounter{enumii}{1} 
+        \item ¿El polinomio \(p(x) = 2x^2 − 3x + 1\) pertenece al subespacio \(W = \{c + bx + ax^2 ∶ a + 2b = 0\}\)? \\
+            No, ya que al tomar los coeficientes de los terminos del polinomio podemos ver que
+            \[
+                \begin{aligned}
+                    a &= 2 \\
+                    b &= -3 \\
+                    c &= 1
+                \end{aligned}
+                \hspace{1cm}
+                a + 2b = (2) + 2(-3) = 2 - 6 = -4 \neq 0
+            \]
+            Y como \(a + 2b \neq 0\), \(p(x) \not\in W\).
+        \item ¿Se puede conluir de manera inmediata que los siguientes vectores son \(l.d\)? 
+            \[
+                \left\{
+                    \begin{pmatrix}1 \\ 2 \\ 1\end{pmatrix},
+                    \begin{pmatrix}-3 \\ 4 \\ 1\end{pmatrix},
+                    \begin{pmatrix}-1 \\ 1 \\ 0\end{pmatrix},
+                    \begin{pmatrix}8 \\ 5 \\ 3\end{pmatrix}
+                \right\}
+            \]
+            Sí, ya que la dimensión del espacio vectorial \(\realR^3\) es de 3, y por la propiedad máximal de un conjunto \(l.i\), 
+            todo subconjunto de un espacio vectorial que tenga más elementos que la dimensión del espacio vectorial es \(l.d\).
+        \setcounter{enumii}{5}
+        \item ¿Es el conjunto \(\{x^2 + 2x, x + 1, 5x^2 + 10x\}\) linealmente independiente? \\
+            No, ya que \(5x^2 + 10x\) es un multiplo escalar de \(x^2 + 2x\). Resultando que el conjunto sea \(l.d\).
+    \end{enumerate}
