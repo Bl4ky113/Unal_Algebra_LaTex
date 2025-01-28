@@ -12,5 +12,144 @@
             \)
         \item \(S = \bgen{3x - 2x^2, 2 + x, -4 + x - 2x^2}\)
         \item \(S = \left\{A \in \fm_{3 \times 3}: A = A^T\right\}\)
-        \item \(S = \left\{A = \left(a_{ij}\right){}_{3 \times 3}: a_{ij} = 0, i \neq j\right\}\)
+        \item \(S = \left\{A = \left(a_{ij}\right){}_{3 \times 3}: a_{ij} = 0, i \neq j\right\}\) \\
+            Un conjunto generador para \(S\), podriamos tomar un subconjunto de las matrices de la base canónica de \(\fm_{3 \times 3}\)
+            tal que genere a \(S\). Entonces sea \(S_g\) un conjunto generador de \(S\), definido como
+            \[
+                S_g =
+                \left\{
+                    \begin{pmatrix}
+                        1 & 0 & 0 \\
+                        0 & 0 & 0 \\
+                        0 & 0 & 0 \\
+                    \end{pmatrix},
+                    \begin{pmatrix}
+                        0 & 0 & 0 \\
+                        0 & 1 & 0 \\
+                        0 & 0 & 0 \\
+                    \end{pmatrix},
+                    \begin{pmatrix}
+                        0 & 0 & 0 \\
+                        0 & 0 & 0 \\
+                        0 & 0 & 1 \\
+                    \end{pmatrix},
+                \right\}
+            \]
+            De manera sencilla podemos notar de manera sencilla que \(S_g\) es \(l.i\) y \(\pgen{S_g} \subseteq S\), ahora para cualesquiera \(\lambda_1, \lambda_2, \lambda_3\)
+            escalares reales vamos a tener que para un vector \(u\) en \(S\)
+            \[
+                u = 
+                \begin{pmatrix}
+                    \lambda_1 & 0 & 0 \\
+                    0 & \lambda_2 & 0 \\
+                    0 & 0 & \lambda_3 \\
+                \end{pmatrix}
+                =
+                \lambda_1
+                \begin{pmatrix}
+                    1 & 0 & 0 \\
+                    0 & 0 & 0 \\
+                    0 & 0 & 0 \\
+                \end{pmatrix}
+                +
+                \lambda_1
+                \begin{pmatrix}
+                    0 & 0 & 0 \\
+                    0 & 1 & 0 \\
+                    0 & 0 & 0 \\
+                \end{pmatrix}
+                +
+                \lambda_3
+                \begin{pmatrix}
+                    0 & 0 & 0 \\
+                    0 & 0 & 0 \\
+                    0 & 0 & 1 \\
+                \end{pmatrix}
+            \]
+            el vector \(u\) es una combinación lineal de \(S_g\), es decir, esta contenido en \(\pgen{S_g}\). Así, afirmando que \(\pgen{S_g} = S\).
+            \\
+            Para un conjunto \(l.d\) de \(S\), definido como \(S_d\), simplemente vamos a tomar
+            \[
+                S_d 
+                =
+                \left\{
+                \begin{pmatrix}
+                    1 & 0 & 0 \\
+                    0 & 1 & 0 \\
+                    0 & 0 & 0 \\
+                \end{pmatrix},
+                \begin{pmatrix}
+                    0 & 0 & 0 \\
+                    0 & 1 & 0 \\
+                    0 & 0 & 1 \\
+                \end{pmatrix},
+                \begin{pmatrix}
+                    1 & 0 & 0 \\
+                    0 & 1 & 0 \\
+                    0 & 0 & 1 \\
+                \end{pmatrix}
+                \right\}
+            \]
+            Donde el tercer vector del conjunto es una combinación lineal del primero y segundo vector, entonces por definición 
+            sabemos que \(S_d\) es un conjunto \(l.d\).
+            \\
+            Para un conjunto \(l.i\) de \(S\), definido como \(S_i\), vamos a tomar a el conjunto
+            \[
+                S_i =
+                \left\{
+                \begin{pmatrix}
+                    1 & 0 & 0 \\
+                    0 & 1 & 0 \\
+                    0 & 0 & 0 \\
+                \end{pmatrix},
+                \begin{pmatrix}
+                    0 & 0 & 0 \\
+                    0 & 1 & 0 \\
+                    0 & 0 & 1 \\
+                \end{pmatrix}
+                \right\}
+            \]
+            Vamos a verificar si es \(l.i\) viendo si los únicos escalares \(\alpha\) y \(\beta\) tales que 
+            \[
+                \alpha
+                \begin{pmatrix}
+                    1 & 0 & 0 \\
+                    0 & 1 & 0 \\
+                    0 & 0 & 0 \\
+                \end{pmatrix}
+                +
+                \beta
+                \begin{pmatrix}
+                    0 & 0 & 0 \\
+                    0 & 1 & 0 \\
+                    0 & 0 & 1 \\
+                \end{pmatrix}
+                =
+                0_3
+            \]
+            Son \(\alpha = \beta = 0\); para esto simplemente multiplicamos los escalares y sumamos ambas matrices, 
+            entonces podemos ver que la matriz cuenta con 3 pivotes, por lo que la única solución de un sistema de ecuaciones 
+            homogeneo equivalente sea la trivial.
+            \[
+                \alpha
+                \begin{pmatrix}
+                    1 & 0 & 0 \\
+                    0 & 1 & 0 \\
+                    0 & 0 & 0 \\
+                \end{pmatrix}
+                +
+                \beta
+                \begin{pmatrix}
+                    0 & 0 & 0 \\
+                    0 & 1 & 0 \\
+                    0 & 0 & 1 \\
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    \alpha & 0 & 0 \\
+                    0 & \alpha + \beta & 0 \\
+                    0 & 0 & \beta \\
+                \end{pmatrix}
+            \]
+            Cumpliendo que el conjunto de \(S_i\) es \(l.i\) por el teorema de equivalencia de conceptos.
     \end{enumerate}

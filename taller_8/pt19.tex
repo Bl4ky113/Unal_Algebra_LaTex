@@ -1,9 +1,167 @@
 \item Para qué valores de \(\alpha\) los siguientes vectores forman una base de \(\realR^3\), 
     \(
         \left\{
-            \left(\begin{smallmatrix}\alpha^2 \\ 0 \\ 1\end{smallmatrix}\right)
-            \left(\begin{smallmatrix} 0 \\ \alpha \\ 2 \end{smallmatrix}\right)
+            \left(\begin{smallmatrix}\alpha^2 \\ 0 \\ 1\end{smallmatrix}\right),
+            \left(\begin{smallmatrix}0 \\ \alpha \\ 2 \end{smallmatrix}\right),
             \left(\begin{smallmatrix}1 \\ 0 \\ 1\end{smallmatrix}\right)
         \right\}
     \) \\
-    Primero, para que los vectores dados sean una base de \(\realR^3\) necesitamos que los vectores dados sea \(l.i\)
+    Primero, para que los vectores dados sean una base de \(\realR^3\) necesitamos que los vectores dados sea \(l.i\),
+    lo cual, inicialmente podemos descartar a \(\alpha = 1\) o \(\alpha = -1\), ya que tendriamos que el 1\tsup{er} vector dado sería igual al 3\tsup{er} vector.
+    \[
+        v_1
+        =
+        \begin{pmatrix}
+            1^2 \\ 0 \\ 1 
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            1 \\ 0 \\ 1 
+        \end{pmatrix}
+        =
+        v_3
+    \]
+    Entonces, para poder determinar si el conjunto de vectores dados es \(l.i\) vamos a mirar si al escalonar la matriz equivalente a este conjunto 
+    se tienen el mismo número de pivotes que de vectores dados. De tal forma que en el caso que cuente con los 3 pivotes necesarios, por el teorema de 
+    equivalencia de conceptos, vamos a tener que el conjunto de vectores dados es \(l.i\).
+    \[
+        \begin{aligned}
+            &\phantom{\sim}
+            \begin{pmatrix}
+                \alpha^2 & 0 & 1 \\
+                0 & \alpha & 0 \\
+                1 & 2 & 1
+            \end{pmatrix}
+            \sim
+            \begin{aligned}
+                F_3 &\leftrightarrow F_1 \\
+            \end{aligned}
+            \begin{pmatrix}
+                1 & 2 & 1 \\
+                0 & \alpha & 0 \\
+                \alpha^2 & 0 & 1 \\
+            \end{pmatrix}
+            \\
+            &\sim
+            \begin{aligned}
+                -\left(\alpha^2\right) F_1 &\mapsto F_3 \\
+            \end{aligned}
+            \begin{pmatrix}
+                1 & 2 & 1 \\
+                0 & \alpha & 0 \\
+                0 & -2\alpha^2 & 1 - \alpha^2 \\
+            \end{pmatrix}
+            \sim
+            \begin{aligned}
+                2\alpha F_2 &\mapsto F_3 \\
+            \end{aligned}
+            \begin{pmatrix}
+                1 & 2 & 1 \\
+                0 & \alpha & 0 \\
+                0 & 0 & 1 - \alpha^2 \\
+            \end{pmatrix}
+        \end{aligned}
+    \]
+    Como inicialmente habíamos planteado, \(\alpha\) no puede ser igual a \(1\) o \(-1\), sin embargo para que tengamos un 
+    pivote en la segunda fila de la matriz también debemos restringir que \(\alpha\) sea igual a \(0\). 
+    Además de estas dos restricciones, la matriz va a contar con 3 pivotes para cualquier valor real diferentes de \(-1, 0\) y \(1\),
+    y por ende, el conjunto de vectores dados va a ser \(l.i\).
+    \\
+    Sin embago, aún nos hace falta verificar que el generador de estos vectores dados si contenga cada elemento de \(\realR^3\), 
+    pero antes vamos a definir a \(V_\alpha\) como el conjunto generador de los vectores dados, es decir
+    \[
+        V_\alpha = 
+            \bgen{
+                \left(\begin{smallmatrix}\alpha^2 \\ 0 \\ 1\end{smallmatrix}\right),
+                \left(\begin{smallmatrix}0 \\ \alpha \\ 2 \end{smallmatrix}\right),
+                \left(\begin{smallmatrix}1 \\ 0 \\ 1\end{smallmatrix}\right)
+            }
+    \]
+    Para probar esto, debemos probar una doble contenencia
+    \ResetCases{}
+    \begin{mathcase}{{\(V_\alpha \subseteq \realR^3\)}}
+        Sea \(v\) un vector de \(V_\alpha\), veamos que \(v\) esta en \(\realR^3\).
+        Por definición \(v\) va a ser una combinación lineal del conjunto generador de \(V_\alpha\), es decir 
+        para \(\lambda_1, \lambda_2, \lambda_3\) escalares cualesquiera
+        \[
+            v = 
+            \lambda_1
+            \begin{pmatrix}
+                \alpha^2 \\ 0 \\ 1
+            \end{pmatrix}
+            +
+            \lambda_2
+            \begin{pmatrix}
+                0 \\ \alpha \\ 2
+            \end{pmatrix}
+            +
+            \lambda_3
+            \begin{pmatrix}
+                1 \\ 0 \\ 1
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+                \lambda_1\alpha^2 + \lambda_3 \\
+                \lambda_2\alpha \\
+                \lambda_1 + 2\lambda_2 + \lambda_3
+            \end{pmatrix}
+        \]
+        sin embargo, no es necesario tener que definir a \(v\) para ver que esté esta contenido en \(\realR^3\), sin embargo, esta 
+        definición se va a usar en el siguiente caso.
+    \end{mathcase}
+    \\
+    \begin{mathcase}{\(V_\alpha \supseteq \realR^3\)}
+        Primero, vamos a partir del punto que \(\bgen{e_1, e_2, e_3}\) genera a \(\realR^3\). Lo que nos permite afirmar que toda base de \(\realR^3\) va a 
+        tener una dimensión de 3 elementos. Y además, solo debemos verificar que \(V_\alpha = \bgen{e_1, e_2, e_3}\), y como ya verificamos que \(V_\alpha \subseteq \realR^3\),
+        sin perdida de la generalidad, también tendremos que \(V_\alpha \subseteq \bgen{e_1, e_2, e_3}\).
+        Ahora, sea \(u\) un vector en \(\bgen{e_1, e_2, e_3}\), por lo que por definición \(u\) es una combinación lineal de \(\left\{e_1, e_2, e_3\right\}\), 
+        es decir para algunos escalares \(\gamma_1, \gamma_2, \gamma_3\)
+        \[
+            u = 
+            \gamma_1
+            \begin{pmatrix}
+                1 \\ 0 \\ 0
+            \end{pmatrix}
+            +
+            \gamma_2
+            \begin{pmatrix}
+                0 \\ 1 \\ 0
+            \end{pmatrix}
+            +
+            \gamma_3
+            \begin{pmatrix}
+                0 \\ 0 \\ 1
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+                \gamma_1 \\
+                \gamma_2 \\
+                \gamma_3
+            \end{pmatrix}
+        \]
+        Si tomamos los siguientes valores de \(\gamma_1, \gamma_2, \gamma_3\) podremos ver que \(u\) va a estar contenido en \(V_\alpha\).
+        \[
+            \begin{aligned}
+                \gamma_1 &= \lambda_1\alpha^2 + \lambda_3 \\
+                \gamma_2 &= \lambda_2\alpha \\
+                \gamma_3 &= \lambda_1 + 2\lambda_2 + \lambda_3
+            \end{aligned}
+            \hspace{1cm}
+            \begin{pmatrix}
+                \gamma_1 \\
+                \gamma_2 \\
+                \gamma_3 \\
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+                \lambda_1\alpha^2 + \lambda_3 \\
+                \lambda_2\alpha \\
+                \lambda_1 + 2\lambda_2 + \lambda_3
+            \end{pmatrix}
+            \in V_\alpha
+        \]
+        Resultando que \(V_\alpha \supseteq \pgen{e_1, e_2, e_3} = \realR^3\).
+    \end{mathcase}
+    \\[0.25cm]
+    Y al completar estos dos casos, al generar a \(\realR^3\) y ser \(l.i\) el conjunto de vectores dados va a ser una 
+    base de \(\realR^3\) para un \(\alpha\) con cualquier valor real diferente a \(1, 0\) y \(-1\).
