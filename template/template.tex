@@ -175,10 +175,18 @@ headheight=22pt%
     \right)%
 }
 
-% Custom Gen of V.S
+% Custom Parentheses Gen of V.S
 \NewDocumentCommand{\pgen}{m} {%
     \text{Gen}%
     \left(%
     #1 %
     \right)%
+}
+
+% Custom Bracket Gen of V.S
+\NewDocumentCommand{\bgen}{m} {%
+    \text{Gen}%
+    \left\{%
+    #1 %
+    \right\}%
 }
