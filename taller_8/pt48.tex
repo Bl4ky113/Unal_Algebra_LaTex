@@ -14,10 +14,25 @@
                     \end{aligned}
                 \]
                 Es decir al ser cada coeficiente de \(u, v, w\) es un escalar real, se va a tener que 
-                \(b\) es una combinación lineal de \(\bgen{u, v, w}\), concluyendo que \(\bgen{u, v, w} \supseteq \bgen{u, u + v, u + w}\).
+                \(b\) es una combinación lineal de \(\left\{u, v, w\right\}\) es decir \(b \in \bgen{u, v, w}\), concluyendo que \(\bgen{u, v, w} \supseteq \bgen{u, u + v, u + w}\).
             \end{mathcase}
             \begin{mathcase}{{\(\bgen{u, v, w} \subseteq \bgen{u, u + v, u + w}\)}}
+                Sean \(\lambda_1,, \beta_1, \beta_2, \beta_3\) escalares reales, tal que \(\lambda_1 = \beta_1 + \beta_2 + \beta_3\),
+                entonces tomando un \(a \in \bgen{u, v, w}\), es decir es una combinación lineal de \(\left\{u, v, w\right\}\) con los escalares
+                \[
+                    \begin{aligned}
+                        a 
+                        &= \lambda_1 u + \beta_2 v + \beta_3 w \\
+                        &= \left(\beta_1 + \beta_2 + \beta_3\right) u + \beta_2 v + \beta_3 w \\
+                        &= \beta_1 u + \beta_2 u + \beta_3 u + \beta_2 v + \beta_3 w \\
+                        &= \beta_1 u + \beta_2 (u + v) + \beta_3 (u + w) \\
+                    \end{aligned}
+                \]
+                Como \(\beta_1, \beta_2, \beta_3\) son escalares reales, \(a\) también es una combinación lineal de \(\left\{u, u + v, u + w\right\}\),
+                entonces \(a \in \bgen{u, u + v, u + w}\), concluyendo que \(\bgen{u, v, w} \subseteq \bgen{u, u + v, u + w}\).
             \end{mathcase}
+            \\
+            Al tener ambas contenencias podemos afirmar que \(\bgen{u, v, w} = \bgen{u, u + v, u + w}\)
         \item Si \(\left\{u, v, w\right\}\) es \(l.i\), entonces \(\left\{u - v, v - w, u + w\right\}\) también es \(l.i\). \\
             Si \(\left\{u, v, w\right\}\) es \(l.i\) se tiene que para escalares reales \(\lambda_1, \lambda_2, \lambda_3\)
             \[
