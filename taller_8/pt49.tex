@@ -1,7 +1,32 @@
 \item Encuentre un conjunto generador, un conjunto \(l.d\) y un conjunto \(l.i\) de cada uno de los siguientes espacios vectoriales.
     \begin{enumerate}[label=\listAlph]
-        \item \(C = \left\{a + bi: a,b \in \realR, i = \sqrt(-1)\right\}\).
-        \item El hiperplano \(H: 3x - 2y + w = 0\) de \(R^4\).
+        \item \(C = \left\{a + bi: a,b \in \realR, i = \sqrt(-1)\right\}\). \\
+            Podemos ver que un conjunto generador para \(C\) va a ser \(C_g = \left\{1 + 0i, 0 + i\right\}\), donde 
+            \(1 + 0i\) va a generar todo número real y \(0 + i\) toda parte imaginaria. Además, de manera sencilla 
+            se puede ver que el conjunto generador es \(l.i\) al tomar la matriz de coeficientes de la parte real y 
+            la parte imaginaria y notar que cuenta con 2 pivotes.
+            \\
+            De manera similar, vamos a tener que el conjunto \(C_i = \left\{1 + 1i, i\right\}\) también es \(l.i\),
+            ya que la matriz de coeficientes del conjunto va a tener 2 pivotes.
+            \[
+                \begin{pmatrix}
+                    1 & 0 \\ 
+                    0 & 1 
+                \end{pmatrix}
+                \hspace{1cm}
+                \begin{pmatrix}
+                    1 & 1 \\ 
+                    0 & 1 
+                \end{pmatrix}
+            \]
+            \\
+            De forma equivalente, también vamos a tener que \(C_d = \left\{1 + i, 2 + 2i\right\}\) es un conjunto \(l.d\) 
+            ya que \(2 + 2i\) es una combinación lineal, si no es que un simple producto por escalar, de \(1 + i\), con \(\lambda = 2\). 
+            Sin embargo, para finalizar verifiquemos formalmente que \(\pgen{C_g} = C\). Primero, si se toma un \(v\) de \(\pgen{C_g}\),
+            vamos a tener que va a ser una combinación lineal de \(\lambda_1 \cdot 1\) y \(\lambda_2 \cdot i\), lo cual por definición,
+            \(v\) pertenece a \(C\), es decir \(\pgen{C_g} \subseteq C\). Segundo, de manera parecida se obtiene que \(\pgen{C_g} \supseteq C\).
+        %\item El hiperplano \(H: 3x - 2y + w = 0\) de \(R^4\).
+        \setcounter{enumii}{2}
         \item \(N_A = \left\{x \in \realR^3: Ax = 0\right\}\), 
             \(
                 A = \left(\begin{smallmatrix}
@@ -9,9 +34,40 @@
                     0 & 1 & -2 \\
                     0 & -3 & 9
                 \end{smallmatrix}\right)
-            \)
-        \item \(S = \bgen{3x - 2x^2, 2 + x, -4 + x - 2x^2}\)
-        \item \(S = \left\{A \in \fm_{3 \times 3}: A = A^T\right\}\)
+            \) \\
+            Al ser \(N_A\) el conjunto de los vectores \(x\) tal que \(Ax = 0\), si la matriz escalonada equivalente a \(A\) cuenta con \(3\) pivotes 
+            vamos a tener que el  único elemento de \(N_A\) va a ser el vector nulo, o \(\vec{0}\). Entonces, escalonemos la matriz \(A\).
+            \[
+                A = 
+                \begin{pmatrix}
+                    1 & -2 & 7 \\
+                    0 & 1 & -2 \\
+                    0 & -3 & 9
+                \end{pmatrix}
+                \sim
+                \begin{aligned}
+                    F_3 +3F_2 &\mapsto F_3 \\
+                \end{aligned}
+                \begin{pmatrix}
+                    1 & -2 & 7 \\
+                    0 & 1 & -2 \\
+                    0 & 0 & 3
+                \end{pmatrix}
+            \]
+            Como, mencionado anteriormente, por el \emph{Teorema de equivalencias} vamos a tener que el sistema de ecuaciones homogeneo asociado solo 
+            tiene como única solución al vector nulo. Entonces \(N_A = \left\{\vec{0}\right\}\).
+            Ahora, por definición sabemos el conjunto \(\left\{\vec{0}\right\}\) es \(l.d\) ya que existe un escalar tal que 
+            \[
+                \lambda_1 \cdot \vec{0} = \vec{0}
+            \]
+            Sin embargo, por este mismo argumento, al ser \(\vec{0}\) el único elemento de \(N_A\) no vamos a poder tener un conjunto \(l.i\). 
+            Cabe añadir que dado a que no se tiene ningún conjunto \(l.i\) en \(N_A\), este espacio vectorial y únicamente este espacio vectorial 
+            no cuenta con una base, como lo afirman en algunos textos~\cite{martinez_algebra_2024}~\cite{lipschutz_algebra_1991}. Donde además, 
+            se toma como dimensión del espacio vectorial como 0. Agregando que existen textos, y definiciones que hacen que el generador de \(N_A\) 
+            pueda existir, sin embargo, estos estan por fuera del programa del curso.
+        %\item \(S = \bgen{3x - 2x^2, 2 + x, -4 + x - 2x^2}\)
+        %\item \(S = \left\{A \in \fm_{3 \times 3}: A = A^T\right\}\)
+        \setcounter{enumii}{4}
         \item \(S = \left\{A = \left(a_{ij}\right){}_{3 \times 3}: a_{ij} = 0, i \neq j\right\}\) \\
             Un conjunto generador para \(S\), podriamos tomar un subconjunto de las matrices de la base canónica de \(\fm_{3 \times 3}\)
             tal que genere a \(S\). Entonces sea \(S_g\) un conjunto generador de \(S\), definido como

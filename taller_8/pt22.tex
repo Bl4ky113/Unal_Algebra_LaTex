@@ -6,4 +6,244 @@
             1 & 0 & 6 & 5
         \end{smallmatrix}\right)
     \),
-    halle una base y la dimensión del espacio fila de \(A\), denotado por \(F_A\), del espacio columna de \(A\), denotado por \(C_A\) y del espacio nulo de \(A\), denotado por \(N_A\).
+    halle una base y la dimensión del espacio fila de \(A\), denotado por \(F_A\), del espacio columna de \(A\), denotado por \(C_A\) y del espacio nulo de \(A\), denotado por \(N_A\). \\
+    \ResetCases{}
+    \begin{mathcase}{\(F_A\)}
+        Para encontrar una base del espacio fila de una matriz se podría tomar las mismas filas de la matriz \(A\), para eso podemos tomar cada vector 
+        de las filas y agregarlos como columnas a una matriz que definiremos como \(A_F\)
+        \[
+            \begin{pmatrix}
+                1 \\ -1 \\ 2 \\ 3
+            \end{pmatrix},
+            \begin{pmatrix}
+                0 \\ 1 \\ 4 \\ 3 
+            \end{pmatrix},
+            \begin{pmatrix}
+                1 \\ 0 \\ 6 \\ 5
+            \end{pmatrix}
+            \Rightarrow
+            \begin{pmatrix}
+                1 & 0 & 1 \\
+                -1 & 1 & 0 \\
+                2 & 4 & 6 \\
+                3 & 3 & 5
+            \end{pmatrix}
+        \]
+        Con esta matriz, si logramos escalonarla y obtener 3 pivotes, vamos a tener por el teorema de equivalencia, las columnas de \(A_F\) van a ser \(l.i\).
+        \[
+            \begin{aligned}
+                &\phantom{\sim}
+                \begin{pmatrix}
+                    1 & 0 & 1 \\
+                    -1 & 1 & 0 \\
+                    2 & 4 & 6 \\
+                    3 & 3 & 5
+                \end{pmatrix}
+                \sim
+                \begin{aligned}
+                    F_2 + F_1 &\mapsto F_2 \\
+                    F_3 - 2F_1 &\mapsto F_3 \\
+                    F_4 - 3F_1 &\mapsto F_4 \\
+                \end{aligned}
+                \begin{pmatrix}
+                    1 & 0 & 1 \\
+                    0 & 1 & 1 \\
+                    0 & 4 & 2 \\
+                    0 & 3 & 2
+                \end{pmatrix}
+                \sim
+                \begin{aligned}
+                    F_3 - 4F_2 &\mapsto F_3 \\
+                    F_4 - 3F_2 &\mapsto F_4 \\
+                \end{aligned}
+                \begin{pmatrix}
+                    1 & 0 & 1 \\
+                    0 & 1 & 1 \\
+                    0 & 0 & -2 \\
+                    0 & 0 & -1
+                \end{pmatrix}
+                \\
+                &\sim
+                \begin{aligned}
+                    F_3 - 4F_2 &\mapsto F_3 \\
+                    F_4 - 3F_2 &\mapsto F_4 \\
+                \end{aligned}
+                \begin{pmatrix}
+                    1 & 0 & 1 \\
+                    0 & 1 & 1 \\
+                    0 & 0 & -2 \\
+                    0 & 0 & -1
+                \end{pmatrix}
+                \sim
+                \begin{aligned}
+                    F_4 - \frac{1}{2}F_3 &\mapsto F_4 \\
+                \end{aligned}
+                \begin{pmatrix}
+                    1 & 0 & 1 \\
+                    0 & 1 & 1 \\
+                    0 & 0 & -2 \\
+                    0 & 0 & 0
+                \end{pmatrix}
+            \end{aligned}
+        \]
+        Como mencionado antetiormente, la matriz escalonada equivalente a \(A_F\) al tener 3 pivotes, por el teorema de equivalencia, vamos a tener que las filas de \(A\) van a ser \(l.i\).
+        Como el conjunto de filas de \(A\) es \(l.i\), entonces el máximal del conjunto \(l.i\) va a ser de 3. Y se puede obtener que la dimensión de los generadores \(F_A\) va a ser 
+        3 ya que al contar con un generador con más filas, su conjunto generador sería \(l.d\), de manera analoga se puede ver que si se cuenta con menos elementos, el conjunto no podría generar a todo el espacio. 
+        Concluyendo que el conjunto de las filas de \(A\) van a ser una base del espacio fila de \(A\).
+        \[
+            \bgen{
+                \begin{pmatrix}
+                    1 \\ -1 \\ 2 \\ 3
+                \end{pmatrix},
+                \begin{pmatrix}
+                    0 \\ 1 \\ 4 \\ 3 
+                \end{pmatrix},
+                \begin{pmatrix}
+                    1 \\ 0 \\ 6 \\ 5
+                \end{pmatrix}
+            }
+            =
+            F_A
+            \hspace{1cm}
+            \pdim{F_A} = 3 
+        \]
+    \end{mathcase}
+    \begin{mathcase}{\(C_A\)}
+        Este proceso se puede realizar de manera casí analoga que para el caso anterior, sin embargo el mayor cambio es no tener que escalar una matriz generada apartir de elementos de \(A\),
+        si no, como se necesita verificar que las columnas de \(A\) sean \(l.i\), podemos ver si la matriz escalonada equivalente a \(A\) cuenta con los 4 pivotes necesarios, uno por cada matriz.
+        Sin embargo, casí inmediatamente se puede notar que la matriz \(A\) al ser una matriz \(3 \times 4\), va a contar con a lo sumo \(3\) pivotes.
+        Aunque, aún se puede mirar cual es la columna que es una combinación lineal de las demás, de tal forma que al eliminarlo podramos obtener un conjunto \(l.i\).
+        Para esto, vamos a escalonar la matriz \(A\)
+        \[
+            \begin{aligned}
+                \begin{pmatrix}
+                    1 & -1 & 2 & 3 \\
+                    0 & 1 & 4 & 3 \\
+                    1 & 0 & 6 & 5
+                \end{pmatrix}
+                \sim
+                \begin{aligned}
+                    F_3 - F_1 &\mapsto F_3 \\
+                \end{aligned}
+                \begin{pmatrix}
+                    1 & -1 & 2 & 3 \\
+                    0 & 1 & 4 & 3 \\
+                    0 & 1 & 4 & 2
+                \end{pmatrix}
+                \sim
+                \begin{aligned}
+                    F_3 - F_2 &\mapsto F_3
+                \end{aligned}
+                \begin{pmatrix}
+                    1 & -1 & 2 & 3 \\
+                    0 & 1 & 4 & 3 \\
+                    0 & 0 & 0 & -1
+                \end{pmatrix}
+            \end{aligned}
+        \]
+        Como la columna que no cuenta con pivote es la 3\tsup{ra}, podemos eliminarla para así obtener una matriz escalonada con 3 pivotes para 3 columnas.
+        Además, como el espacio columna es un subconjunto de \(\realR^3\), su dimensión va igual, es decir 3. Entonces como el conjunto es \(l.i\) y 
+        tiene 3 elementos, va a ser una base de \(C_A\).
+        \[
+            \bgen{
+                \begin{pmatrix}
+                    1 \\ 0 \\ 1
+                \end{pmatrix},
+                \begin{pmatrix}
+                    -1 \\ 1 \\ 0
+                \end{pmatrix},
+                \begin{pmatrix}
+                    3 \\ 3 \\ 5
+                \end{pmatrix}
+            }
+            =
+            C_A
+            \hspace{1cm}
+            \pdim{C_A} = 3
+        \]
+    \end{mathcase}
+    \begin{mathcase}{\(N_A\)}
+        Para este espacio solo necesitamos un generador que genere los vectores \(\vec{x}\) tal que \(A\vec{x} = \vec{0}\), para esto, primero debemos confirmar 
+        que el sistema de ecuaciones homogeneo asociado tenga más de una solución, ya que en el caso que no tendríamos unos casos especiales para encontrar un generador.
+        Sin embargo, como ya hemos escalonado a \(A\) para encontrar el espacio columna, ya sabemos que no contamos con los pivotes necesarios para que se tenga una única solución 
+        para \(A\vec{x} = \vec{0}\). Sin embargo, continuemos escalando la matriz para obtener los vectores \(\vec{x}\).
+        \[
+            \begin{pmatrix}
+                1 & -1 & 2 & 3 \\
+                0 & 1 & 4 & 3 \\
+                0 & 0 & 0 & -1
+            \end{pmatrix}
+            \sim
+            \begin{aligned}
+                F_2 + 3F_3 &\mapsto F_2 \\
+                F_1 + 3F_3 &\mapsto F_1 \\
+            \end{aligned}
+            \begin{pmatrix}
+                1 & -1 & 2 & 0 \\
+                0 & 1 & 4 & 0 \\
+                0 & 0 & 0 & -1
+            \end{pmatrix}
+            \sim
+            \begin{aligned}
+                -F_3 &\mapsto F_3 \\
+                F_1 + F_2 &\mapsto F_1 \\
+            \end{aligned}
+            \begin{pmatrix}
+                1 & 0 & 6 & 0 \\
+                0 & 1 & 4 & 0 \\
+                0 & 0 & 0 & 1
+            \end{pmatrix}
+        \]
+        Ahora, podemos tomar el sistema de ecuaciones lineales homogeneas asociado y resolver mediante subtituciones,
+        \[
+            \left\{
+                \begin{aligned}
+                    x_1 + 6x_3 = 0 \\
+                    x_2 + 4x_3 = 0 \\
+                    x_4 = 0
+                \end{aligned}
+            \right.
+            \sim
+            \left\{
+                \begin{aligned}
+                    x_1 = -6x_3 \\
+                    x_2 = -4x_3 \\
+                    x_4 = 0
+                \end{aligned}
+            \right.
+        \]
+        Entonces tendriamos a \(\vec{x}\) en terminos de \(x_3\), al ser una variable libre
+        \[
+            \vec{x} = 
+            \begin{pmatrix}
+                -6 x_3 \\ -4 x_3 \\ x_3 \\ 0
+            \end{pmatrix}
+            =
+            x_3
+            \begin{pmatrix}
+                -6 \\ -4 \\ 1 \\ 0
+            \end{pmatrix}
+        \]
+        Como \(x_3\) es una variable real, podriamos tomar esta como un escalar tal que genere un vector solución a \(A\vec{x} = \vec{0}\), 
+        entonces podemos definir el generador de los vectores \(\vec{x}\) como
+        \[
+            \bgen{
+                \begin{pmatrix}
+                    -6 \\ -4 \\ 1 \\ 0
+                \end{pmatrix}
+            }
+        \]
+        Podemos ver de manera simple que \emph{singleton} \(\left(\begin{smallmatrix}-6 \\ -4 \\ 1 \\ 0\end{smallmatrix}\right)\) es \(l.i\), ya que es el único elemento en el conjunto y 
+        no puede ser combinación lineal de otro elemento. Resultando que este generador sea la base del espacio nulo de \(A\), además también podemos ver que \(\pdim{N_A} = 1\).
+        \[
+            \bgen{
+                \begin{pmatrix}
+                    -6 \\ -4 \\ 1 \\ 0
+                \end{pmatrix}
+            }
+            =
+            N_A
+            \hspace{1cm}
+            \pdim{N_A} = 1
+        \]
+    \end{mathcase}

@@ -1,1 +1,61 @@
 \item Demuestre que la intersección de subespacios es un subespacio, pero la unión de subespacios no.
+    \ResetCases{}
+    \begin{mathcase}{\(W \cap U\)}
+        \begin{proof}
+            Inicialmente, tomemos \(V\) es un espacio vectorial, y \(W, U\) son subespacios vectoriales de \(V\), 
+            ya que un espacio vectorial necesariamente no debe ser vacío, vamos a restringir \(W, U\) no son disyuntos y \(W \neq U\). 
+            Ahora, sea \(A = W \cap U\).
+            Partiendo de que, por la restricción inicial, \(A\) es un conjunto no vació y es un subconjunto de \(U\) y \(W\), 
+            podemos ver si es un subespacio vectorial de \(U\) o \(W\), heredando la suma entre sus vectores y producto por escalar.
+            Tomando a los vectores \(u, v \in A\), vamos a ver que su suma y producto por escalar estan bien definidos en \(A\). 
+            Primero, vamos a tener que \(u, v \in W\) y \(u, v \in U\), y al ser ambos conjuntos subespacios vectoriales se 
+            tiene que \(u + v \in W\) y \(u + v \in U\), por lo que por definición de intersección entre conjuntos vamos a tener que \(u + v \in W \cap U = A\).
+            Resultando que la suma en \(A\) esta bien definida.
+            Segundo, sea \(\lambda\) un escalar real cualquiera, tenemos que \(\lambda u \in W\) y \(\lambda u \in U\) para cualquier \(\lambda\) en ambos conjuntos 
+            al ser espacios vectoriales,
+            y de manera similar, por la definición de intersección de conjuntos \(\lambda u \in W \cap U = A\).
+            Al cumplir las propiedades clausurativas de los espacios vectoriales, el conjunto \(A\) va a ser un subespacio vectorial de \(W\) y \(U\).
+        \end{proof}
+    \end{mathcase}
+    \begin{mathcase}{\(F \cup G\)}
+        \begin{proof}
+            Partiendo desde el conjunto vectorial \(\realR^3\), y 
+            \[
+                F = 
+                \left\{
+                    \begin{pmatrix}
+                        x \\ y \\ z
+                    \end{pmatrix}
+                    :
+                    x = 0
+                \right\}
+                \hspace{1cm}
+                G = 
+                \left\{
+                    \begin{pmatrix}
+                        x \\ y \\ z
+                    \end{pmatrix}
+                    :
+                    z = 0
+                \right\}
+            \]
+            subconjuntos vectoriales de \(\realR^3\), entonces podemos ver que para los vectores \(v \in F\) y \(u \in G\),
+            no se cumple con la propiedad clausurativa para la suma.
+            \[
+                v + u =
+                \begin{pmatrix}
+                    0 \\ y_1 \\ z_1
+                \end{pmatrix}
+                +
+                \begin{pmatrix}
+                    x_2 \\ y_2 \\ 0
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    x_2 \\ y_1 + y_2 \\ z_1
+                \end{pmatrix}
+                \not\in F \cup G
+            \]
+            Como \(v + u\) no esta contenido en \(F \cup G\), vamos a tener que este no es un subespacio vectorial.
+        \end{proof}
+    \end{mathcase}

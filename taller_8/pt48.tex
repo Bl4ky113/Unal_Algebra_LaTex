@@ -1,6 +1,74 @@
 \item Verifique que para todo trio de vectores \(u, v\) y \(w\) de un espacio vectorial \(V\),
     \begin{enumerate}[label=\listAlph]
         \item \(\bgen{u, v, w} = \bgen{u, u + v, u + w}\)
-        \item Si \(\left\{u, v, w\right\}\) es \(l.i\), entonces \(\left\{u - v, v - w, u + w\right\}\) también es \(l.i\).
+            Para verificar esta igualdad, solo es necesario mirar ambas contenencias.
+            \ResetCases{}
+            \begin{mathcase}{{\(\bgen{u, v, w} \supseteq \bgen{u, u + v, u + w}\)}}
+                Sea \(b \in \bgen{u, u + v, u + w}\), es decir para escalares reales \(\gamma_1, \gamma_2, \gamma_3\)
+                \[
+                    \begin{aligned}
+                        b 
+                        &= \gamma_1 u + \gamma_2 (u + v) + \gamma_3 (u + w) \\
+                        &= \gamma_1 u + \gamma_2 u + \gamma_2 v + \gamma_3 u + \gamma_3 w \\
+                        &= (\gamma_1 + \gamma_2 + \gamma_3) u + \gamma_2 v + \gamma_3 w
+                    \end{aligned}
+                \]
+                Es decir al ser cada coeficiente de \(u, v, w\) es un escalar real, se va a tener que 
+                \(b\) es una combinación lineal de \(\bgen{u, v, w}\), concluyendo que \(\bgen{u, v, w} \supseteq \bgen{u, u + v, u + w}\).
+            \end{mathcase}
+            \begin{mathcase}{{\(\bgen{u, v, w} \subseteq \bgen{u, u + v, u + w}\)}}
+            \end{mathcase}
+        \item Si \(\left\{u, v, w\right\}\) es \(l.i\), entonces \(\left\{u - v, v - w, u + w\right\}\) también es \(l.i\). \\
+            Si \(\left\{u, v, w\right\}\) es \(l.i\) se tiene que para escalares reales \(\lambda_1, \lambda_2, \lambda_3\)
+            \[
+                \lambda_1 u + \lambda_2 v + \lambda_3 w = 0 
+                \hspace{0.5cm}
+                \text{ si y solo si }
+                \hspace{0.5cm}
+                \lambda_1 = \lambda_2 = \lambda_3 = 0
+            \]
+            Entonces podemos tomar para escalares \(\gamma_1, \gamma_2, \gamma_3\)
+            \[
+                \begin{aligned}
+                    \gamma_1 (u - v) + \gamma_2 (v - w) + \gamma_3 (u + w) &= 0 \\
+                    \gamma_1 u - \gamma_1 v + \gamma_2 v - \gamma_2 w + \gamma_3 u + \gamma_3 w &= \\
+                    (\gamma_1 + \gamma_3) u (\gamma_2 - \gamma_1)v + (\gamma_3 - \gamma_2) w &= \\
+                \end{aligned}
+            \]
+            Luego, para que escalar sea igual a 0 vamos a poder igualar los coeficientes de cada vector a 0, así para poder mirar que valores de 
+            los escalares se necesitan para que el conjunto de vectores dados sean \(l.i\).
+            \[
+                \begin{aligned}
+                    0 &= \gamma_1 + \gamma_3 \\
+                    0 &= \gamma_2 - \gamma_1 \\
+                    0 &= \gamma_3 - \gamma_2 \\
+                \end{aligned}
+                \hspace{0.5cm}
+                \begin{aligned}
+                    -\gamma_3 &= \gamma_1 \\
+                    0 &= \gamma_2 + \gamma_3 \\
+                    0 &= \gamma_3 - \gamma_2 \\
+                \end{aligned}
+                \hspace{0.5cm}
+                \begin{aligned}
+                    -\gamma_3 &= \gamma_1 \\
+                    -\gamma_2 &= \gamma_3 \\
+                    0 &= \gamma_3 + \gamma_3 \\
+                \end{aligned}
+                \hspace{0.5cm}
+                \begin{aligned}
+                    -\gamma_3 &= \gamma_1 \\
+                    -\gamma_2 &= \gamma_3 \\
+                    0 &= 2\gamma_3 \\
+                \end{aligned}
+                \hspace{0.5cm}
+                \begin{aligned}
+                    0 &= \gamma_1 \\
+                    0 &= \gamma_3 \\
+                    0 &= \gamma_3 \\
+                \end{aligned}
+            \]
+            Como apartir de realizar subtituciones en cada ecuación se llego a que \(\gamma_1 = \gamma_2 = \gamma_3 = 0\), 
+            vamos a tener que \(\left\{u - v, v - w, u + w\right\}\) es \(l.i\)
     \end{enumerate}
 
