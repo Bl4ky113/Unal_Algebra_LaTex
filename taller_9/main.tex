@@ -1,0 +1,40 @@
+\documentclass{article}
+
+\def\TemplatePath{../template/}
+\input{../template/template.tex}
+
+%\usepackage{biblatex}
+%\addbibresource{src/references.bib}
+
+\def\MyClass{Álgebra Lineal}
+\def\MyTitle{Taller 9}
+\def\MyAuthor{Martín Steven Hernández Ortiz}
+\def\MyEmail{mahernandezor@unal.edu.co}
+\def\MyDate{\today}
+
+\newcommand{\adj}{\text{Adj}}
+\newcommand{\fp}{\symscr{P}}
+\newcommand{\fm}{\symbfscr{M}}
+\newcommand{\fs}{\symbfscr{S}}
+\newcommand{\ft}{\symbfscr{T}}
+\newcommand{\ff}{\symbfscr{F}}
+\newcommand{\fb}{\symbfscr{B}}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    \setcounter{enumi}{4}
+    \input{pt05.tex}
+    \setcounter{enumi}{23}
+    \input{pt24.tex}
+    \setcounter{enumi}{40}
+    \input{pt41.tex}
+    \setcounter{enumi}{57}
+    \input{pt58.tex}
+    \setcounter{enumi}{68}
+    \input{pt69.tex}
+
+    %\printbibliography{}
+\end{enumerate}
+\end{document}

@@ -17,6 +17,7 @@ headheight=22pt%
 
 \usepackage{booktabs} % Tables+ Package
 \usepackage{enumitem} % Enumarete+ Package
+\usepackage{xparse} % Command Args Split Package
 
 \usepackage{mathtools} % Math General
 \usepackage{amsthm} % Math Envs
@@ -197,4 +198,60 @@ headheight=22pt%
     \left(%
     #1 %
     \right)%
+}
+
+% Custom Squarebrackets 
+\NewDocumentCommand{\veccoord}{mm} {%
+    \left[%
+    #1 %
+    \right]{}_{ #2 }%
+}
+
+% Fast Set
+\NewDocumentCommand{\fset}{m} {%
+    \left\{%
+        #1 %
+    \right\}%
+}
+
+% Fast Vector & Small Vector
+\NewDocumentCommand{\fvec}{ > {\SplitList{,}}m } {%
+    \begin{pmatrix} %
+        \ProcessList{#1}{\handlefvec}
+    \end{pmatrix} %
+}
+\NewDocumentCommand{\fsmvec}{ > {\SplitList{,}}m } {%
+    \left(
+    \begin{smallmatrix} %
+        \ProcessList{#1}{\handlefvec}
+    \end{smallmatrix} %
+    \right)
+}
+\NewDocumentCommand{\handlefvec}{m}{%
+    #1 \\%
+}
+
+% Fast Matrix & Small Matrix
+\NewDocumentCommand{\fmatrix}{>{\SplitList{;}}m} {%
+    \begin{pmatrix} %
+        \ProcessList{#1}{\handlefmatrixline}
+    \end{pmatrix} %
+}
+\NewDocumentCommand{\fsmmatrix}{>{\SplitList{;}}m} {%
+    \left(
+    \begin{smallmatrix} %
+        \ProcessList{#1}{\handlefmatrixline}
+    \end{smallmatrix} %
+    \right)
+}
+\NewDocumentCommand{\handlefmatrixline}{>{\SplitList{,}}m}{%
+    \ProcessList{#1}{\handlefmatrixitem} \\
+}
+\NewDocumentCommand{\handlefmatrixitem}{m}{%
+    \ifthenelse{\isundefined{\FirstItem}}{%
+        #1 
+    }{%
+        & #1
+    }%
+    \def\FirstItem{0}
 }
