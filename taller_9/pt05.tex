@@ -1,8 +1,15 @@
 \item De las siguientes afirmaciones, señale \textbf{DOS VERDADERAS}.
     \begin{enumerate}[label=\listAlph]
-        \item Las coordenadas de un vector de un plano en \(\realR^5\), en una base del plano, es un vector de \(\realR^2\).
-        \item Las coordenadas de un vector de un plano en \(\realR^5\), en una base de \(\realR^5\), es un vector de \(\realR^2\).
-        \item Un conjunto de 5 vectores de un hiperplano en \(\realR^5\) que pasa por el origen puede ser \(l.i\).
-        \item Si \(\nu(A) = 0\) y \(A\) es una matriz \(7 \times 4\), el sistema de ecuaciones lineales \(Ax = b\) tiene solución única para todo vector \(b\).
-        \item Si \(\rho(A) = 5\) y \(A\) es una matriz \(5 \times 9\), el sistema de ecuaciones lineales \(Ax = b\) tiene infinitas soluciones para todo vector \(b\).
+        \item Las coordenadas de un vector de un plano en \(\realR^5\), en una base del plano, es un vector de \(\realR^2\). \\
+            Esta afirmación es verdadera. Ya que se sabe que los planos tienen una dimensión de 2 y son un subespacio de \(\realR^n\), 
+            entonces cualquier representación de un vector en el plano como vector coordenada respecto a alguna base siempre va a tener 
+            2 componentes o ser un elemento de \(\realR^2\).
+        %\item Las coordenadas de un vector de un plano en \(\realR^5\), en una base de \(\realR^5\), es un vector de \(\realR^2\).
+        %\item Un conjunto de 5 vectores de un hiperplano en \(\realR^5\) que pasa por el origen puede ser \(l.i\).
+        %\item Si \(\nu(A) = 0\) y \(A\) es una matriz \(7 \times 4\), el sistema de ecuaciones lineales \(Ax = b\) tiene solución única para todo vector \(b\).
+        \setcounter{enumii}{4}
+        \item Si \(\rho(A) = 5\) y \(A\) es una matriz \(5 \times 9\), el sistema de ecuaciones lineales \(Ax = b\) tiene infinitas soluciones para todo vector \(b\). \\
+            Esta afirmación es verdadera. Dado que como \(\rho(A) = 5\) o que se tienen 5 variables, para la matrix \(5 \times 9\), no se va a contar con un pivote 
+            para cada columna de la matriz. Lo cual es condición necesaria para que tenga una solución única. Además sabemos que este sistema si tiene solución ya que 
+            su nulidad es \(\nu(A) = 4\), en lugar de \(\nu(A) = 0\), por el teorema de rango-nulidad.
     \end{enumerate}

@@ -1,13 +1,57 @@
 \item Determine \textbf{POR QUÉ} las siguientes afirmaciones son \textbf{VERDADERAS}
     \begin{enumerate}[label=\listAlph]
-        \item Si el determinante de una matriz \(5 \times 5\) es 3, la matriz tiene máximo 3 columnas \(l.i\).
-        \item Si \(\fset{u_1, u_2, u_3, u_4}\) es un conjunto de vectores \(l.d\)., \(\fset{u_1, u_2, u_3}\) también es un conjunto de vectores \(l.d\).
-        \item Si \(\fset{u_1, u_2, u_3, u_4}\) es un conjunto \(l.i\)., \(\fset{u_1, u_2, u_3, u_4, u_5}\) también es un conjunto \(l.i\).
-        \item La unión de dos subespacios vectoriales es un subespacio vectorial.
-        \item Si \(\bgen{u_1, u_2, u_3, u_4} = \bgen{u_1, u_2, u_4}\), entonces \(\fset{u_1, u_3, u_4}\) es \(l.i\).
-        \item El conjunto de puntos dentro de un circulo alrededor del origen de radio 1 es un subespacio de \(\realR^2\).
-        \item El conjunto de matrices triangulares inferiores \(5 \times 5\) con unos en la diagonal es un subespacio de \(\fm_{2 \times 2}\).
-        \item El conjunto de matrices elementales \(10 \times 10\) es un subespacio de \(\fm_{10 \times 10}\).
-        \item El conjunto de polinomios de grado menor o igual a 5, con coeficientes enteros, es un subespacio de \(\fp_5\).
-        \item El conjunto de polinomios de grado igual a 3, es un subespacio de \(\fp_3\).
+            \setcounter{enumii}{6}
+        \item Si \(\veccoord{u}{\fb} \in \realR^5\) entonces \(\pdim{\pgen{\fb}} = 5\). \\
+            Efectivamente, es verdadera por definición, ya que el número de componentes 
+            de un vector coordenada es dictado por el número de escalares de la combinación lineal de 
+            un vector respecto a una base. Por ende, si un vector coordenada tiene \(n\) o en este caso 5 
+            componentes, la dimensión de la base o el número de elementos de esta debe ser \(n\) o para nuestro caso 5.
+            \setcounter{enumii}{7}
+        \item La dimensión del espacio de las matrices diagonales \(4 \times 4\) es 4.
+            Completamente verdadero, ya que una base del espacio de las matrices tales que \(\fset{a_{ij} = 0: i \neq j}\)
+            es la base 
+            \[
+                \fb = \fset{
+                    \fmatrix{1,0,0,0;0,0,0,0;0,0,0,0;0,0,0,0},
+                    \fmatrix{0,0,0,0;0,1,0,0;0,0,0,0;0,0,0,0},
+                    \fmatrix{0,0,0,0;0,0,0,0;0,0,1,0;0,0,0,0},
+                    \fmatrix{0,0,0,0;0,0,0,0;0,0,0,0;0,0,0,1}
+                }
+            \]
+            Esta es base se puede ver casi inmediatamente que es la base canónica del espacio vectorial de las matrices diagonales \(4 \times 4\).
+            Ya que es \(l.i\) y puede generar cualquier cualquier matriz diagonal \(4 \times 4\), con los escalares iguales a cada componente,
+            es decir
+            \[
+                \fmatrix{a,0,0,0;0,b,0,0;0,0,c,0;0,0,0,d} = 
+                \lambda_1 
+                \fmatrix{1,0,0,0;0,0,0,0;0,0,0,0;0,0,0,0}
+                +
+                \lambda_2
+                \fmatrix{0,0,0,0;0,1,0,0;0,0,0,0;0,0,0,0}
+                +
+                \lambda_3
+                \fmatrix{0,0,0,0;0,0,0,0;0,0,1,0;0,0,0,0}
+                +
+                \lambda_4
+                \fmatrix{0,0,0,0;0,0,0,0;0,0,0,0;0,0,0,1}
+            \]
+            Con \(\lambda_1 = a, \lambda_2 = b, \lambda_3 = c, \lambda_4 = d\).
+            Entonces, al tener 4 elementos esta base, todas las demás también han de tener 4 elementos, y por ende, la dimensión del espacio es de 4.
+        \item La dimensión de un hiperplano en \(\realR^5\) es 4. \\
+            Verdadero ya que un hiperplano es definido apartir de \(n - 1\) vectores ortogonales a un
+            vector normal, entonces para un hiperplano de \(\realR^5\) al ser un espacio vectorial, debe contar 
+            con una base y poder generar cualquier vector ortogonal al vector normal, por lo que se necesitan 4 vectores; 
+            es decir. Se tiene que, los hiperplanos en \(\realR^n\), o en este caso \(\realR^5\), tienen una dimensión de \(n - 1\) o \(4\) para este caso.
+        \item La dimensión de \(\bgen{u_1,u_2,u_3,u_4}\), cuando \(\fset{u_1,u_2,u_3,u_4}\) es \(l.i\), es 4. \\
+            Verdadero; Como \(\fset{u_1,u_2,u_3,u_4}\) es \(l.i\) vamos a tener que verificar que el espacio vectorial dado es de 4. 
+            Cabe aclarar que se sabe por la proposición de que \(\bgen{u_1,u_2,u_3,u_4}\) es un espacio vectorial ya que 
+            nos preguntan por la dimensión de esté, lo cual si el conjunto generado no fuera un espacio vectorial entonces esté no contaria con dimensión.
+            Ahora, como el conjunto generado por \(\bgen{u_1,u_2,u_3,u_4}\) es un espacio vectorial y \(\fset{u_1,u_2,u_3,u_4}\) es \(l.i\), vamos a 
+            tener que \(\fset{u_1,u_2,u_3,u_4}\) es una base de este espacio vectorial. Con lo cual al tener 4 elementos esta base, vamos a tener que
+            el espacio vectorial tiene una dimensión de 4.
+            \setcounter{enumii}{14}
+        \item Una matriz \(A\) de tamaño \(4 \times 7\) no puede tener una nulidad igual a cero. \\
+            Esta afirmación es verdadera. Ya que partiendo del teorema de la nulidad, se tiene que \(\rho(A) + \nu(A) = 7\), 
+            además a lo sumo esta matriz posee 4 variables pivotales en cada fila. Entonces podemos considerar que en el caso que se 
+            tengan estas 4 variables pivotales, es decir \(\rho(A) = 4\), vamos a tener que \(\nu(A) = 3 \neq 0\).
     \end{enumerate}
