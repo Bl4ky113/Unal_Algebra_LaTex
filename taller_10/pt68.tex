@@ -1,0 +1,211 @@
+\item Determine \textbf{POR QUÉ} las siguientes afirmaciones son \textbf{FALSAS}.
+    \begin{enumerate}[label=\listAlph]
+        \item Si el rango de una matriz \(A \in \fm_{7 \times 9}\) es 7, su nulidad es cero. \\
+            Recordando el teorema de la relación entre la nulidad y rango de una matriz, podemos ver que 
+            \[
+                \rho(A) + \nu(A) = n \Rightarrow 7 + \nu(A) = 9
+            \]
+            Donde se puede ver que \(\nu = 2 \neq 0\), es decir, la matriz escalonada equivalente a \(A\) cuenta con 2 variables libres y 7 pivotes.
+            Concluyendo que la nulidad de \(A\) no es cero.
+        \item Si el rango de una matriz \(A \in \fm_{17 \times 9}\) es 9, el sistema \(Ax = b\) tiene solución única. \\
+            Inicialmente, debemos ver que como \(A\) es una matriz con 9 columnas y rango de 9 vamos a tener 9 pivotes en la matriz escalonada equivalente a \(A\), 
+            la cual se notara como \(U\).
+            Entonces, las primeras 9 filas de \(U\) van a contar con pivotes en sus respectivas columnas, 
+            y desde la 10\tsup{ma} fila de \(U\) vamos a contar con filas de ceros. Como cualquier valor real al ser multiplicado por cero es igual a cero puede 
+            que exista un vector \(b\) tal que 
+            \[
+                b = \fvec{b_1, b_2, \vdots, b_9, b_{10}, \vdots, b_{17}}
+                \hspace{1cm}
+                \text{Donde existe } b_{i} \neq 0 \text{ para } i = 10, 11, \ldots, 17
+            \]
+            Entonces para el sistema \(Ax = b\) se tendría la matriz del sistema
+            \[
+                \left(
+                \begin{array}{cccc|c}
+                    a_{11} & a_{12} & \cdots & a_{19} & b_1 \\
+                    0 & a_{22} & \cdots & a_{29} & b_2 \\
+                    \vdots & \vdots & \ddots & \vdots & \vdots \\
+                    0 & 0 & \cdots & a_{99} & b_9 \\
+                    0 & 0 & \cdots & 0 & b_{10} \\
+                    0 & 0 & \cdots & 0 & b_{11} \\
+                    \vdots & \vdots & \ddots & \vdots & \vdots \\
+                    0 & 0 & \cdots & 0 & b_{17} \\
+                \end{array}
+                \right)
+            \]
+            Como existe en \(b\) un \(b_i\) tal que sea diferente de 0 se tiene que 
+            \(0x_1 + 0x_2 + 0x_3 + \cdots + 0x_9 = b_i \neq 0\) lo cual hace que el sistema sea inconsistente, es decir  el sistema \(Ax = b\) no tendría solución.
+        %\item La dimensión del espacio de los polinomios de grado menor o igual a 4, que evaluados en 1 es 0, es 3.
+        \setcounter{enumii}{3}
+        \item La dimensión de \(\bgen{u_1, u_2, u_3, u_4}\) es 4. \\
+            Inicialmente, debemos tener en cuenta que \(u_1, u_2, u_3, u_4\) pertenecen a un espacio vectorial \(V\) y además que por la falta 
+            de información puede que el conjunto de vectores dados sea o no sea \(l.i\) y además que \(\bgen{u_1, u_2, u_3, u_4}\) puede que genere o no a \(V\),
+            por ende, no podriamos directamente sobre la dimensión del espacio vectorial \(V\).
+            Ahora, podemos ver cada caso descrito para \(u_1, u_2, u_3, u_4\) y \(\bgen{u_1, u_2, u_3, u_4}\), para así poder ver que en algunos casos su dimensión va a ser diferente de 4.
+            \ResetCases{}
+            \begin{mathcase}{\(\fset{u_1, u_2, u_3, u_4}\) es \(l.i\) y \(\bgen{u_1, u_2, u_3, u_4} = V\)}
+                Como \(\fset{u_1, u_2, u_3, u_4}\) es \(l.i\) y genera a \(V\), va a ser una base de \(V\), entonces podemos afirmar que la dimensión de \(V\) sí es 4, 
+                sin embargo, vamos a ver que esto no se tiene para todo caso.
+            \end{mathcase}
+            \begin{mathcase}{\(\fset{u_1, u_2, u_3, u_4}\) es \(l.d\) y \(\bgen{u_1, u_2, u_3, u_4} = V\)}
+                Como \(\fset{u_1, u_2, u_3, u_4}\) es \(l.d\) y genera a \(V\), entonces va a existir un subconjunto de \(\fset{u_1, u_2, u_3, u_4}\) tal que 
+                este sea \(l.i\) y genere a \(V\). Pero esto indica que la dimensión de \(V\) va a tener que ser menor que \(4\), y por ende diferente de 4.
+            \end{mathcase}
+            \begin{mathcase}{\(\fset{u_1, u_2, u_3, u_4}\) es \(l.i\) y \(\bgen{u_1, u_2, u_3, u_4} \neq V\)}
+                Apartir de que \(\fset{u_1, u_2, u_3, u_4}\) es \(l.i\) y no genera a \(V\) podemos tomar uno o varios vectores de \(V\) 
+                tal que no sean combinación lineal de \(u_1, u_2, u_3, u_4\) así que para el generador de estos vectores con \(u_1, u_2, u_3, u_4\) pueda 
+                generar al espacio vectorial \(V\). Pero, esto también implica que la dimensión de \(V\) va a tener que ser mayor que 4, y por ende diferente de 4.
+                \\
+                Sin embargo, puede que exista un subespacio vectorial de \(V\), que denotaremos \(S\), al cual \(u_1, u_2, u_3, u_4\) pertenecen y al ser estos \(l.i\)
+                van a generar a \(S\). Entonces la dimensión de \(S\) sí sería 4. 
+                Pero en el caso que alguno de los vectores \(u_1, u_2, u_3, u_4\) no este en \(S\), \(\bgen{u_1, u_2, u_3, u_4}\) no generaría a \(S\) y por ende su dimensión sería diferente a 4.
+            \end{mathcase}
+            \begin{mathcase}{\(\fset{u_1, u_2, u_3, u_4}\) es \(l.d\) y \(\bgen{u_1, u_2, u_3, u_4} \neq V\)}
+                En este caso no se puede asegurar que la dimensión de \(V\) sea diferente de 4. 
+                Ya que \(\fset{u_1, u_2, u_3, u_4}\) al ser \(l.d\) y que \(\bgen{u_1, u_2, u_3, u_4}\) no genere a \(V\) no nos brinda la suficiente información sobre \(V\). \\
+                Además de que podemos remover los vectores que son combinaciones lineales de \(\fset{u_1, u_2, u_3, u_4}\) 
+                así para obtener un conjunto \(l.i\) con \(m\) elementos, el cual tampoco va a generar a \(V\) ya que al eliminar los elementos que son combinación lineal no cambia su conjunto generado.
+                Pero apartir de esto, para que este conjunto \(l.i\) si genere a \(V\), se puede agregar \(n\) vectores que no sean combinación lineal de tal forma que 
+                el conjunto resultante sí genere a \(V\), pero al ser arbitrario el número de vectores en el conjunto \(l.i\) obtenido apartir de \(\fset{u_1, u_2, u_3, u_4}\), \(m\),
+                y el número de elementos que se deben agregar a este conjunto para que esté genere a \(V\), \(n\), puede que exista el caso que \(m + n = 4\)
+                y por ende la dimensión de \(V\) puede que sea 4. Sin embargo, en general se va a tener que la dimensión de este espacio vectorial va a ser de \(m + n\).
+            \end{mathcase}
+        %\item Las coordenadas de una matriz \(3 \times 5\) en una base de \(\fm_{3 \times 5}\) es un vector de \(\realR^8\). 
+        %\item Las coordenadas de un vector de un hiperplano en \(\realR^5\) en una base de \(\realR^5\) es un vector de \(\realR^4\).
+        \setcounter{enumii}{6}
+        \item Un conjunto de 5 matrices \(3 \times 2\) puede generar a \(\fm_{3 \times 2}\). \\
+            Esta afirmación se puede notar que es falsa al considerar la dimensión del espacio \(\fm_{3 \times 2}\), ya que su base canónica cuenta con 6 elementos y 
+            por ende la dimensión del espacio vectorial \(\fm_{3 \times 2}\) es 6. Entonces, por definición, se necesita como mínimo un conjunto de 6 matrices para 
+            poder generar a \(\fm_{3 \times 2}\). Para asegurarnos más de que la dimensión de \(\fm_{3 \times 2}\) es 6, veamos la base canónica \(\fb\)
+            \[
+                \fb = \fset{
+                    \fmatrix{1,0,0;0,0,0},
+                    \fmatrix{0,1,0;0,0,0},
+                    \fmatrix{0,0,1;0,0,0},
+                    \fmatrix{0,0,0;1,0,0},
+                    \fmatrix{0,0,0;0,1,0},
+                    \fmatrix{0,0,0;0,0,1},
+                }
+            \]
+            Donde \(\fb\) es \(l.i\) ya que al tomar la matriz de los coeficientes de los escalares de las combinaciones lineales de \(\fb\) vamos a tener una matriz 
+            escalonada \(6 \times 6\) con 6 pivotes.
+            \[
+                \lambda_1 
+                \fmatrix{1,0,0;0,0,0}
+                +
+                \lambda_2 
+                \fmatrix{0,1,0;0,0,0}
+                +
+                \lambda_3
+                \fmatrix{0,0,1;0,0,0}
+                +
+                \lambda_4 
+                \fmatrix{0,0,0;1,0,0}
+                +
+                \lambda_5 
+                \fmatrix{0,0,0;0,1,0}
+                +
+                \lambda_6 
+                \fmatrix{0,0,0;0,0,1}
+            \]
+            \[
+                \fmatrix{\lambda_1,0,0;0,0,0}
+                +
+                \fmatrix{0,\lambda_2,0;0,0,0}
+                +
+                \fmatrix{0,0,\lambda_3;0,0,0}
+                +
+                \fmatrix{0,0,0;\lambda_4,0,0}
+                +
+                \fmatrix{0,0,0;0,\lambda_5,0}
+                +
+                \fmatrix{0,0,0;0,0,\lambda_6}
+            \]
+            \[
+                \fmatrix{
+                    \lambda_1,
+                    \lambda_2,
+                    \lambda_3;
+                    \lambda_4,
+                    \lambda_5,
+                    \lambda_6
+                }
+                \hspace{1cm}
+                \fmatrix{
+                    1,0,0,0,0,0;
+                    0,1,0,0,0,0;
+                    0,0,1,0,0,0;
+                    0,0,0,1,0,0;
+                    0,0,0,0,1,0;
+                    0,0,0,0,0,1;
+                }
+            \]
+            Además, podemos ver que \(\fb\) genera a \(\fm_{3 \times 2}\) ya que si tomamos cualquier matriz de \(\pgen{\fb}\) va a 
+            estar contenida en \(\fm_{3 \times 2}\), y si tomamos cualquier matriz \(A\) de \(\fm_{3 \times 2}\) la podemos expresar como combinación lineal de \(\fb\).
+            \[
+                A 
+                = \fmatrix{a,b,c;d,e,f} 
+                = 
+                \fmatrix{a,0,0;0,0,0}
+                +
+                \fmatrix{0,b,0;0,0,0}
+                +
+                \fmatrix{0,0,c;0,0,0}
+                +
+                \fmatrix{0,0,0;d,0,0}
+                +
+                \fmatrix{0,0,0;0,e,0}
+                +
+                \fmatrix{0,0,0;0,0,f}
+            \]
+            \[
+                a
+                \fmatrix{1,0,0;0,0,0}
+                +
+                b
+                \fmatrix{0,1,0;0,0,0}
+                +
+                c
+                \fmatrix{0,0,1;0,0,0}
+                +
+                d
+                \fmatrix{0,0,0;1,0,0}
+                +
+                e
+                \fmatrix{0,0,0;0,1,0}
+                +
+                f
+                \fmatrix{0,0,0;0,0,1}
+                \in \pgen{\fb}
+            \]
+            Concluyendo que \(\fb\) es una base de \(\fm_{3 \times 2}\) y que la dimensión de \(\fm_{3 \times 2}\) es 6.
+            %\item Cualquier conjunto de 5 polinomios de grado menor o igual 3 genera a \(\fp_3\).
+        %\item Un conjunto de 5 vectores de un hiperplano en \(\realR^5\) que pasa por el origen puede ser \(l.i\).
+        \setcounter{enumii}{9}
+        \item Cualquier conjunto de 5 matrices diagonales \(6 \times 6\) es \(l.i\). \\
+            Primero, recordemos la definición de la matriz \(6 \times 6\) diagonal. Donde una matriz \(A\), definida como \(A = \left(a_{ij}\right)\), 
+            \(A\) va a ser una matriz diagonal si y solo si \(a_{ij} = 0\) si \(i \neq j\). 
+            Ahora, bajo esta definición podemos ver que la matriz \(6 \times 6\) nula es una matriz diagonal. 
+            Y por definición si el elemento nulo esta en un conjunto de 5 elementos, esté es \(l.d\) ya que existe un escalar diferente a 0 tal que. 
+            \[
+                \lambda_1v_1 \lambda_2v_2 + \lambda_3v_3 + \lambda_4v_4 + \lambda_5v_5 = 0
+            \]
+            Entonces, al considerar cualquier conjunto, ya sea de 5, menos o más elementos, con la matriz nula el conjunto siempre va a ser \(l.d\).
+        %\item Si \(S = \fset{p, q, r, t} \subset \fp_3\), \(S\) puede ser un conjunto ortogonal.
+        %\item Para calcular la proyección ortogonal de un vector en un subespacio, se requiere una base ortogonal del subespacio.
+        %\item La proyección ortogonal de un vector sobre un subespacio es ortogonal al subespacio.
+        %\item Si \(\eta(A) = 0\) y \(A\) es una matriz \(7 \times 4\), el sistema de ecuaciones lineales \(Ax = b\) tiene solución única para todo vector b.
+        \setcounter{enumii}{14}
+        \item Si el rango de una matriz \(5 \times 8\) es 5, la nulidad de su transpuesta es 3. \\ 
+            Partiendo desde el teorema de la relación entre el rango de una matriz y el de su transpuesta, tenemos que \(\rho\left(A\right) = \rho\left(A^T\right)\),
+            vamos a obtener que \(\rho(A) = 5 = \rho\left(A^T\right)\), entonces ahora por el teorema de la relación entre la nulidad y rango de una matriz además tenemos que 
+            \[  
+                \begin{aligned}
+                    \rho\left(A^T\right) + \nu\left(A^T\right) &= 5 \\
+                    5 + \nu\left(A^T\right) &= 5 \\
+                    \nu\left(A^T\right) &= 0 \\
+                \end{aligned}
+            \]
+            Confirmando que la nulidad de \(A^T\) es 0 en lugar de 3 como se había propuesto.
+        %\item Una base del espacio columna de una matriz es la conformada por las columnas pivotales de una matriz escalonada equivalente.
+    \end{enumerate}
