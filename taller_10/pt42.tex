@@ -1,4 +1,399 @@
 \item Sea \(W = \fset{\fsmvec{x,y,z,w}: x - 2y + z - w  = 0}\) un subespacio de \(\realR^4\). Encuentre una base ortonormal de \(W\).
-    Exprese \(v = \fsmvec{1,1,2,1} \in W\) como combinación lineal de la base ortonormal hallada.
-    Primero, para obtener una base ortonormal de \(W\)
-
+    Exprese \(v = \fsmvec{1,1,2,1} \in W\) como combinación lineal de la base ortonormal hallada. \\
+    Primero, para obtener una base ortonormal de \(W\) debemos partir de una base, \(\fb\), de \(W\). De lo cual podemos partir que la dimensión de un hiperplano en \(\realR^n\) es de \(n - 1\).
+    Entonces para este plano en \(\realR^4\) vamos a tener una dimensión de 3. Ahora, vamos a tomar la ecuación normal del hiperplano y despejar a \(w\). 
+    Para así poder encontrar los coeficientes de las variables restantes en cada componente del punto en el hiperplano, resultando en una base del hiperplano.
+    \[
+        \begin{aligned}
+            x - 2y + z - w &= 0 \\
+            x - 2y + z &= w \\
+        \end{aligned}
+        \hspace{0.25cm}
+        \Rightarrow
+        \hspace{0.25cm}
+        \fset{\fvec{x,y,z,x -2y + z}}
+        \hspace{0.25cm}
+        \Rightarrow
+        \hspace{0.25cm}
+        \fset{
+            x
+            \fvec{1,0,0,1}
+            +
+            y
+            \fvec{0,1,0,-2}
+            +
+            z
+            \fvec{0,0,1,1}
+        }
+    \]
+    \[
+        \fb = \fset{
+            \fvec{1,0,0,1},
+            \fvec{0,1,0,-2},
+            \fvec{0,0,1,1}
+        } 
+    \]
+    Sin embargo verifiquemos que \(\fb\) si sea una base de \(W\). Primero, veamos que \(\fb\) es \(l.i\) apartir del 
+    sistema de ecuaciones lineales de las componentes de \(\fb\) y su matriz de coeficientes, para luego escalonar esta matriz 
+    y verificar que cuente con 3 pivotes para que, por el teorema de equivalencias, sus columnas sean \(l.i\).
+    \[
+        \begin{cases}
+            \fb_1 = x \\
+            \fb_2 = y \\
+            \fb_3 = z \\
+            \fb_4 = x - 2y + z
+        \end{cases}
+        \hspace{0.25cm}
+        \Rightarrow
+        \hspace{0.25cm}
+        \fmatrix{
+            1, 0, 0;
+            0, 1, 0;
+            0, 0, 1;
+            1, -2, 1
+        }
+        \sim
+        \begin{aligned}
+            F_4 - F_1 &\mapsto F_4 \\
+            F_4 + 2F_2 &\mapsto F_4 \\
+            F_4 - F_3 &\mapsto F_4
+        \end{aligned}
+        \fmatrix{
+            1, 0, 0;
+            0, 1, 0;
+            0, 0, 1;
+            0, 0, 0
+        }
+    \]
+    Ahora verifiquemos que \(\pgen{\fb} = W\) mediante una doble contenencia. 
+    Sea \(u'\) un elemento cualquiera en \(\pgen{\fb}\), entonces 
+    \(
+        u'
+        = 
+        \lambda_1 
+        \fsmvec{1,0,0,1}
+        +
+        \lambda_2
+        \fsmvec{0,1,0,-2}
+        +
+        \lambda_3
+        \fsmvec{0,0,1,1}
+        =
+        \fsmvec{
+            \lambda_1,
+            \lambda_2,
+            \lambda_3,
+            \lambda_1 - 2\lambda_2 + \lambda_3
+        }
+    \)
+    si reemplazamos cada componente en la ecuación normal de \(W\) tendremos
+    \(
+        \lambda_1 -2(\lambda_2) + \lambda_3 - (\lambda_1 -2\lambda_2 + \lambda_3) 
+        =
+        \lambda_1 - \lambda_1 -2\lambda_2 +2\lambda_2 + \lambda_3 - \lambda_3
+        =
+        0
+    \)
+    concluyendo que \(u'\) pertenece a \(W\).
+    Ahora veamos que \(v'\) un punto cualquiera en el hiperplano \(W\) es contenido por \(\pgen{\fb}\), entonces podemos ver que
+    \(v' = \fsmvec{x,y,z,x -2y + z} = x \fsmvec{1,0,0,1} + y\fsmvec{0,1,0,-2} + z\fsmvec{0,0,1,1}\), como \(x, y, z\) son 
+    escalares reales entonces \(v'\) es una combinación lineal de \(\fb\), es decir, \(\pgen{\fb}\) contiene a \(v'\).
+    Y podemos afirmar que \(\pgen{\fb} = W\).
+    \\
+    Ahora con esta base \(\fb\) de \(W\) vamos a usar el proceso de ortogonalización de \emph{Gram-Schmidt}, donde 
+    vamos a tener nuestros vectores 
+    \(
+        v_1 = \fsmvec{1,0,0,1}, 
+        v_2 = \fsmvec{0,1,0,-2},
+        v_3 = \fsmvec{0,0,1,1}
+    \)
+    y los vamos a usar para formar el conjunto de vectores ortogonales \(\fset{u_1, u_2, u_3}\) y apartir de estos, normalizarlos para 
+    obtener al conjunto de los vectores ortonormales \(\fset{w_1, w_2, w_3}\).
+    Primero, vamos a definir a \(u_1 = v_1\) ya que almenos necesitamos 2 vectores para determinar que sean ortogonales entre sí,
+    apartir de este vector vamos a definir a \(u_2\) y \(u_3\) como \(u_2 = v_2 - \fproy{u_1}{v_2}\) y \(u_3 = v_3 - \fproy{u_2}{v_3} - \fproy{u_1}{v_3}\) respectivamente.
+    \[
+        \begin{aligned}
+            u_2 &= v_2 - \fproy{u_1}{v_2} 
+                = v_2 - \frac{v_2 \cdot u_1}{u_1 \cdot u_1}u_1 \\
+            &= \fvec{0,1,0,-2} + \frac{2}{2}\fvec{1,0,0,1} \\
+            &= \fvec{0,1,0,-2} + \fvec{1,0,0,1} \\
+            &= \fvec{1,1,0,-1} \\
+        \end{aligned}
+        \hspace{1cm}
+        \begin{aligned}
+            u_3 &= v_3 - \fproy{u_2}{v_3} - \fproy{u_3}{v_3}
+                = v_3 -\frac{v_3 \cdot u_2}{u_2 \cdot u_2}u_2 - \frac{v_3 \cdot u_1}{u_1 \cdot u_1}u_1 \\
+            &= \fvec{0,0,1,1} +\frac{1}{3}\fvec{1,1,0,-1} -\frac{1}{2}\fvec{1,0,0,1}\\
+            &= \fvec{0,0,1,1} +\fvec{\frac{1}{3},\frac{1}{3},0,-\frac{1}{3}} -\fvec{\frac{1}{2},0,0,\frac{1}{2}}
+                = \fvec{\frac{1}{3},\frac{1}{3},1,\frac{2}{3}} - \fvec{\frac{1}{2},0,0,\frac{1}{2}} \\
+            &= \fvec{-\frac{1}{6},\frac{1}{3},1,\frac{1}{6}}
+        \end{aligned}
+    \]
+    Ahora, con \(u_1, u_2, u_3\) vamos a crear a \(w_1, w_2, w_3\) simplemente conociendo que cada vector \(u_i\) con \(i = 1, 2, 3\) es diferente del vector nulo
+    vamos a tener que \(\frac{u_i}{\fnorm{u_i}}\) va a ser un vector unitario. 
+    Esto ya que, si tomamos cualquier vector \(a\) de \(\realR^n\), sabemos que va a ser unitario si y solo si \(\fnorm{a} = 1\), 
+    además, la norma de un vector esta definida como \(\fnorm{a} = \sqrt{a \cdot a} = \sqrt{a_1^2 + a_2^2 + \cdots a_n^2}\). 
+    Entonces si mutliplicamos este vector por el inverso multiplicativo de la norma de sí mismo vamos a tener que
+    \[
+        \frac{1}{\fnorm{a}}a = 
+        \fvec{
+            \frac{a_1}{\sqrt{a_1^2 + \cdots + a_n^2}},
+            \vdots,
+            \frac{a_n}{\sqrt{a_1^2 + \cdots + a_n^2}}
+        }
+    \]
+    \[
+        \begin{aligned}
+            \fnorm{\frac{1}{\fnorm{a}}a} 
+            &= 
+            \sqrt{
+                \left(
+                    \frac{a_1}{\sqrt{a_1^2 + \cdots + a_n^2}}
+                \right){}^2
+                +
+                \cdots
+                +
+                \left(
+                    \frac{a_n}{\sqrt{a_1^2 + \cdots + a_n^2}}
+                \right){}^2
+            }\\
+            &=
+            \sqrt{
+                \frac{a_1^2}{a_1^2 + \cdots + a_n^2}
+                +
+                \cdots
+                +
+                \frac{a_n^2}{a_1^2 + \cdots + a_n^2}
+            }\\
+            &=
+            \sqrt{\frac{a_1^2 + \cdots + a_n^2}{a_1^2 + \cdots + a_n^2}}
+                = \sqrt{1} 
+                = 1
+        \end{aligned}
+    \]
+    Es necesario que \(a\) sea diferente del vector nulo ya que su norma seria 0, por lo que su inverso multiplicativo no existiría.
+    Bueno, retomando, primero calculemos la norma de cada vector \(u_i\), y después con esté obtendremos cada vector unitario.
+    \[
+        \begin{aligned}
+            \fnorm{u_1} &= \sqrt{1 + 0 + 0 + 1} = \sqrt{2}
+        \end{aligned}
+        \hspace{0.25cm}
+        \begin{aligned}
+            \fnorm{u_2} &= \sqrt{1 + 1 + 0 + 1} = \sqrt{3}
+        \end{aligned}
+    \]
+    \[
+        \begin{aligned}
+            \fnorm{u_3} &= 
+                \sqrt{
+                    \left(-\frac{1}{6}\right){}^2
+                    +
+                    \left(\frac{1}{3}\right){}^2
+                    +
+                    1
+                    +
+                    \left(\frac{1}{6}\right){}^2
+                } 
+            =
+            \sqrt{
+                \frac{1}{36}
+                +
+                \frac{1}{9}
+                +
+                1
+                +
+                \frac{1}{36}
+            }
+            = 
+            \sqrt{
+                \frac{42}{46}
+            }
+            =
+            \frac{\sqrt{42}}{6}
+        \end{aligned}
+    \]
+    \[
+        \frac{1}{\fnorm{u_1}}u_1 
+        = 
+        \frac{1}{\sqrt{2}}
+        \fvec{1,0,0,1}
+        =
+        \fvec{
+            \frac{1}{\sqrt{2}},
+            0,
+            0,
+            \frac{1}{\sqrt{2}}
+        }
+        =
+        w_1
+        \hspace{1cm}
+        \frac{1}{\fnorm{u_2}}u_2
+        =
+        \frac{1}{\sqrt{3}}
+        \fvec{1,1,0,-1}
+        =
+        \fvec{
+            \frac{1}{\sqrt{3}},
+            \frac{1}{\sqrt{3}},
+            0,
+            -\frac{1}{\sqrt{3}}
+        }
+        =
+        w_2
+    \]
+    \[
+        \frac{1}{\fnorm{u_3}}u_3
+        =
+        \frac{6}{\sqrt{42}}
+        \fvec{
+            -\frac{1}{6},
+            \frac{1}{3},
+            1,
+            \frac{1}{6}
+        }
+        =
+        \fvec{
+            -\frac{1}{\sqrt{42}},
+            \frac{2}{\sqrt{42}},
+            \frac{6}{\sqrt{42}},
+            \frac{1}{\sqrt{42}}
+        }
+        =
+        w_3
+    \]
+    Así, finalmente, podemos concluir que \(\fb'\) va a ser una base ortonormal de \(W\) definida como
+    \[
+        \fb' = \fset{w_1, w_2, w_3} = 
+        \fset{
+            \fvec{
+                \frac{1}{\sqrt{2}},
+                0,
+                0,
+                \frac{1}{\sqrt{2}}
+            },
+            \fvec{
+                \frac{1}{\sqrt{3}},
+                \frac{1}{\sqrt{3}},
+                0,
+                -\frac{1}{\sqrt{3}}
+            },
+            \fvec{
+                -\frac{1}{\sqrt{42}},
+                \frac{2}{\sqrt{42}},
+                \frac{6}{\sqrt{42}},
+                \frac{1}{\sqrt{42}}
+            }
+        }
+    \]
+    Ahora solo nos falta expresar a \(v\) como una combinación lineal de \(\fb'\).
+    Sin embargo, como \(\fb'\) es una base ortonormal por el teorema de ortonormalidad y combinaciones lineales 
+    vamos a poder obtener cada escalar de la combinación lineal de \(v\) en \(\fb'\) de la siguiente forma \(\lambda_i = v \cdot w_i\) donde \(i = 1, 2, 3\),
+    entonces vamos a tener que 
+    \[
+        \lambda_1 = 
+            \fvec{1,1,2,1} 
+            \cdot 
+            \fvec{
+                \frac{1}{\sqrt{2}},
+                0,
+                0,
+                \frac{1}{\sqrt{2}}
+            }
+        =
+        \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}
+        =
+        \frac{2}{\sqrt{2}}
+        =
+        \sqrt{2}
+    \hspace{0.5cm}
+    \lambda_2 = 
+        \fvec{1,1,2,1}
+        \cdot
+        \fvec{
+            \frac{1}{\sqrt{3}},
+            \frac{1}{\sqrt{3}},
+            0,
+            -\frac{1}{\sqrt{3}}
+        }
+        =
+            \frac{1}{\sqrt{3}}
+            +
+            \frac{1}{\sqrt{3}}
+            -
+            \frac{1}{\sqrt{3}}
+        =
+        \frac{1}{\sqrt{3}}
+        =
+        \frac{\sqrt{3}}{3}
+    \]
+    \[
+        \lambda_3 
+        =
+        \fvec{1,1,2,1}
+        \cdot
+        \fvec{
+            -\frac{1}{\sqrt{42}},
+            \frac{2}{\sqrt{42}},
+            \frac{6}{\sqrt{42}},
+            \frac{1}{\sqrt{42}}
+        }
+        =
+        -\frac{1}{\sqrt{42}}
+        +
+        \frac{2}{\sqrt{42}}
+        +
+        \frac{12}{\sqrt{42}}
+        +
+        \frac{1}{\sqrt{42}}
+        =
+        \frac{14}{\sqrt{42}}
+        =
+        \frac{\sqrt{42}}{3}
+    \]
+    Para finalmente concluir, vamos a verificar si estos escalares nos dan a \(v\) cuando hacemos la combinación lineal
+    \[
+        \sqrt{2}
+        \fvec{
+            \frac{1}{\sqrt{2}},
+            0,
+            0,
+            \frac{1}{\sqrt{2}}
+        }
+        +
+        \frac{\sqrt{3}}{3}
+        \fvec{
+            \frac{1}{\sqrt{3}},
+            \frac{1}{\sqrt{3}},
+            0,
+            -\frac{1}{\sqrt{3}}
+        }
+        +
+        \frac{\sqrt{42}}{3}
+        \fvec{
+            -\frac{1}{\sqrt{42}},
+            \frac{2}{\sqrt{42}},
+            \frac{6}{\sqrt{42}},
+            \frac{1}{\sqrt{42}}
+        }
+        =
+        \fvec{1,0,0,1}
+        +
+        \fvec{
+            \frac{1}{3},
+            \frac{1}{3},
+            0
+            -\frac{1}{3}
+        }
+        +
+        \fvec{
+            -\frac{1}{3},
+            \frac{2}{3},
+            2,
+            \frac{1}{3}
+        }
+        =
+        \fvec{1,1,2,1}
+        =
+        v
+    \]
+    Es decir \(v \in W\).
