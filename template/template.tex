@@ -16,7 +16,7 @@ headheight=22pt%
 \usepackage{amsmath} % Math Align
 
 \usepackage{booktabs} % Tables+ Package
-\usepackage{enumitem} % Enumarete+ Package
+\usepackage[inline]{enumitem} % Enumarete+ Package
 \usepackage{xparse} % Command Args Split Package
 
 \usepackage{mathtools} % Math General
@@ -207,6 +207,11 @@ headheight=22pt%
     \right]{}_{ #2 }%
 }
 
+% Fast Function
+\NewDocumentCommand{\ffunc}{mm} {%
+    #1\left(#2\right)
+}
+
 % Fast Set
 \NewDocumentCommand{\fset}{m} {%
     \left\{%
@@ -215,7 +220,6 @@ headheight=22pt%
 }
 
 % Fast Vector Proyection
-
 \NewDocumentCommand{\fproy}{mm} {%
     \text{Proy}_{#1} #2
 }
@@ -223,6 +227,16 @@ headheight=22pt%
 % Fast Vector Norm
 \NewDocumentCommand{\fnorm}{m} {%
     \left|\left|#1\right|\right|
+}
+
+% Fast Kernel of a Linear Transformation
+\NewDocumentCommand{\fker}{m} {%
+    \text{ker}\left(#1\right)
+}
+
+% Fast Image of a Linear Transformation
+\NewDocumentCommand{\fimg}{m} {%
+    \text{Im}\left(#1\right)
 }
 
 % Fast Vector & Small Vector

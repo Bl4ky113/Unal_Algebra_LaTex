@@ -1,9 +1,138 @@
-\item Sabiendo que \(A = \fsmmatrix{1,0,-1;0,2,1}\) es la matriz asociada a la transformación lineal \(T: V \rightarrow W\), en las bases \(\fb\) y \(\fb'\) de \(V\) y \(W\) respectivamente, 
-    encuentre el núcleo y la imagen de cada una de las siguientes situaciones y diga cuáles son sus dimensiones
+\item Sabiendo que \(A_T= \fsmmatrix{1,0,-1;0,2,1}\) es la matriz asociada a la transformación lineal \(T: V \rightarrow W\), 
+    en las bases \(\fb\) y \(\fb'\) de \(V\) y \(W\) respectivamente, 
+    encuentre el núcleo y la imagen de cada una de las siguientes situaciones y diga cuáles son sus dimensiones.
     \begin{enumerate}[label=\listAlph]
-        \item \(V = \realR^3, W = \realR^2\), \(\fb\) y \(\fb'\) son sus bases usuales.
-        \item \(V = \realR^3, w = \realR^2, \fb = \fset{\fsmvec{1,0,0}, \fsmvec{1,1,0}, \fsmvec{1,1,1}} \) y \(\fb'\) es la base usual de \(\realR^2\).
-        \item \(V = \realR^3, W = \realR^2\), \(\fb\) es la base usual y \(\fb' = \fset{\fsmvec{1,-1}, \fsmvec{1,2}}\).
-        \item \(V = \fp_2, W = \fp_1\), \(\fb\) y \(\fb'\) son sus bases usuales.
-        \item \(V = \fp_2, W = \fp_1\), \(\fb = \fset{1-x,x-x^2,x^2+1}\) y \(\fb' = \fset{1-x,x}\).
+        \item \(V = \realR^3, W = \realR^2\), \(\fb\) y \(\fb'\) son sus bases usuales. \\
+            Inicialmente, podemos ver que la nulidad y rango de \(A_T\) es 1 y 2 respectivamente, 
+            ya que al ser una matriz escalonada y contar con dos columnas con pivotes y una variable libre, 
+            por el teorema de equivalencias vamos a tener que \(\nu(A_T) = 1\) y \(\rho(A_T) = 2\).
+            A continuación, para encontrar la imagen y kernel de \(T\) vamos a usar el teorema de la caracterización de la matriz asociada a una transformación lineal, 
+            \(\veccoord{T(v)}{\fb'} = A_T\veccoord{v}{\fb}\) para cualquier vector \(v\) en \(V\). Partiendo desde un vector cualquiera, \(v\), de \(V\), 
+            se sabe que es una combinación lineal de los vectores de \(\fb\), el cual es la base canónica en \(\realR^3\), entonces
+            \[
+                v = \lambda_1 \fvec{1,0,0} + \lambda_2 \fvec{0,1,0} + \lambda_3 \fvec{0,0,1} = \fvec{\lambda_1, \lambda_2, \lambda_3} 
+                \hspace{0.5cm}
+                \veccoord{v}{\fb} = \fvec{\lambda_1,\lambda_2,\lambda_3}
+            \]
+            Ahora, por el teorema mencionado, vamos a tener que \(\veccoord{T(v)}{\fb'} = A_T\veccoord{v}{\fb}\), es decir
+            \[
+                \veccoord{T(v)}{\fb'}
+                = \fmatrix{1,0,-1;0,2,1} \fvec{\lambda_1, \lambda_2, \lambda_3}
+                = \fvec{\lambda_1 - \lambda_3, 2\lambda_2 + \lambda_3}
+            \]
+            Apartir de esto vamos a poder encontrar el kernel de \(T\) con el siguiente sistema de ecuaciones, apartir de cualquier vector \(a\) en \(v\)
+            se va a tener que pertence al kernel de \(T\) si
+            \[
+                A_T \veccoord{a}{\fb} = \fmatrix{1,0,-1;0,2,1} \fvec{\alpha_1, \alpha_2, \alpha_3} =  \vec{0} \in \realR^2
+            \]
+            Como \(A_T\) ya esta escalonada, mediante \emph{Gauss}, vamos a tener que \(\alpha_1 = \alpha_3\) y además \(\alpha_3 = -2\alpha_2\), 
+            es decir obtenemos el vector \(\fsmvec{-2\alpha_2, \alpha_2, -2\alpha_2}\) como solución al sistema; entonces vamos a tener que el kernel de \(T\) va a ser 
+            \[
+                \fker{T} = \bgen{\fvec{-2,1,-2}}
+            \]
+            Ahora, veamos la imagen de \(T\) apartir de \(\veccoord{T(v)}{\fb'}\), el cual va a ser igual a
+            \[
+                \veccoord{T(v)}{\fb'} 
+                = \fvec{\lambda_1 - \lambda_3, 2\lambda_2 + \lambda_3}
+                = \fvec{\lambda_1,0} + \fvec{0,2\lambda_2}, + \fvec{-\lambda_3, \lambda_3}
+                = \lambda_1 \fvec{1,0} + \lambda_2\fvec{0,2} + \lambda_3 \fvec{-1,1}
+            \]
+            Como \(\fsmvec{-1,1}\) es una combinación lineal de \(\fsmvec{1,0}\) y \(\fsmvec{0,2}\) con los escalares \(-1\) y \(\frac{1}{2}\) respectivamente,
+            vamos a poder eliminarlo para obtener un conjunto de vectores \(l.i\). Además el generador de estos vectores, va a generar todo vector \(T(v)\) y 
+            al tener una dimensión de 2 y ser elementos de \(\realR^2\), el cual su dimensión es de 2, vamos a tener que 
+            \[
+                \fimg{T} = \bgen{\fvec{1,0}, \fvec{0,2}} = \realR^2;
+                \hspace{0.25cm}
+                \text{para cualquier } v \in V
+            \]
+            Concluyendo que la dimensión del kernel y la dimensión de la imagen de \(T\) es 1 y 2 respectivamente.
+        \item \(V = \realR^3, W = \realR^2, \fb = \fset{\fsmvec{1,0,0}, \fsmvec{1,1,0}, \fsmvec{1,1,1}} \) y \(\fb'\) es la base usual de \(\realR^2\). \\
+            De manera similar al punto anterior, tomemos un vector \(v\) cualquiera de \(V\) y encontremos a \(\veccoord{v}{\fb}\)
+            \[
+                v = \lambda_1 \fvec{1,0,0} + \lambda_2 \fvec{1,1,0} + \lambda_3 \fvec{1,1,1} = \fvec{\lambda_1 + \lambda_2 + \lambda_3, \lambda_2 + \lambda_3, \lambda_3} = \veccoord{v}{\fb}
+            \]
+            ahora, vamos encontrar el kernel apartir del sistema de ecuaciones \(A_T \veccoord{v}{\fb} = \vec{0}\)
+            \[
+                A_T \veccoord{v}{\fb} = 
+                \fmatrix{1,0,-1;0,2,1} 
+                \fvec{\lambda_1 + \lambda_2 + \lambda_3, \lambda_2 + \lambda_3, \lambda_3} =
+                \fvec{\lambda_1 + \lambda_2, 2\lambda_2 + 3\lambda_3} =
+                \fvec{0,0}
+                \hspace{0.25cm}
+                \begin{cases}
+                    \lambda_1 + \lambda_2 = 0 \\
+                    2\lambda_2 + 3\lambda_3 = 0
+                \end{cases}
+            \]
+            Entonces, mediante sustitución hacia atrás se obtiene que \(\lambda_1 = -\lambda_2\) y \(\lambda_2 = -\frac{3}{2}\lambda_3\),
+            entonces se tiene que el vector \(T(v)\) es 
+            \[
+                \fvec{\lambda_1 + \lambda_2 + \lambda_3, \lambda_2 + \lambda_3, \lambda_3} =
+                \fvec{\lambda_3, -\frac{1}{2}\lambda_3, \lambda_3} =
+                \lambda_3 \fvec{1, -\frac{1}{2}, 1}
+            \]
+            Teniendo así al kernel de \(T\).
+            \[
+                \fker{T} = \bgen{\fvec{1,-\frac{1}{2},1}}
+            \]
+            Ahora, con \(\veccoord{v}{\fb}\) vamos a obtener a la imagen de \(v\) en \(T\) usando el teorema de caracterización de la matriz asociada a una transformación lineal
+            \[
+                \veccoord{T(v)}{\fb'} = 
+                A_T \veccoord{v}{\fb} = 
+                \fmatrix{1,0,-1;0,2,1} 
+                \fvec{\lambda_1 + \lambda_2 + \lambda_3, \lambda_2 + \lambda_3, \lambda_3} =
+                \fvec{\lambda_1 + \lambda_2, 2\lambda_2 + 3\lambda_3} =
+                \lambda_1\fvec{1, 0} + \lambda_2\fvec{1,2} + 3\lambda_3\fvec{0,1}
+            \]
+            Como \(\fsmvec{1,2}\) es una combinación lineal de los otros vectores, con \(\lambda_1 = 1\) y \(lambda_3 = \frac{2}{3}\), 
+            lo vamos a poder remover para poder tener un conjunto \(l.i\) de dimensión 2, es decir, esté va a generar a \(\realR^2\) y a todo 
+            vector \(T(v)\) donde \(v\) es cualquier vector de \(V\) como inicalmente se había planteado. Es decir
+            \[
+                \fimg{T} = 
+                \bgen{\fvec{1,0}, \fvec{0,1}} =
+                \realR^2
+            \]
+            Concluyendo que la dimensión del kernel y imagen de \(T\) es de 1 y 2 respectivamente.
+            %\item \(V = \realR^3, W = \realR^2\), \(\fb\) es la base usual y \(\fb' = \fset{\fsmvec{1,-1}, \fsmvec{1,2}}\).
+        \setcounter{enumii}{3}
+        \item \(V = \fp_2, W = \fp_1\), \(\fb\) y \(\fb'\) son sus bases usuales. \\
+            Como en los puntos anteriores,  tomando un polinomio \(v = \lambda_1 + \lambda_2x + \lambda_3x^2\) de \(\fp_2\) cualquiera 
+            y como \(\fb\) es la base canónica de \(\fp_2\), vamos a tener que \(\veccoord{v}{\fb} = \fsmvec{\lambda_1,\lambda_2,\lambda_3}\).
+            Con este vector coordenada vamos a obtener al kernel de \(T\) con el sistema de ecuaciones \(A_T \veccoord{v}{\fb} = \veccoord{\vec{0}}{\fb'} \in \fp_1\)
+            \[
+                \fmatrix{1,0,-1;0,2,1} \fvec{\lambda_1,\lambda_2,\lambda_3} 
+                = \fvec{\lambda_1 - \lambda_3, 2\lambda_2 + \lambda_3}
+                = \vec{0} \in \fp_2
+                \hspace{0.5cm}
+                \begin{cases}
+                    \lambda_1 - \lambda_3 = 0 \\
+                    2\lambda_2 + \lambda_3 = 0
+                \end{cases}
+            \]
+            Reemplazando y sustituyendo hacia atras se puede ver que \(\lambda_1 = \lambda_3\) y \(\lambda_3 = -2\lambda_2\), es decir el vector \(\veccoord{v}{\fb}\)
+            se puede reescribir como, también como este vector es la solución del sistema \(A_T \veccoord{v}{\fb} = \veccoord{\vec{0}}{\fb'}\), entonces va a ser el conjunto que 
+            genera el kernel de \(T\).
+            \[
+                \veccoord{v}{\fb} = \fvec{-2\lambda_2,\lambda_2,-2\lambda_2} = \lambda_2 \fvec{-2,1,-2}
+                \hspace{1cm}
+                \fker{T} = \bgen{-2+x-2x^2}
+            \]
+            Además notando que la dimensión del kernel es de 1. \\
+            Ahora, veamos la imagen de \(T\) apartir del vector \(\veccoord{T(v)}{\fb'}\) teniendo en cuenta que \(v\) es un vector cualquiera de \(V\).
+            \[
+                \veccoord{T(v)}{\fb'}
+                = \fmatrix{1,0,-1;0,2,1} \fvec{\lambda_1,\lambda_2,\lambda_3} 
+                = \fvec{\lambda_1 - \lambda_3, 2\lambda_2 + \lambda_3}
+                = \lambda_1 \fvec{1,0} + \lambda_2 \fvec{0,2} + \lambda_3 \fvec{-1,1}
+            \]
+            Obteniendo así un conjunto que genere a todos los vectores de coordenadas respecto a \(\fb'\) de la imagen de \(T\), o \(\veccoord{T(v)}{\fb'}\), 
+            sin embargo, este no es base ya que \(\fsmvec{-1,1}\) es una combinación lineal de los 
+            otros vectores tomando los escalares \(\lambda_1 = -1\) y \(\lambda_2 = \frac{1}{2}\).
+            Entonces al considerar el conjunto de los vectores \(\fsmvec{1,0}\) y \(\fsmvec{0,2}\) vamos a 
+            tener que es \(l.i\) y genera a \(T(v)\), es decir es una base de la imagen de \(T\). 
+            Teniendo que la dimensión de \(\fimg{T}\) es 2, 
+            \[
+                \fimg{T} = \bgen{1, 2x} = \fp_1
+            \]
+        %\item \(V = \fp_2, W = \fp_1\), \(\fb = \fset{1-x,x-x^2,x^2+1}\) y \(\fb' = \fset{1-x,x}\).
     \end{enumerate}

@@ -4,9 +4,97 @@
         \item \(\fl_1\); La recta que pasa por \(P = \fsmvec{-1,2,5}\) y \(Q = \fsmvec{-2,0,3}\).
         \item \(\fp_1\); El plano que pasa por \(Q = \fsmvec{-2,0,3}\) y tiene los vectores directores \(u = \fsmvec{2,0,-1}\) y \(v = \fsmvec{0,-1,-3}\).
     \end{itemize}
+    Inicialmente vamos a redefinir a \(\fl_1\) apartir de su vector director 
+    \(d_1 = (P - Q) = \left(\fsmvec{-1,2,5} - \fsmvec{-2,0,3}\right) = \fsmvec{1,2,2}\),
+    entonces \(\fl_1: P = Q + \lambda d_1; \fsmvec{x,y,z} = \fsmvec{-2,0,3} + \lambda \fsmvec{1,2,2}\), 
+    donde \(P\) es un punto de la recta y \(\lambda\) es un escalar real cualquiera.
+    Además, por conveniencia, se va a usar las ecuaciones paramétricas de \(\fp_1\) y \(\fl_1\), siendo estas
+    \[
+        \fl_1:
+        \begin{cases}
+            x = -2 + \lambda\\
+            y = 2\lambda \\
+            z = 3 + 2\lambda
+        \end{cases}
+        \hspace{1cm}
+        \fp_1:
+        \begin{cases}
+            x = -2 + 2\gamma \\
+            y = -\sigma \\
+            z = 3 -\gamma -3\sigma
+        \end{cases}
+    \]
     \begin{enumerate}[label=\listAlph]
         \item \(T: \realR^3 \rightarrow \realR^2\) tal que \(T\fsmvec{x,y,z}=\fsmvec{x-y,x-z}\).
+            La imagen de \(\fl_1\) en \(T\) va a ser igual a pasar un vector de los \(\fsmvec{x,y,z}\) de la ecuación paramétrica
+            \[
+                T\fvec{-2 + \lambda, 2\lambda, 3 + 2\lambda}
+                = \fvec{-2 -\lambda,-5 - \lambda}
+                = \fvec{-2,-5} + \lambda\fvec{-1,-1}
+            \]
+            teniendo que \(T\fsmvec{-2 + \lambda, 2\lambda, 3 + 2\lambda}\) va a ser una recta en \(\realR^2\) que pasa por el punto \(\fsmvec{-2,5}\).
+            De manera similar, se va a obtener la imagen de \(\fp_1\) en \(T\).
+            \[
+                T\fvec{-2 + 2\gamma, -\sigma, 3 -\gamma -3\sigma}
+                = \fvec{-2 + 2\gamma + \sigma, -5 + 3\gamma + 3\sigma}
+                = \fvec{-2,-5} + \gamma\fvec{2,3} + \sigma\fvec{1,3}
+            \]
+            resultado que \(T\fsmvec{-2 + 2\gamma, -\sigma, 3 -\gamma -3\sigma}\) es un plano en \(\realR^2\) que pasa por el punto \(\fsmvec{-2,-5}\), que 
+            además como \(\fset{\fsmvec{2,3}, \fsmvec{1,3}}\) es \(l.i\) y la dimensión de \(\realR^2\) es \(l.i\), se va a tener que 
+            \(T\fsmvec{-2 + 2\gamma, -\sigma, 3 -\gamma -3\sigma}\) va a generar a todo \(\realR^2\).
         \item \(T: \realR^3 \rightarrow \realR^3\) tal que \(T\fsmvec{x,y,z}=\fsmvec{x-y+z,0,0}\).
-        \item \(T: \realR^3 \rightarrow \realR^3\) tal que \(T\fsmvec{x,y,z}=\fsmvec{x-y,x,z}\).
+            Siguiendo el mismo proceso que en el punto anterior, evaluamos a \(T\) con los valores de la ecuaciones paramétricas de \(\fl_1\) y \(\fp_1\).
+            Iniciando por \(\fl_1\)
+            \[
+                T\fvec{-2 + \lambda, 2\lambda, 3 + 2\lambda}
+                = \fvec{1 + \lambda,0,0}
+                = \lambda\fvec{1,0,0} + \fvec{1,0,0}
+                = \left(\lambda + 1\right)\fvec{1,0,0}
+                = \lambda' \fvec{1,0,0};
+                \hspace{1cm}
+                \lambda' = 1 + \lambda
+            \]
+            Se puede notar que \(T\fsmvec{-2 + \lambda, 2\lambda, 3 + 2\lambda}\) es la recta del eje \(x\) en \(\realR^3\).
+            Ahora con \(\fp_1\)
+            \[
+                T\fvec{-2 + 2\gamma, -\sigma, 3 -\gamma -3\sigma}
+                = \fvec{1 + \gamma - 2\sigma,0,0}
+                = \fvec{1,0,0} + \gamma \fvec{1,0,0} + \sigma \fvec{-2,0,0}
+            \]
+            Se puede notar que \(\fsmvec{-2,0,0}\) es una combinación lineal de \(\fsmvec{1,0,0}\) con \(\gamma = -2\).
+            Entonces se va a tener
+            \[
+                \fvec{1,0,0} + \gamma \fvec{1,0,0} + \sigma \fvec{-2,0,0}
+                = \left(\gamma - 2\sigma + 1\right) \fvec{1,0,0}
+                = \gamma'\fvec{1,0,0}
+                \hspace{1cm}
+                \gamma' = \gamma - 2\sigma + 1
+            \]
+            Donde se puede ver que \(T\fsmvec{-2 + 2\gamma, -\sigma, 3 -\gamma -3\sigma}\) geométricamente es la recta del eje \(x\) en \(\realR^3\).
+        %\item \(T: \realR^3 \rightarrow \realR^3\) tal que \(T\fsmvec{x,y,z}=\fsmvec{x-y,x,z}\).
+        \setcounter{enumii}{3}
         \item \(T: \realR^3 \rightarrow \realR^3\) tal que \(T\fsmvec{x,y,z}=\fsmvec{2y,0,x}\).
+            De manera similar a los puntos anteriores, se va a evaluar las ecuaciones paramétricas de \(\fl_1\) y \(\fp_1\) en \(T\).
+            Iniciando con \(\fl_1\)
+            \[
+                T\fvec{-2 + \lambda, 2\lambda, 3 + 2\lambda}
+                = \fvec{4\lambda, 0, -2 + \lambda}
+                = \fvec{0,0,-2} + \lambda \fvec{4,0,1}
+            \]
+            Concluyendo que la imagen de \(\fl_1\) en \(T\) es una recta en \(\realR^3\) que pasa por \(\fsmvec{0,0,-2}\) y con vector director \(\fsmvec{4,0,1}\).
+            Finalizando con la imagen de \(\fp_1\) en \(T\)
+            \[
+                \begin{aligned}
+                    T\fvec{-2 + 2\gamma, -\sigma, 3 -\gamma -3\sigma}
+                    &= \fvec{-2\sigma, 0, -2 + 2\gamma} = \fvec{0,0,-2} + \sigma \fvec{-2,0,0} + \gamma \fvec{0,0,2} \\
+                    &= \fvec{0,0,-2} -2\sigma \fvec{1,0,0} + 2\gamma \fvec{0,0,1} 
+                    = \fvec{0,0,-2} + \sigma' \fvec{1,0,0} + \gamma' \fvec{0,0,1}
+                    \hspace{0.5cm}
+                    \begin{aligned}
+                        \sigma' &= -2\sigma \\
+                        \gamma' &= 2\gamma
+                    \end{aligned}
+                \end{aligned}
+            \]
+            Se puede ver que la imagen de \(\fp_1\) en \(T\) es el plano en \(\realR^3\) que es construido apartir de los ejes \(x\) y \(z\).
     \end{enumerate}

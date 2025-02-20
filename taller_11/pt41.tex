@@ -1,2 +1,107 @@
 \item Considere la transformación lineal \(T: \realR^2 \rightarrow \realR^2\) dada por 
-    \(T\fsmvec{x,y} = \fsmvec{x+y,x-y}\) usando las bases \(\fb = \fb' = \fset{\fsmvec{1,-1}, \fsmvec{-3,2}}\); Calcule \(A_{T}\)
+    \(T\fsmvec{x,y} = \fsmvec{x+y,x-y}\) usando las bases \(\fb = \fb' = \fset{\fsmvec{1,-1}, \fsmvec{-3,2}}\); Calcule \(A_{T}\) \\
+    Primero, vamos a obtener las imagenes de los vectores de \(\fb\) para luego obtener sus vectores coordenadas en \(\fb'\), 
+    el cual se va a obtener mediante el sistema de ecuaciones obtenidas apartir de los escalares de la combinación lineal de la cual se obtene va cada vector en \(\fb'\).
+    \[
+        \begin{aligned}
+            T\fvec{1,-1} &= \fvec{1 + (-1),1 - (-1)} \\
+            &= \fvec{0,2}
+        \end{aligned}
+        \hspace{1cm}
+        \begin{aligned}
+            T\fvec{-3,2} &= \fvec{-3 + 2,-3 - 2} \\
+            &= \fvec{-1,-5}
+        \end{aligned}
+    \]
+    \[
+        \begin{aligned}
+            \fvec{0,2} &= \lambda_1 \fvec{1,-1} + \lambda_2 \fvec{-3,2} \\
+            &= \fvec{\lambda_1 -3\lambda_2, -\lambda_1 + 2\lambda_2} \\
+        \end{aligned}
+        \hspace{1cm}
+        \begin{aligned}
+            \fvec{-1,-5} &= \alpha_1 \fvec{1,-1} + \alpha_2 \fvec{-3,2} \\
+            &= \fvec{\alpha_1 - 3\alpha_2, -\alpha_1 + 2\alpha_2} \\
+        \end{aligned}
+    \]
+    \[
+        \begin{cases}
+            \lambda_1 - 3\lambda_2 = 0 \\
+            -\lambda_1 + 2\lambda_2 = 2
+        \end{cases}
+        \hspace{0.25cm}
+        \left(
+        \begin{array}{cc|c}
+            1 & -3 & 0 \\
+            -1 & 2 & 2
+        \end{array}
+        \right)
+        \sim
+        \begin{aligned}
+            F_2 + F_1 &\mapsto F_2 \\
+        \end{aligned}
+        \left(
+        \begin{array}{cc|c}
+            1 & -3 & 0 \\
+            0 & -1 & 2
+        \end{array}
+        \right)
+        \sim
+        \begin{aligned}
+            -F_2 &\mapsto F_2 \\
+            F_1 + 3F_2 &\mapsto F_1 
+        \end{aligned}
+        \left(
+        \begin{array}{cc|c}
+            1 & 0 & -6 \\
+            0 & 1 & -2
+        \end{array}
+        \right)
+    \]
+    \[
+        \begin{cases}
+            \lambda_1 - 3\lambda_2 = -1 \\
+            -\lambda_1 + 2\lambda_2 = -5
+        \end{cases}
+        \hspace{0.25cm}
+        \left(
+        \begin{array}{cc|c}
+            1 & -3 & -1 \\
+            -1 & 2 & -5
+        \end{array}
+        \right)
+        \sim
+        \begin{aligned}
+            F_2 + F_1 &\mapsto F_2 \\ 
+        \end{aligned}
+        \left(
+        \begin{array}{cc|c}
+            1 & -3 & -1 \\
+            0 & -1 & -6
+        \end{array}
+        \right)
+        \sim
+        \begin{aligned}
+            -F_2 &\mapsto F_2 \\ 
+            F_1 + 3F_2 &\mapsto F_1 \\
+        \end{aligned}
+        \left(
+        \begin{array}{cc|c}
+            1 & 0 & 17 \\
+            0 & 1 & 6
+        \end{array}
+        \right)
+    \]
+    \[
+        \veccoord{T\fvec{1,-1}} =
+        \veccoord{\fvec{0,2}}{\fb'} = \fvec{-6,-2}
+        \hspace{2cm}
+        \veccoord{T\fvec{-3,2}} =
+        \veccoord{\fvec{-1,-5}}{\fb'} = \fvec{17,6}
+    \]
+    Ahora, con estos vectores coordenadas vamos a poder crear la matriz asociada a \(T\) respecto a \(\fb\) y \(\fb'\) de la siguiente forma
+    \[
+        \veccoord{A_T}{\fb \fb'} 
+        = \left[\veccoord{T\fvec{1,-1}}{\fb'}, \veccoord{T\fvec{-3,2}}{\fb'}\right]
+        = \fmatrix{-6,17;-2,6}
+    \]

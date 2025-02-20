@@ -1,5 +1,76 @@
 \item Sea \(T: \realR^2 \rightarrow \realR^3\) la transformación lineal dada por \(T \fsmvec{a,b}=\fsmvec{a-b,0,b-a}\)
     \begin{itemize}
-        \item Entre los siguientes vectores, seleccione uno que pertenezca al núcleo de \(T\).
-        \item Entre los siguientes vectores, seleccione uno que pertenezca a la imagen de \(T\).
+        \item Entre los siguientes vectores, seleccione uno que pertenezca al núcleo de \(T\). \\
+            Inicialmente se pueden descartar a los vectores \(\fsmvec{1,0,1}, \fsmvec{0,0,0}\) ya que no pertencen a \(\realR^2\). 
+            Entonces podemos verificar si los vectores \(\fsmvec{1,1}\) y \(\fsmvec{-2,2}\) al evaluarlos en \(T\) nos dan el vector nulo en \(\realR^3\).
+            \[
+                \begin{aligned}
+                    T\fvec{1,1} &= \fvec{1-1,0,1-1} \\
+                    &= \fvec{0,0,0} = \vec{0}
+                \end{aligned}
+                \hspace{0.5cm}
+                \begin{aligned}
+                    T\fvec{-2,2} &= \fvec{-2 - (-2),0, -2 - 2} \\
+                    &= \fvec{0,0,-4} \neq \vec{0}
+                \end{aligned}
+            \]
+            Concluyendo que \(\fsmvec{1,1} \in \fker{T}\), y además cualquier vector en \(\realR^2\) con la forma \(\fsmvec{a,a}\) va a estar en el \emph{kernel} de \(T\).
+        \item Entre los siguientes vectores, seleccione uno que pertenezca a la imagen de \(T\). \\
+            Inicialmente se puede descartar al vector \(\fsmvec{0,0}\) ya que no pertence a \(\realR^3\), 
+            ademas también se puede descartar al vector \(\fsmvec{2,-2,0}\) ya que no existe vector en \(\realR^2\) tal que su imagen en \(T\) tenga 
+            su segunda componente diferente de 0, es decir para \(T\fsmvec{a,b} = w; w_2 = -2 \neq 0\). \\
+            Ahora, para los vectores \(\fsmvec{1,0,1}, \fsmvec{-2,0,2}\), podemos verificar que cada componetes de los vectores van a ser iguales a 
+            \(w_1 = a - b\), \(w_2 = 0\), \(w_3 = b - a\), para cualquier vector \(w\) de la imagen de \(T\). Entonces para los vectores dados, vamos a poder ver que
+            \[
+                \begin{cases}
+                    a - b = 1 \\
+                    b - a = 1
+                \end{cases}
+                \hspace{0.5cm}
+                \left(
+                \begin{array}{cc|c}
+                    1 & -1 & 1 \\
+                    -1 & 1 & 1
+                \end{array}
+                \right)
+                \sim
+                \begin{aligned}
+                    F_2 + F_1 &\mapsto F_2 
+                \end{aligned}
+                \left(
+                \begin{array}{cc|c}
+                    1 & -1 & 1 \\
+                    0 & 0 & 2
+                \end{array}
+                \right)
+            \]
+            El sistema de ecuaciones para obtener el vector \(\fsmvec{1,0,1}\) en \(T\) es incosistente, por ende esté no pertenece a la imagen de \(T\).
+            Ahora veamos el sistema de ecuaciones para obtener al vector \(\fsmvec{-2,0,2}\).
+            \[
+                \begin{cases}
+                    a - b = -2 \\
+                    b - a = 2
+                \end{cases}
+                \hspace{0.5cm}
+                \left(
+                \begin{array}{cc|c}
+                    1 & -1 & -2 \\
+                    -1 & 1 & 2
+                \end{array}
+                \right)
+                \sim
+                \begin{aligned}
+                    F_2 + F_1 &\mapsto F_2 \\
+                \end{aligned}
+                \left(
+                \begin{array}{cc|c}
+                    1 & -1 & -2 \\
+                    0 & 0 & 0
+                \end{array}
+                \right)
+                \hspace{0.5cm}
+                a = b - 2, b \in \realR
+            \]
+            Entonces, en particular para \(\fsmvec{-1,1}\) se va a tener que \(T\fsmvec{-1,1} = \fsmvec{-1 - 1,0,1 - (-1)} = \fsmvec{-2,0,2}\), es decir 
+            esté vector si pertenece a la imagen de \(T\).
     \end{itemize}

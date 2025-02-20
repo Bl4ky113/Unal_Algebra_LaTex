@@ -1,4 +1,19 @@
 \item Sea \(C = \fsmmatrix{1,0;1,0}\) una matriz fija \(\fm_{2 \times 2}\). Considere la transformación lineal \(T: \fm_{2 \times 2} \rightarrow \fm_{2 \times 2}\) dada por 
-    \(T\left(A\right) = CA - AC\). Los valores para la dimensión del núcleo de \(T\) y la dimensión para la imagen de \(T\), respectivamente son: \\
-    
-
+    \(\ffunc{T}{A} = CA - AC\). Los valores para la dimensión del núcleo de \(T\) y la dimensión para la imagen de \(T\), respectivamente son:
+    \begin{enumerate}[label=\listAlph]
+        \setcounter{enumii}{4}
+        \item 4 y 0
+    \end{enumerate}
+    Primero, podemos notar que \(C = I_{2 \times 2} = \fsmmatrix{1,0;0,1}\), entonces para cualquier matriz \(A\) de orden 2 se va a tener que \(CA = AC = C\).
+    Por lo que la transformación lineal \(T\) es una transformación nula, ya que 
+    \[
+        CA - AC = C - C = 0_{2 \times 2}
+    \]
+    Por lo tanto al considerar el \emph{kernel} de la transformación lineal, \(\fker{T} = \fset{M \in \fm_{2 \times 2}: \ffunc{T}{M} = 0_{2 \times 2}}\), y su \emph{imagen},
+    \(\fimg{T} = \fset{\ffunc{T}{M}: M \in \fm_{2 \times 2}}\). Además, tambien como sabemos que \(\fm_{2 \times 2}\) tiene una dimensión de 4. 
+    Entonces, por la nulidad y rango de la matriz asociada a \(T\), sabemos que la dimensión del \emph{kernel} y \emph{imagen} de \(T\) van a ser iguales o menores que 4, 
+    o más especificamente el \emph{kernel} va a tener una dimensión igual o menor que la dimensión de \(\fm_{2 \times 2}\) (dominio) y la \emph{imagen} va a tener 
+    una dimensión igual o menor que la dimensión de \(\fm_{2 \times 2}\) (co-dominio).
+    \\
+    Consecuentemente, como cualquier matriz \(A\) de orden 2 es transformado a la matriz nula de orden 2, vamos a tener que \(\fker{T} = \fm_{2 \times 2}\) y de manera similar 
+    únicamente existe la matriz nula de orden 2 en la \emph{imagen} de \(T\), concluyendo que sus dimensiones son 4 y 0 respectivamente.
